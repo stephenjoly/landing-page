@@ -40,10 +40,35 @@ Card.Link = function CardLink({
   return (
     <>
       <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50" />
-      <Link {...props}>
+      <Link
+        // target="_blank" // Add this attribute
+        // rel="noopener noreferrer" // It's a good practice to add this for security reasons
+        {...props}
+      >
         <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
         <span className="relative z-10">{children}</span>
       </Link>
+    </>
+  )
+}
+
+// I dont know what im doing but added CardButton and the interface to try and get button like functionality out of cards
+interface CardButtonProps {
+  children: React.ReactNode
+  onClick?: () => void
+}
+
+Card.Button = function CardButton({ children, onClick }: CardButtonProps) {
+  return (
+    <>
+      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50" />
+      <button
+        onClick={onClick}
+        className="flex h-full w-full items-center justify-center"
+      >
+        <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+        <span className="relative z-10">{children}</span>
+      </button>
     </>
   )
 }

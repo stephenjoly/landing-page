@@ -1,0 +1,8 @@
+node_modules
+next.config.js
+.next
+out
+temp
+*.log
+Dockerfile*
+.git

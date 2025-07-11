@@ -1,0 +1,9 @@
+services:
+  stephenjoly-resume-site:
+    container_name: stephenjoly-resume-site
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '2001:80'
+    restart: unless-stopped
