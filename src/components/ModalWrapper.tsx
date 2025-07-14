@@ -48,13 +48,15 @@ const ModalWrapper: React.FC<ModalProps> = ({
         ref={modalContentRef}
         className="relative m-auto w-full max-w-2xl rounded-lg bg-white p-6 pr-8 shadow-2xl dark:bg-zinc-800"
       >
-        <button
-          onClick={onRequestClose}
-          className="absolute top-2 right-2 rounded-full bg-gray-400 px-2 text-sm font-bold text-white shadow-md hover:bg-gray-600 focus:outline-none dark:bg-gray-500"
-        >
-          &times;
-        </button>
-        {children}
+        <div>{children}</div>
+        <div className="mt-2">
+          <button
+            onClick={onRequestClose}
+            className="absolute right-5 bottom-5 rounded-full bg-gray-400 px-2 text-sm text-white shadow-md hover:bg-gray-600 focus:outline-none dark:bg-gray-500"
+          >
+            Close &times;
+          </button>
+        </div>
       </div>
     </div>
   )
