@@ -193,10 +193,10 @@ function Role({ role }: { role: Role }) {
 function Resume() {
   let resume: Array<Role> = [
     {
-      company: 'Deloitte Canada, Strategy & Innovation',
+      company: 'Deloitte Canada, Strategy and Innovation',
       title: 'Senior Consultant',
       logo: logoDeloitte,
-      start: '2023',
+      start: '2025',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear().toString(),
@@ -204,6 +204,20 @@ function Resume() {
     },
     {
       company: 'Deloitte Canada, Human Capital',
+      title: 'Senior Consultant',
+      logo: logoDeloitte,
+      start: '2023',
+      end: '2025',
+    },
+    {
+      company: 'Deloitte Canada, Human Capital',
+      title: 'Consultant',
+      logo: logoDeloitte,
+      start: '2022',
+      end: '2022',
+    },
+    {
+      company: 'Deloitte Canada, Strategic Risk',
       title: 'Consultant',
       logo: logoDeloitte,
       start: '2020',
