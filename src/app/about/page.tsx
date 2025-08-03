@@ -73,31 +73,36 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I’ve been obsessed with how things work for as long as I can
-              remember. When I got my first Lego Mindstorms set as a kid, I
-              didn’t follow the manual — I tried to rebuild our garage door
-              opener instead. It didn’t work (the door got stuck halfway open
-              for three days), but I was hooked on breaking, fixing, and
-              reinventing things ever since.
-            </p>
-            <p>
-              In high school, I started a student newspaper, led a team of 11,
-              and tried to make reading cool for kids from grades 4 to 12. At
-              the same time, I was jumping between roles in my cultural
-              community, testifying at rallies one weekend and mentoring new
-              members the next. And somewhere along the way, I fell in love with
-              engineering — the perfect mix of creativity, systems, and
-              real-world problem-solving.{' '}
+              I’ve been curious about the world for as long as I can remember.
+              As a kid, I couldn’t resist opening every drawer in the house —
+              much to my older brother’s annoyance — just to discover what was
+              inside. I was endlessly fascinated by everyday things and how they
+              worked. My aunt, a professor of organic chemistry, used to give me
+              test tubes and food coloring, and I would spend hours
+              experimenting, mesmerized by the way the dyes dissolved and
+              blended into vivid new colors.
             </p>
 
             <p>
-              Now, I work at Deloitte, exploring the messy, fascinating
-              intersection between tech, people, and impact. Outside of work,
-              you’ll usually find me experimenting with my home lab, building
-              apps that solve problems for my community (or just make my life a
-              little easier), or reading about mental health, economics, or
-              human behavior — trying to understand what makes people tick and
-              how we can make life better, at scale.{' '}
+              In high school, I launched a student newspaper and led a small
+              team to try to make reading and storytelling more engaging for
+              students from grades 4 to 12. At the same time, I was active in my
+              cultural community, contributing to committees and helping to
+              support younger students — especially through programs like our
+              homework club, where I tutored those who needed extra help.
+              Somewhere along the way, I discovered engineering — the perfect
+              blend of creativity, structure, and real-world impact.
+            </p>
+
+            <p>
+              Now, I work at Deloitte, where I explore the complex and
+              fascinating intersection of technology, people, and social impact.
+              Outside of work, you’ll usually find me tinkering in my home lab,
+              building small apps to solve problems in my community (or just
+              simplify my own life), or diving into books about mental health,
+              economics, or behavioral science — trying to understand what makes
+              people tick, and how we can use that insight to make life better
+              at scale.
             </p>
           </div>
         </div>
