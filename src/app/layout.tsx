@@ -2,7 +2,7 @@ import { type Metadata } from 'next'
 
 import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
-
+import PlausibleProvider from 'next-plausible'
 import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
@@ -27,6 +27,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+      <head>
+        <PlausibleProvider
+          domain="plausible.stephenjoly.net"
+          trackLocalhost
+          enabled
+        />
+      </head>
       <body className="flex h-full bg-zinc-50 dark:bg-black">
         <Providers>
           <div className="flex w-full">
