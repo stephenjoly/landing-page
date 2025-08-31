@@ -29,7 +29,8 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <head>
         <PlausibleProvider
-          domain="plausible.stephenjoly.net"
+          domain="stephenjoly.net"
+          customDomain="https://plausible.stephenjoly.net"
           trackLocalhost
           enabled
         />
