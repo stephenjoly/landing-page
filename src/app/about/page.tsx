@@ -50,7 +50,7 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export const metadata: Metadata = {
   title: 'About',
   description:
-    "I’m Stephen. I live in Toronto, where I solve my client's biggest problems.",
+    'I’m Stephen. I live in Toronto, where I help companies evolve.',
 }
 
 export default function About() {
@@ -73,36 +73,40 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I’ve been curious about the world for as long as I can remember.
-              As a kid, I couldn’t resist opening every drawer in the house —
-              much to my older brother’s annoyance — just to discover what was
-              inside. I was endlessly fascinated by everyday things and how they
-              worked. My aunt, a professor of organic chemistry, used to give me
-              test tubes and food coloring, and I would spend hours
-              experimenting, mesmerized by the way the dyes dissolved and
-              blended into vivid new colors.
+              I’m Stephen. I live in Toronto, where I help companies evolve.
             </p>
 
             <p>
-              In high school, I launched a student newspaper and led a small
-              team to try to make reading and storytelling more engaging for
-              students from grades 4 to 12. At the same time, I was active in my
-              cultural community, contributing to committees and helping to
-              support younger students — especially through programs like our
-              homework club, where I tutored those who needed extra help.
-              Somewhere along the way, I discovered engineering — the perfect
-              blend of creativity, structure, and real-world impact.
+              Curiosity has always been my fuel. As a kid, I couldn’t resist
+              opening every drawer in the house just to see what was inside. My
+              aunt, a chemistry professor, fed that spark with test tubes and
+              food coloring — I’d spend hours mixing colors, fascinated by how
+              simple things could combine into something new.
             </p>
 
             <p>
-              Now, I work at Deloitte, where I explore the complex and
-              fascinating intersection of technology, people, and social impact.
-              Outside of work, you’ll usually find me tinkering in my home lab,
-              building small apps to solve problems in my community (or just
-              simplify my own life), or diving into books about mental health,
-              economics, or behavioral science — trying to understand what makes
-              people tick, and how we can use that insight to make life better
-              at scale.
+              That sense of discovery carried me through high school, where I
+              launched a student newspaper and supported younger students in my
+              community. It’s also what drew me to engineering — the perfect mix
+              of creativity, structure, and real-world impact.
+            </p>
+
+            <p>
+              Professionally, I’m an AI Customer Deployment Product Manager at
+              Agentnoon, a Y Combinator–backed startup building organizational
+              design and workforce planning software. Before that, I spent six
+              years at Deloitte, where I advised clients on risk, resilience,
+              and workforce strategy before moving into the Office of Generative
+              AI to focus on product development and internal enablement with AI
+              tools.
+            </p>
+
+            <p>
+              When I’m not working, I’m usually tinkering with small apps in my
+              home lab, or reading about mental health, economics, and
+              behavioral science — always searching for ways to understand
+              people better, and build systems that make life work a little
+              smoother at scale.
             </p>
           </div>
         </div>
