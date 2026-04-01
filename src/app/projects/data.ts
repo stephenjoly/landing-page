@@ -1,18 +1,35 @@
-import logoHomEquity from '@/images/logos/homequity.svg'
+import type { ImageProps } from 'next/image'
+
+import logoAnimaginary from '@/images/logos/animaginary.svg'
+import logoCosmos from '@/images/logos/cosmos.svg'
 import logoDeloitte from '@/images/logos/deloitte.svg'
+import logoHelioStream from '@/images/logos/helio-stream.svg'
+import logoHomEquity from '@/images/logos/homequity.svg'
+import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
+import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoUofT from '@/images/logos/uoft.svg'
 
-export interface ProjectType {
-  name: string;
-  description: string;
-  logo: any;
-  descriptor: string;
-  context: string;
-  timeline: string;
-  role: string[];
+export interface CodingProject {
+  name: string
+  description: string
+  logo: ImageProps['src']
+  link: {
+    href: string
+    label: string
+  }
 }
 
-export const projects: ProjectType[] = [
+export interface ConsultingProject {
+  name: string
+  description: string
+  logo: ImageProps['src']
+  descriptor: string
+  context: string
+  timeline: string
+  role: string[]
+}
+
+export const consultingProjects: ConsultingProject[] = [
   {
     name: "Technology Impact Modeling on Workforce Capacity",
     logo: logoDeloitte,
@@ -514,3 +531,56 @@ export const projects: ProjectType[] = [
   //   timeline: "Aug 2020"
   // },
 // ]
+
+export const codingProjects: CodingProject[] = [
+  {
+    name: 'Placeholder: Habit Lens',
+    description:
+      'Scaffold card for a personal app concept focused on tracking routines, reflections, and small behavior experiments.',
+    logo: logoPlanetaria,
+    link: {
+      href: 'https://example.com/habit-lens',
+      label: 'example.com',
+    },
+  },
+  {
+    name: 'Placeholder: RackPilot',
+    description:
+      'Scaffold card for a homelab and infrastructure tool that helps monitor services, jobs, and machine health from one place.',
+    logo: logoOpenShuttle,
+    link: {
+      href: 'https://github.com/stephenjoly/rackpilot',
+      label: 'github.com',
+    },
+  },
+  {
+    name: 'Placeholder: QuietQueue',
+    description:
+      'Scaffold card for an automation utility that batches repetitive admin tasks and exposes a clean job history for review.',
+    logo: logoHelioStream,
+    link: {
+      href: 'https://github.com/stephenjoly/quietqueue',
+      label: 'github.com',
+    },
+  },
+  {
+    name: 'Placeholder: Atlas Notes',
+    description:
+      'Scaffold card for a writing and knowledge tool with lightweight publishing, linking, and personal research workflows.',
+    logo: logoAnimaginary,
+    link: {
+      href: 'https://example.com/atlas-notes',
+      label: 'example.com',
+    },
+  },
+  {
+    name: 'Placeholder: Local Orbit',
+    description:
+      'Scaffold card for a developer-facing dashboard that brings together experiments, local services, and quick project launches.',
+    logo: logoCosmos,
+    link: {
+      href: 'https://github.com/stephenjoly/local-orbit',
+      label: 'github.com',
+    },
+  },
+]
