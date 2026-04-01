@@ -542,8 +542,8 @@ export const codingProjects: CodingProject[] = [
       'Opinionated CLI for branch-aware staging deploys of Docker Compose apps behind Traefik in a homelab environment.',
     logo: iconDeployWizard,
     link: {
-      href: 'https://github.com/stephenjoly/deploy-wizard',
-      label: 'github.com',
+      href: 'https://stephenjoly.github.io/deploy-wizard/',
+      label: 'stephenjoly.github.io',
     },
   },
   {
