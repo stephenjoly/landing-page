@@ -16,6 +16,7 @@ export interface CodingProject {
   name: string
   description: string
   logo: ImageProps['src']
+  status?: 'published' | 'wip'
   link?: {
     href: string
     label: string
@@ -587,10 +588,11 @@ export const codingProjects: CodingProject[] = [
     },
   },
   {
-    name: 'OT Assessment Tool',
+    name: 'lei.ai',
     description:
       'Offline-first assessment app for occupational therapists that turns clinical notes into structured, AI-assisted reports.',
     logo: iconOtAssessmentTool,
+    status: 'wip',
     link: {
       href: 'https://github.com/stephenjoly/ot-assessment-tool',
       label: 'active work in progress',
@@ -601,11 +603,13 @@ export const codingProjects: CodingProject[] = [
     description:
       'Utility that scans local Codex session history and generates project-level Markdown indexes of recent work.',
     logo: iconCodexSessionIndexer,
+    status: 'wip',
   },
   {
     name: 'Screenshot Sense',
     description:
       'Local-first macOS product for turning screenshot clutter into grouped, reviewable, actionable knowledge.',
     logo: iconScreenshotSense,
+    status: 'wip',
   },
 ]
