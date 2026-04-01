@@ -1,5 +1,4 @@
-import { type Config } from 'tailwindcss'
-
+/** @type {import('tailwindcss').Config} */
 export default {
   theme: {
     typography: ({ theme }) => ({
@@ -69,7 +68,6 @@ export default {
           '--tw-prose-invert-th-borders': theme('colors.zinc.700'),
           '--tw-prose-invert-td-borders': theme('colors.zinc.800'),
 
-          // Base
           color: 'var(--tw-prose-body)',
           lineHeight: theme('lineHeight.7'),
           '> *': {
@@ -80,8 +78,6 @@ export default {
             marginTop: theme('spacing.7'),
             marginBottom: theme('spacing.7'),
           },
-
-          // Headings
           'h2, h3': {
             color: 'var(--tw-prose-headings)',
             fontWeight: theme('fontWeight.semibold'),
@@ -101,13 +97,9 @@ export default {
           ':is(h2, h3) + *': {
             marginTop: 0,
           },
-
-          // Images
           img: {
             borderRadius: theme('borderRadius.3xl'),
           },
-
-          // Inline elements
           a: {
             color: 'var(--tw-prose-links)',
             fontWeight: theme('fontWeight.semibold'),
@@ -141,16 +133,12 @@ export default {
           ':is(h2, h3) code': {
             fontWeight: theme('fontWeight.bold'),
           },
-
-          // Quotes
           blockquote: {
             paddingLeft: theme('spacing.6'),
             borderLeftWidth: theme('borderWidth.2'),
             borderLeftColor: 'var(--tw-prose-quote-borders)',
             fontStyle: 'italic',
           },
-
-          // Figures
           figcaption: {
             color: 'var(--tw-prose-captions)',
             fontSize: theme('fontSize.sm')[0],
@@ -160,8 +148,6 @@ export default {
           'figcaption > p': {
             margin: 0,
           },
-
-          // Lists
           ul: {
             listStyleType: 'disc',
           },
@@ -194,8 +180,6 @@ export default {
             marginTop: theme('spacing.3'),
             marginBottom: theme('spacing.3'),
           },
-
-          // Code blocks
           pre: {
             color: 'var(--tw-prose-pre-code)',
             fontSize: theme('fontSize.sm')[0],
@@ -216,8 +200,6 @@ export default {
             borderRadius: 0,
             padding: 0,
           },
-
-          // Horizontal rules
           hr: {
             marginTop: theme('spacing.20'),
             marginBottom: theme('spacing.20'),
@@ -228,8 +210,6 @@ export default {
               marginRight: `calc(${theme('spacing.12')} * -1)`,
             },
           },
-
-          // Tables
           table: {
             width: '100%',
             tableLayout: 'auto',
@@ -238,49 +218,29 @@ export default {
           },
           thead: {
             borderBottomWidth: '1px',
-            borderBottomColor: 'var(--tw-prose-th-borders)',
+            borderColor: 'var(--tw-prose-th-borders)',
           },
           'thead th': {
             color: 'var(--tw-prose-headings)',
             fontWeight: theme('fontWeight.semibold'),
             verticalAlign: 'bottom',
-            paddingBottom: theme('spacing.2'),
-          },
-          'thead th:not(:first-child)': {
-            paddingLeft: theme('spacing.2'),
-          },
-          'thead th:not(:last-child)': {
             paddingRight: theme('spacing.2'),
+            paddingBottom: theme('spacing.2'),
+            paddingLeft: theme('spacing.2'),
           },
           'tbody tr': {
             borderBottomWidth: '1px',
-            borderBottomColor: 'var(--tw-prose-td-borders)',
+            borderColor: 'var(--tw-prose-td-borders)',
           },
           'tbody tr:last-child': {
             borderBottomWidth: 0,
           },
           'tbody td': {
             verticalAlign: 'baseline',
-          },
-          tfoot: {
-            borderTopWidth: '1px',
-            borderTopColor: 'var(--tw-prose-th-borders)',
-          },
-          'tfoot td': {
-            verticalAlign: 'top',
-          },
-          ':is(tbody, tfoot) td': {
-            paddingTop: theme('spacing.2'),
-            paddingBottom: theme('spacing.2'),
-          },
-          ':is(tbody, tfoot) td:not(:first-child)': {
-            paddingLeft: theme('spacing.2'),
-          },
-          ':is(tbody, tfoot) td:not(:last-child)': {
-            paddingRight: theme('spacing.2'),
+            padding: theme('spacing.2'),
           },
         },
       },
     }),
   },
-} satisfies Config
+}

@@ -57,27 +57,64 @@ function TabButton({
 }
 
 function CodingProjectsGrid({ projects }: { projects: CodingProject[] }) {
-  return (
+  const publishedProjects = projects.filter((project) => project.status !== 'wip')
+  const workInProgressProjects = projects.filter((project) => project.status === 'wip')
+
+  const renderProjectGrid = (items: CodingProject[]) => (
     <ul
       role="list"
       className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
     >
-      {projects.map((project) => (
+      {items.map((project) => (
         <Card as="li" key={project.name}>
           <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
             <Image src={project.logo} alt="" className="h-8 w-8" unoptimized />
           </div>
           <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-            <Card.Link href={project.link.href}>{project.name}</Card.Link>
+            {project.link ? (
+              <Card.Link href={project.link.href}>{project.name}</Card.Link>
+            ) : (
+              project.name
+            )}
           </h2>
           <Card.Description>{project.description}</Card.Description>
-          <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+          <p
+            className={clsx(
+              'relative z-10 mt-6 flex text-sm font-medium dark:text-zinc-200',
+              project.link
+                ? 'text-zinc-400 transition group-hover:text-teal-500'
+                : 'text-zinc-500',
+            )}
+          >
             <LinkIcon className="h-6 w-6 flex-none" />
-            <span className="ml-2">{project.link.label}</span>
+            <span className="ml-2">
+              {project.link?.label ?? 'active work in progress'}
+            </span>
           </p>
         </Card>
       ))}
     </ul>
+  )
+
+  return (
+    <div className="space-y-16">
+      {renderProjectGrid(publishedProjects)}
+
+      {workInProgressProjects.length > 0 ? (
+        <section className="border-t border-zinc-100 pt-12 dark:border-zinc-700/40">
+          <div className="max-w-2xl">
+            <h2 className="text-xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+              Works in Progress
+            </h2>
+            <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
+              These are active projects that are still taking shape and are not
+              yet published as finished public products.
+            </p>
+          </div>
+          <div className="mt-10">{renderProjectGrid(workInProgressProjects)}</div>
+        </section>
+      ) : null}
+    </div>
   )
 }
 
