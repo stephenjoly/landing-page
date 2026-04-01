@@ -1,14 +1,30 @@
 import { type Metadata } from 'next'
 import ProjectsGallary from '@/components/ProjectsGallary'
 
-import { projects } from './data'
+import { codingProjects, consultingProjects } from './data'
 
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'Things I’ve been a part of, trying to put my dent in the universe.',
+    'A split view of coding and consulting work, from software experiments to client delivery.',
 }
 
-export default function Projects() {
-  return <ProjectsGallary projects={projects}></ProjectsGallary>
+export default function Projects({
+  searchParams,
+}: {
+  searchParams?: { tab?: string | string[] }
+}) {
+  const tabParam = Array.isArray(searchParams?.tab)
+    ? searchParams?.tab[0]
+    : searchParams?.tab
+
+  const initialTab = tabParam === 'consulting' ? 'consulting' : 'coding'
+
+  return (
+    <ProjectsGallary
+      codingProjects={codingProjects}
+      consultingProjects={consultingProjects}
+      initialTab={initialTab}
+    />
+  )
 }

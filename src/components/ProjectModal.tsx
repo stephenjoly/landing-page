@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import ModalWrapper from './ModalWrapper'
 import Image from 'next/image'
-import { ProjectType } from '../app/projects/data'
+
+import type { ConsultingProject } from '@/app/projects/data'
+import ModalWrapper from './ModalWrapper'
 
 interface ProjectModalProps {
   isOpen: boolean
   onRequestClose: () => void
-  project?: ProjectType
+  project?: ConsultingProject
 }
 
 const ProjectModal: React.FC<ProjectModalProps> = ({
@@ -15,12 +15,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
   project,
 }) => {
   if (!isOpen || !project) return null
-  // const [modalIsOpen, setModalIsOpen] = useState(false)
 
   return (
     <ModalWrapper isOpen={isOpen} onRequestClose={onRequestClose}>
       <div className="px-4 py-4 sm:px-6">
-        {/* Content goes here */}
         <div className="flex items-center">
           <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
             <Image src={project.logo} alt="" className="h-8 w-8" unoptimized />
@@ -54,17 +52,14 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
           </p>
           <p className="text-sm text-gray-500 dark:text-gray-400">
             {project.role[0]}
-
-            <div className="ml-6">
-              {project.role.slice(1).map((line, index) => (
-                // <ul>
-                <li key={index} className="p-1">
-                  {line}
-                </li>
-                // </ul>
-              ))}
-            </div>
           </p>
+          <ul className="ml-6 text-sm text-gray-500 dark:text-gray-400">
+            {project.role.slice(1).map((line, index) => (
+              <li key={index} className="list-disc py-1">
+                {line}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </ModalWrapper>
