@@ -1,13 +1,16 @@
 import type { ImageProps } from 'next/image'
 
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
 import logoDeloitte from '@/images/logos/deloitte.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoHomEquity from '@/images/logos/homequity.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoUofT from '@/images/logos/uoft.svg'
+import iconCodexSessionIndexer from '@/images/project-icons/codex-session-indexer.svg'
+import iconDeployWizard from '@/images/project-icons/deploy-wizard.svg'
+import iconJolifyPpt from '@/images/project-icons/jolify-ppt.svg'
+import iconMarketCallSummaries from '@/images/project-icons/market-call-summaries.svg'
+import iconOtAssessmentTool from '@/images/project-icons/ot-assessment-tool.svg'
+import iconPizzaCalculator from '@/images/project-icons/pizza-calculator.svg'
+import iconScreenshotSense from '@/images/project-icons/screenshot-sense.svg'
+import iconTraefikRulesManager from '@/images/project-icons/traefik-rules-manager.svg'
 
 export interface CodingProject {
   name: string
@@ -537,7 +540,7 @@ export const codingProjects: CodingProject[] = [
     name: 'Deploy Wizard',
     description:
       'Opinionated CLI for branch-aware staging deploys of Docker Compose apps behind Traefik in a homelab environment.',
-    logo: logoPlanetaria,
+    logo: iconDeployWizard,
     link: {
       href: 'https://github.com/stephenjoly/deploy-wizard',
       label: 'github.com',
@@ -547,27 +550,27 @@ export const codingProjects: CodingProject[] = [
     name: 'Market Call Summaries',
     description:
       'Full-stack app that ingests BNN Market Call episodes, extracts structured stock commentary, and publishes reviewed summaries.',
-    logo: logoOpenShuttle,
+    logo: iconMarketCallSummaries,
     link: {
-      href: 'https://github.com/stephenjoly/market-call-summaries',
-      label: 'github.com',
+      href: 'https://market-call-summaries.stephenjoly.net',
+      label: 'market-call-summaries.stephenjoly.net',
     },
   },
   {
     name: 'Jolify for PowerPoint',
     description:
       'Native PowerPoint add-in with slide layout, formatting, and text utilities for people who spend serious time in decks.',
-    logo: logoHelioStream,
+    logo: iconJolifyPpt,
     link: {
-      href: 'https://github.com/stephenjoly/jolify-ppt',
-      label: 'github.com',
+      href: 'https://stephenjoly.github.io/jolify-ppt/',
+      label: 'stephenjoly.github.io',
     },
   },
   {
     name: 'Traefik Rules Manager',
     description:
       'UI and lightweight API for managing Traefik dynamic config, validating rules, and writing safe updates back to disk.',
-    logo: logoAnimaginary,
+    logo: iconTraefikRulesManager,
     link: {
       href: 'https://github.com/stephenjoly/traefik-rules-manager',
       label: 'github.com',
@@ -577,17 +580,17 @@ export const codingProjects: CodingProject[] = [
     name: 'Pizza Dough + Calorie Calculator',
     description:
       'Interactive calculator for planning pizza dough batches, toppings, and calorie estimates without spreadsheet work.',
-    logo: logoCosmos,
+    logo: iconPizzaCalculator,
     link: {
-      href: 'https://github.com/stephenjoly/pizza-calculator',
-      label: 'github.com',
+      href: 'https://stephenjoly.github.io/pizza-calculator/',
+      label: 'stephenjoly.github.io',
     },
   },
   {
     name: 'OT Assessment Tool',
     description:
       'Offline-first assessment app for occupational therapists that turns clinical notes into structured, AI-assisted reports.',
-    logo: logoDeloitte,
+    logo: iconOtAssessmentTool,
     link: {
       href: 'https://github.com/stephenjoly/ot-assessment-tool',
       label: 'active work in progress',
@@ -597,12 +600,12 @@ export const codingProjects: CodingProject[] = [
     name: 'Codex Session Indexer',
     description:
       'Utility that scans local Codex session history and generates project-level Markdown indexes of recent work.',
-    logo: logoHomEquity,
+    logo: iconCodexSessionIndexer,
   },
   {
     name: 'Screenshot Sense',
     description:
       'Local-first macOS product for turning screenshot clutter into grouped, reviewable, actionable knowledge.',
-    logo: logoUofT,
+    logo: iconScreenshotSense,
   },
 ]
