@@ -13,7 +13,7 @@ export interface CodingProject {
   name: string
   description: string
   logo: ImageProps['src']
-  link: {
+  link?: {
     href: string
     label: string
   }
@@ -534,53 +534,75 @@ export const consultingProjects: ConsultingProject[] = [
 
 export const codingProjects: CodingProject[] = [
   {
-    name: 'Placeholder: Habit Lens',
+    name: 'Deploy Wizard',
     description:
-      'Scaffold card for a personal app concept focused on tracking routines, reflections, and small behavior experiments.',
+      'Opinionated CLI for branch-aware staging deploys of Docker Compose apps behind Traefik in a homelab environment.',
     logo: logoPlanetaria,
     link: {
-      href: 'https://example.com/habit-lens',
-      label: 'example.com',
+      href: 'https://github.com/stephenjoly/deploy-wizard',
+      label: 'github.com',
     },
   },
   {
-    name: 'Placeholder: RackPilot',
+    name: 'Market Call Summaries',
     description:
-      'Scaffold card for a homelab and infrastructure tool that helps monitor services, jobs, and machine health from one place.',
+      'Full-stack app that ingests BNN Market Call episodes, extracts structured stock commentary, and publishes reviewed summaries.',
     logo: logoOpenShuttle,
     link: {
-      href: 'https://github.com/stephenjoly/rackpilot',
+      href: 'https://github.com/stephenjoly/market-call-summaries',
       label: 'github.com',
     },
   },
   {
-    name: 'Placeholder: QuietQueue',
+    name: 'Jolify for PowerPoint',
     description:
-      'Scaffold card for an automation utility that batches repetitive admin tasks and exposes a clean job history for review.',
+      'Native PowerPoint add-in with slide layout, formatting, and text utilities for people who spend serious time in decks.',
     logo: logoHelioStream,
     link: {
-      href: 'https://github.com/stephenjoly/quietqueue',
+      href: 'https://github.com/stephenjoly/jolify-ppt',
       label: 'github.com',
     },
   },
   {
-    name: 'Placeholder: Atlas Notes',
+    name: 'Traefik Rules Manager',
     description:
-      'Scaffold card for a writing and knowledge tool with lightweight publishing, linking, and personal research workflows.',
+      'UI and lightweight API for managing Traefik dynamic config, validating rules, and writing safe updates back to disk.',
     logo: logoAnimaginary,
     link: {
-      href: 'https://example.com/atlas-notes',
-      label: 'example.com',
+      href: 'https://github.com/stephenjoly/traefik-rules-manager',
+      label: 'github.com',
     },
   },
   {
-    name: 'Placeholder: Local Orbit',
+    name: 'Pizza Dough + Calorie Calculator',
     description:
-      'Scaffold card for a developer-facing dashboard that brings together experiments, local services, and quick project launches.',
+      'Interactive calculator for planning pizza dough batches, toppings, and calorie estimates without spreadsheet work.',
     logo: logoCosmos,
     link: {
-      href: 'https://github.com/stephenjoly/local-orbit',
+      href: 'https://github.com/stephenjoly/pizza-calculator',
       label: 'github.com',
     },
+  },
+  {
+    name: 'OT Assessment Tool',
+    description:
+      'Offline-first assessment app for occupational therapists that turns clinical notes into structured, AI-assisted reports.',
+    logo: logoDeloitte,
+    link: {
+      href: 'https://github.com/stephenjoly/ot-assessment-tool',
+      label: 'active work in progress',
+    },
+  },
+  {
+    name: 'Codex Session Indexer',
+    description:
+      'Utility that scans local Codex session history and generates project-level Markdown indexes of recent work.',
+    logo: logoHomEquity,
+  },
+  {
+    name: 'Screenshot Sense',
+    description:
+      'Local-first macOS product for turning screenshot clutter into grouped, reviewable, actionable knowledge.',
+    logo: logoUofT,
   },
 ]

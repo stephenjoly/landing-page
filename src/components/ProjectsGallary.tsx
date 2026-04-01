@@ -68,12 +68,25 @@ function CodingProjectsGrid({ projects }: { projects: CodingProject[] }) {
             <Image src={project.logo} alt="" className="h-8 w-8" unoptimized />
           </div>
           <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-            <Card.Link href={project.link.href}>{project.name}</Card.Link>
+            {project.link ? (
+              <Card.Link href={project.link.href}>{project.name}</Card.Link>
+            ) : (
+              project.name
+            )}
           </h2>
           <Card.Description>{project.description}</Card.Description>
-          <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+          <p
+            className={clsx(
+              'relative z-10 mt-6 flex text-sm font-medium dark:text-zinc-200',
+              project.link
+                ? 'text-zinc-400 transition group-hover:text-teal-500'
+                : 'text-zinc-500',
+            )}
+          >
             <LinkIcon className="h-6 w-6 flex-none" />
-            <span className="ml-2">{project.link.label}</span>
+            <span className="ml-2">
+              {project.link?.label ?? 'active work in progress'}
+            </span>
           </p>
         </Card>
       ))}
