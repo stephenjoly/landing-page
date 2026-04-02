@@ -14,6 +14,8 @@ import {
 import logoHomEquity from '@/images/logos/homequity.svg'
 import logoDeloitte from '@/images/logos/deloitte.svg'
 import logoUofT from '@/images/logos/uoft.svg'
+import logoAgentnoon from '@/images/logos/agentnoon.svg'
+import logoDayforce from '@/images/logos/dayforce.svg'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -192,6 +194,23 @@ function Role({ role }: { role: Role }) {
 
 function Resume() {
   let resume: Array<Role> = [
+    {
+      company: 'Dayforce',
+      title: 'Manager, Customer Deployment',
+      logo: logoDayforce,
+      start: { label: 'Nov 2025', dateTime: '2025-11' },
+      end: {
+        label: 'Present',
+        dateTime: new Date().toISOString().slice(0, 7),
+      },
+    },
+    {
+      company: 'Agentnoon, acquired by Dayforce',
+      title: 'AI Customer Deployment Product Manager',
+      logo: logoAgentnoon,
+      start: { label: 'Sept 2025', dateTime: '2025-09' },
+      end: { label: 'Nov 2025', dateTime: '2025-11' },
+    },
     {
       company: 'Deloitte Canada, Strategy and Innovation',
       title: 'Senior Consultant',
