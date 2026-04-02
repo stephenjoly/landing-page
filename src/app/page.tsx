@@ -327,10 +327,11 @@ export default async function Home() {
             Management consultant, people leader, and amateur software engineer.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Stephen, an engineer and aspiring technologist based in Toronto.
-            I work at Deloitte and spend my time building tools, systems, and
-            developing ideas that help people solve real-world problems. I'm
-            also an avid homelabber, photographer, and traveller.
+            I’m Stephen, an engineer and aspiring technologist based in
+            Toronto. I lead customer deployment for Strategic Workforce
+            Planning at Dayforce and spend my time building tools, systems, and
+            ideas that help people solve real-world problems. I&apos;m also an
+            avid homelabber, photographer, and traveller.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
