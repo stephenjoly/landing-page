@@ -13,11 +13,6 @@ export const metadata: Metadata = {
   },
   description:
     'I’m Stephen, an engineer and aspiring technologist based in Toronto. I work at Deloitte and spend my time building tools, systems, and developing ideas that help people solve real-world problems.',
-  alternates: {
-    types: {
-      'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
-    },
-  },
 }
 
 export default function RootLayout({

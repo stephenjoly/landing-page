@@ -2,7 +2,7 @@
 
 Personal website and writing site built with Next.js 14, TypeScript, Tailwind CSS, and MDX.
 
-The site is content-first: a homepage with a short resume-style work history, an About page, MDX articles, a split `Coding` / `Consulting` projects page, a Speaking page, a Uses page, and an RSS feed.
+The site is content-first: a homepage with a short resume-style work history, an About page, MDX articles, a split `Coding` / `Consulting` projects page, a Speaking page, and a Uses page.
 
 ## Stack
 
@@ -25,8 +25,6 @@ The site is content-first: a homepage with a short resume-style work history, an
 - `/speaking` speaking appearances
 - `/uses` equipment and software recommendations
 - `/thank-you` static form confirmation page
-- `/feed.xml` RSS feed generated from article content
-
 ## Local Development
 
 Install dependencies and start the dev server:
@@ -54,19 +52,6 @@ rm -rf .next
 npm run dev
 ```
 
-## Environment Variables
-
-Create `.env.local` with:
-
-```bash
-NEXT_PUBLIC_SITE_URL=https://your-domain.example
-```
-
-`NEXT_PUBLIC_SITE_URL` is required for:
-
-- RSS feed generation in `/feed.xml`
-- absolute metadata and feed links
-
 ## Project Structure
 
 ```text
@@ -88,7 +73,7 @@ Articles live under:
 src/app/articles/<slug>/page.mdx
 ```
 
-Each article exports metadata and renders through the shared article layout. The article index and RSS feed are generated from those files.
+Each article exports metadata and renders through the shared article layout. The article index is generated from those files.
 
 ### Projects
 
@@ -140,6 +125,5 @@ Then open `http://localhost:2001`.
 
 ## Known Cleanup Items
 
-- `src/app/feed.xml/route.ts` still contains inherited placeholder author/feed metadata and should be updated to match the site
 - the homepage newsletter form is currently a UI flow only and posts to `/thank-you`
 - some template-era artifacts still remain in the repository and are being cleaned up incrementally
