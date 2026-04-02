@@ -2,3 +2,8 @@ next
 node_modules
 .node_modules/*
 .next/*
+AGENTS.md
+context.md
+/codex-sessions.md
+.resources
+.DS_Store

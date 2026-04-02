@@ -14,6 +14,8 @@ import {
 import logoHomEquity from '@/images/logos/homequity.svg'
 import logoDeloitte from '@/images/logos/deloitte.svg'
 import logoUofT from '@/images/logos/uoft.svg'
+import logoAgentnoon from '@/images/logos/agentnoon.svg'
+import logoDayforce from '@/images/logos/dayforce.svg'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -161,6 +163,7 @@ function Role({ role }: { role: Role }) {
 
   let endLabel = typeof role.end === 'string' ? role.end : role.end.label
   let endDate = typeof role.end === 'string' ? role.end : role.end.dateTime
+  let showRange = startLabel !== endLabel || startDate !== endDate
 
   return (
     <li className="flex gap-4">
@@ -181,9 +184,15 @@ function Role({ role }: { role: Role }) {
           className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
           aria-label={`${startLabel} until ${endLabel}`}
         >
-          <time dateTime={startDate}>{startLabel}</time>{' '}
-          <span aria-hidden="true">—</span>{' '}
-          <time dateTime={endDate}>{endLabel}</time>
+          {showRange ? (
+            <>
+              <time dateTime={startDate}>{startLabel}</time>{' '}
+              <span aria-hidden="true">—</span>{' '}
+              <time dateTime={endDate}>{endLabel}</time>
+            </>
+          ) : (
+            <time dateTime={startDate}>{startLabel}</time>
+          )}
         </dd>
       </dl>
     </li>
@@ -193,56 +202,70 @@ function Role({ role }: { role: Role }) {
 function Resume() {
   let resume: Array<Role> = [
     {
+      company: 'Dayforce, Strategic Workforce Planning',
+      title: 'Manager, Customer Deployment',
+      logo: logoDayforce,
+      start: { label: 'Nov 2025', dateTime: '2025-11' },
+      end: {
+        label: 'Present',
+        dateTime: new Date().toISOString().slice(0, 7),
+      },
+    },
+    {
+      company: 'Agentnoon, Customer Deployment',
+      title: 'AI Product Manager',
+      logo: logoAgentnoon,
+      start: { label: 'Sept 2025', dateTime: '2025-09' },
+      end: { label: 'Oct 2025', dateTime: '2025-10' },
+    },
+    {
       company: 'Deloitte Canada, Strategy and Innovation',
       title: 'Senior Consultant',
       logo: logoDeloitte,
-      start: '2025',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
+      start: { label: 'Jan 2025', dateTime: '2025-01' },
+      end: { label: 'Aug 2025', dateTime: '2025-08' },
     },
     {
       company: 'Deloitte Canada, Human Capital',
       title: 'Senior Consultant',
       logo: logoDeloitte,
-      start: '2023',
-      end: '2025',
+      start: { label: 'Jan 2023', dateTime: '2023-01' },
+      end: { label: 'Dec 2024', dateTime: '2024-12' },
     },
     {
       company: 'Deloitte Canada, Human Capital',
       title: 'Consultant',
       logo: logoDeloitte,
-      start: '2022',
-      end: '2022',
+      start: { label: 'Jan 2022', dateTime: '2022-01' },
+      end: { label: 'Dec 2022', dateTime: '2022-12' },
     },
     {
       company: 'Deloitte Canada, Strategic Risk',
       title: 'Consultant',
       logo: logoDeloitte,
-      start: '2020',
-      end: '2022',
+      start: { label: 'Sept 2020', dateTime: '2020-09' },
+      end: { label: 'Dec 2021', dateTime: '2021-12' },
     },
     {
       company: 'University of Toronto, Faculty of Engineering',
       title: 'Lead Campus Experience Officer',
       logo: logoUofT,
-      start: '2019',
-      end: '2020',
+      start: { label: 'Sept 2019', dateTime: '2019-09' },
+      end: { label: 'May 2020', dateTime: '2020-05' },
     },
     {
       company: 'Deloitte Canada, Regulatory Risk',
       title: 'Business Analyst',
       logo: logoDeloitte,
-      start: '2018',
-      end: '2019',
+      start: { label: 'Sept 2018', dateTime: '2018-09' },
+      end: { label: 'Aug 2019', dateTime: '2019-08' },
     },
     {
       company: 'HomEquity Bank, Process Engineering',
       title: 'Business Process Analyst',
       logo: logoHomEquity,
-      start: 'Summer',
-      end: '2017',
+      start: { label: 'May 2017', dateTime: '2017-05' },
+      end: { label: 'Aug 2017', dateTime: '2017-08' },
     },
   ]
 
@@ -305,13 +328,15 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Management consultant, people leader, and amateur software engineer.
+            Product-minded builder focused on customers, clarity, and
+            execution.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Stephen, an engineer and aspiring technologist based in Toronto.
-            I work at Deloitte and spend my time building tools, systems, and
-            developing ideas that help people solve real-world problems. I'm
-            also an avid homelabber, photographer, and traveller.
+            I’m Stephen, an engineer and aspiring technologist based in
+            Toronto. I lead customer deployment for Strategic Workforce
+            Planning at Dayforce and spend my time building tools, systems, and
+            ideas that help people solve real-world problems. I&apos;m also an
+            avid homelabber, photographer, and traveller.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -339,13 +364,13 @@ export default async function Home() {
       </Container>
       <Photos />
       <Container className="mt-24 md:mt-28">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-[minmax(0,0.95fr)_minmax(27rem,1.05fr)] xl:grid-cols-[minmax(0,0.9fr)_minmax(28rem,1.1fr)]">
           <div className="flex flex-col gap-16">
             {articles.map((article) => (
               <Article key={article.slug} article={article} />
             ))}
           </div>
-          <div className="space-y-10 lg:pl-16 xl:pl-24">
+          <div className="space-y-10 lg:pl-12 xl:pl-14">
             {/* <Newsletter /> */}
             <Resume />
           </div>

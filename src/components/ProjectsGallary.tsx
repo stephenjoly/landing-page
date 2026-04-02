@@ -72,7 +72,13 @@ function CodingProjectsGrid({ projects }: { projects: CodingProject[] }) {
           </div>
           <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
             {project.link ? (
-              <Card.Link href={project.link.href}>{project.name}</Card.Link>
+              <Card.Link
+                href={project.link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {project.name}
+              </Card.Link>
             ) : (
               project.name
             )}
@@ -98,6 +104,14 @@ function CodingProjectsGrid({ projects }: { projects: CodingProject[] }) {
 
   return (
     <div className="space-y-16">
+      <div className="max-w-2xl">
+        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+          I&apos;m still early in my software journey and actively learning by
+          building. Feedback, ideas, and thoughtful critique are always
+          welcome.
+        </p>
+      </div>
+
       {renderProjectGrid(publishedProjects)}
 
       {workInProgressProjects.length > 0 ? (
@@ -126,35 +140,44 @@ function ConsultingProjectsGrid({
   projects: ConsultingProject[]
 }) {
   return (
-    <ul
-      role="list"
-      className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-    >
-      {projects.map((project) => (
-        <Card as="li" key={project.name}>
-          <div className="flex items-center space-x-3 pb-2">
-            <div className="relative z-10 flex h-12 w-12 flex-none items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image
-                src={project.logo}
-                alt=""
-                className="h-8 w-8 object-contain"
-                unoptimized
-              />
+    <div className="space-y-16">
+      <div className="max-w-2xl">
+        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+          These engagements focused on helping organizations make sense of
+          complexity, align around decisions, and move toward execution.
+        </p>
+      </div>
+
+      <ul
+        role="list"
+        className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        {projects.map((project) => (
+          <Card as="li" key={project.name}>
+            <div className="flex items-center space-x-3 pb-2">
+              <div className="relative z-10 flex h-12 w-12 flex-none items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                <Image
+                  src={project.logo}
+                  alt=""
+                  className="h-8 w-8 object-contain"
+                  unoptimized
+                />
+              </div>
+              <h2 className="flex-grow font-semibold text-zinc-800 dark:text-zinc-100">
+                <Card.Button onClick={() => onProjectSelect(project)}>
+                  <span className="text-left">{project.name}</span>
+                </Card.Button>
+              </h2>
             </div>
-            <h2 className="flex-grow font-semibold text-zinc-800 dark:text-zinc-100">
-              <Card.Button onClick={() => onProjectSelect(project)}>
-                <span className="text-left">{project.name}</span>
-              </Card.Button>
-            </h2>
-          </div>
-          <Card.Description>{project.description}</Card.Description>
-          <p className="relative z-10 mt-4 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
-            <LinkIcon className="h-6 w-6 flex-none" />
-            <span className="ml-2">Click here to learn more</span>
-          </p>
-        </Card>
-      ))}
-    </ul>
+            <Card.Description>{project.description}</Card.Description>
+            <p className="relative z-10 mt-4 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+              <LinkIcon className="h-6 w-6 flex-none" />
+              <span className="ml-2">Click here to learn more</span>
+            </p>
+          </Card>
+        ))}
+      </ul>
+    </div>
   )
 }
 
@@ -210,7 +233,7 @@ export default function ProjectsGallary({
         intro="This page brings together the work I build and the work I help deliver. Use the split view to move between coding projects and consulting engagements."
       >
         <div className="space-y-10">
-          <div className="inline-flex rounded-full bg-white/90 p-1 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10">
+          <div className="inline-flex rounded-full bg-white/90 p-1.5 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10">
             <TabButton
               active={activeTab === 'coding'}
               onClick={() => setTab('coding')}

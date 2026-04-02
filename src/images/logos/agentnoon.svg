@@ -1,0 +1,15 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="agentnoon-crescent-left" maskUnits="userSpaceOnUse" x="74" y="128" width="176" height="256">
+      <rect x="74" y="128" width="176" height="256" fill="white"/>
+      <circle cx="246" cy="256" r="120" fill="black"/>
+    </mask>
+    <mask id="agentnoon-crescent-middle" maskUnits="userSpaceOnUse" x="128" y="128" width="176" height="256">
+      <rect x="128" y="128" width="176" height="256" fill="white"/>
+      <circle cx="300" cy="256" r="120" fill="black"/>
+    </mask>
+  </defs>
+  <circle cx="170" cy="256" r="102" fill="#4958E8" mask="url(#agentnoon-crescent-left)"/>
+  <circle cx="224" cy="256" r="102" fill="#4958E8" mask="url(#agentnoon-crescent-middle)"/>
+  <circle cx="334" cy="256" r="102" fill="#4958E8"/>
+</svg>

@@ -552,10 +552,7 @@ export const codingProjects: CodingProject[] = [
     description:
       'Full-stack app that ingests BNN Market Call episodes, extracts structured stock commentary, and publishes reviewed summaries.',
     logo: iconMarketCallSummaries,
-    link: {
-      href: 'https://market-call-summaries.stephenjoly.net',
-      label: 'market-call-summaries.stephenjoly.net',
-    },
+    status: 'wip',
   },
   {
     name: 'Jolify for PowerPoint',
@@ -593,17 +590,16 @@ export const codingProjects: CodingProject[] = [
       'Offline-first assessment app for occupational therapists that turns clinical notes into structured, AI-assisted reports.',
     logo: iconOtAssessmentTool,
     status: 'wip',
-    link: {
-      href: 'https://github.com/stephenjoly/ot-assessment-tool',
-      label: 'active work in progress',
-    },
   },
   {
     name: 'Codex Session Indexer',
     description:
       'Utility that scans local Codex session history and generates project-level Markdown indexes of recent work.',
     logo: iconCodexSessionIndexer,
-    status: 'wip',
+    link: {
+      href: 'https://stephenjoly.github.io/codex-session-indexer/',
+      label: 'stephenjoly.github.io',
+    },
   },
   {
     name: 'Screenshot Sense',

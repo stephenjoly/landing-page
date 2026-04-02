@@ -8,16 +8,10 @@ import '@/styles/tailwind.css'
 export const metadata: Metadata = {
   title: {
     template: '%s - Stephen Joly',
-    default:
-      'Stephen Joly - Management consultant, people leader, and amateur software engineer',
+    default: 'Stephen Joly - Product-minded builder',
   },
   description:
-    'I’m Stephen, an engineer and aspiring technologist based in Toronto. I work at Deloitte and spend my time building tools, systems, and developing ideas that help people solve real-world problems.',
-  alternates: {
-    types: {
-      'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
-    },
-  },
+    'I’m Stephen, an engineer and aspiring technologist based in Toronto. I lead customer deployment for Strategic Workforce Planning at Dayforce and spend my time building tools, systems, and ideas that help people solve real-world problems.',
 }
 
 export default function RootLayout({

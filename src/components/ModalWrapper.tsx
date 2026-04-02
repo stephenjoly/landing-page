@@ -1,20 +1,27 @@
 import React, { useEffect, useRef } from 'react'
 
 interface ModalProps {
+  descriptionId?: string
   isOpen: boolean
   onRequestClose: () => void
+  titleId?: string
   children?: React.ReactNode
 }
 
 const ModalWrapper: React.FC<ModalProps> = ({
+  descriptionId,
   isOpen,
   onRequestClose,
+  titleId,
   children,
 }) => {
   const modalContentRef = useRef<HTMLDivElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     if (!isOpen) return
+
+    closeButtonRef.current?.focus()
 
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -43,20 +50,26 @@ const ModalWrapper: React.FC<ModalProps> = ({
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-200 flex items-center justify-center bg-black/30 backdrop-blur-sm backdrop-filter">
+    <div className="fixed inset-0 z-200 flex items-start justify-center overflow-y-auto bg-zinc-950/45 px-4 py-6 backdrop-blur-sm backdrop-filter sm:px-6 sm:py-10">
       <div
         ref={modalContentRef}
-        className="relative m-auto w-full max-w-2xl rounded-lg bg-white p-6 pr-8 shadow-2xl dark:bg-zinc-800"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        aria-describedby={descriptionId}
+        className="relative my-auto w-full max-w-3xl overflow-hidden rounded-[2rem] bg-white shadow-2xl ring-1 ring-zinc-900/10 dark:bg-zinc-900 dark:ring-white/10 max-h-[calc(100dvh-3rem)] sm:max-h-[calc(100dvh-5rem)]"
       >
+        <button
+          ref={closeButtonRef}
+          onClick={onRequestClose}
+          aria-label="Close project details"
+          className="absolute top-5 right-5 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full bg-zinc-50 text-zinc-400 shadow-sm ring-1 ring-zinc-900/5 transition hover:bg-zinc-100 hover:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-zinc-800/80 dark:text-zinc-500 dark:ring-white/10 dark:hover:bg-zinc-800 dark:hover:text-zinc-300 dark:focus:ring-teal-400"
+        >
+          <span aria-hidden="true" className="text-lg leading-none">
+            ×
+          </span>
+        </button>
         <div>{children}</div>
-        <div className="mt-2">
-          <button
-            onClick={onRequestClose}
-            className="absolute right-5 bottom-5 rounded-full bg-gray-400 px-2 text-sm text-white shadow-md hover:bg-gray-600 focus:outline-none dark:bg-gray-500"
-          >
-            Close &times;
-          </button>
-        </div>
       </div>
     </div>
   )
