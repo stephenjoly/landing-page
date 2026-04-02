@@ -92,13 +92,15 @@ export default function About() {
             </p>
 
             <p>
-              Professionally, I’m an AI Customer Deployment Product Manager at
-              Agentnoon, a Y Combinator–backed startup building organizational
-              design and workforce planning software. Before that, I spent six
-              years at Deloitte, where I advised clients on risk, resilience,
-              and workforce strategy before moving into the Office of Generative
-              AI to focus on product development and internal enablement with AI
-              tools.
+              Professionally, I’m a Manager in Customer Deployment at Dayforce,
+              where I help deliver AI-enabled workforce planning software to
+              customers. I joined the journey through Agentnoon, a Y
+              Combinator-backed startup building organizational design and
+              workforce planning software that was later acquired by Dayforce.
+              Before that, I spent six years at Deloitte, where I advised
+              clients on risk, resilience, and workforce strategy before moving
+              into the Office of Generative AI to focus on product development
+              and internal enablement with AI tools.
             </p>
 
             <p>
