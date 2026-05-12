@@ -35,6 +35,23 @@ export interface ConsultingProject {
 
 export const consultingProjects: ConsultingProject[] = [
   {
+    name: "GenAI Business Development Intelligence Tool",
+    logo: logoDeloitte,
+    descriptor: "Deloitte Canada, Office of GenAI",
+    timeline: "July 2025 – September 2025 (3 months)",
+    context: "Deloitte Canada's Office of GenAI was exploring opportunities to turn promising internal AI ideas into build-ready product concepts that could be mobilized with engineering support. One priority opportunity focused on reducing a major business development bottleneck: helping senior leaders transfer relationship knowledge, account context, and market intelligence in a structured way so AI could surface actionable insights and help client-facing teams advance opportunities faster and with greater consistency.",
+    role: [
+      "Stephen led a 0->1 product discovery and definition workstream, taking a high-potential internal GenAI idea from early concept to a build-ready product direction, and contributed in the following capacity:",
+      "Translated a broad GenAI enablement opportunity into a defined product concept by clarifying the business problem, target users, workflow pain points, and expected value for senior leaders and client-facing teams.",
+      "Conducted market and vendor research, shaped early solution options, and prioritized ideas against desirability, viability, and feasibility criteria to recommend the strongest path forward.",
+      "Led stakeholder discussions with senior leaders to gather feedback, refine the product direction, and build alignment around the proposed solution and its role in improving business development effectiveness.",
+      "Directed the development of early product artifacts, including wireframes, feature definitions, MVP workstreams, agentic solution concepts, technical requirements, and a full product overview document.",
+      "Coordinated with a UI/UX design resource to translate the product concept into wireframes and a clearer user experience for capturing leadership knowledge and surfacing actionable intelligence.",
+      "Helped define a multi-agent intelligence solution intended to identify relevant client context, relationship signals, next-best actions, and business development opportunities from senior leader knowledge transfer."
+    ],
+    description: "Led early product discovery for an internal GenAI tool designed to turn senior leader knowledge into actionable business development intelligence."
+  },
+  {
     name: "Technology Impact Modeling on Workforce Capacity",
     logo: logoDeloitte,
     descriptor: "Confidential Client",
