@@ -21,7 +21,7 @@ const ModalWrapper: React.FC<ModalProps> = ({
   useEffect(() => {
     if (!isOpen) return
 
-    closeButtonRef.current?.focus()
+    modalContentRef.current?.focus()
 
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -57,13 +57,14 @@ const ModalWrapper: React.FC<ModalProps> = ({
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        className="relative max-h-[calc(100dvh-3rem)] min-h-[24rem] w-full max-w-[calc(100vw-2rem)] resize overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl shadow-zinc-950/20 sm:max-h-[calc(100dvh-5rem)] sm:min-h-[26rem] sm:w-[46rem] sm:max-w-[56rem] sm:min-w-[36rem] dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-black/40"
+        tabIndex={-1}
+        className="relative max-h-[calc(100dvh-3rem)] min-h-[24rem] w-full max-w-[calc(100vw-2rem)] resize overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl shadow-zinc-950/20 outline-none sm:max-h-[calc(100dvh-5rem)] sm:min-h-[26rem] sm:w-[46rem] sm:max-w-[56rem] sm:min-w-[36rem] dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-black/40"
       >
         <button
           ref={closeButtonRef}
           onClick={onRequestClose}
           aria-label="Close project details"
-          className="absolute top-3.5 right-3.5 z-20 inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 focus:ring-2 focus:ring-teal-500 focus:outline-none dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100 dark:focus:ring-teal-400"
+          className="absolute top-3.5 right-3.5 z-20 inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100 dark:focus-visible:ring-teal-400"
         >
           <svg
             viewBox="0 0 16 16"
