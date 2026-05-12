@@ -57,7 +57,7 @@ const ModalWrapper: React.FC<ModalProps> = ({
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        className="relative max-h-[calc(100dvh-3rem)] w-full max-w-2xl overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl shadow-zinc-950/20 sm:max-h-[calc(100dvh-5rem)] dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-black/40"
+        className="relative max-h-[calc(100dvh-3rem)] min-h-[24rem] w-full max-w-[calc(100vw-2rem)] resize overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl shadow-zinc-950/20 sm:max-h-[calc(100dvh-5rem)] sm:min-h-[26rem] sm:w-[42rem] sm:max-w-[56rem] sm:min-w-[36rem] dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-black/40"
       >
         <button
           ref={closeButtonRef}
