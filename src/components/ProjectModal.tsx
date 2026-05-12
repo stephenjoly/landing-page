@@ -27,7 +27,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
       descriptionId={descriptionId}
     >
       <div className="flex h-full max-h-[calc(100dvh-3rem)] flex-col sm:max-h-[calc(100dvh-5rem)]">
-        <div className="border-b border-zinc-200 px-6 py-5 sm:px-8 dark:border-zinc-800">
+        <div className="border-b border-zinc-200 px-6 py-5 sm:px-10 dark:border-zinc-800">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pr-10 text-xs font-medium text-zinc-500 dark:text-zinc-400">
             <span className="rounded-md border border-zinc-200 px-2 py-0.5 text-zinc-700 dark:border-zinc-800 dark:text-zinc-300">
               {project.descriptor}
@@ -55,7 +55,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
           </p>
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto px-6 py-6 sm:px-8">
+        <div className="min-h-0 flex-1 overflow-y-auto px-6 pt-6 pb-9 sm:px-10 sm:pb-10">
           <section>
             <p className="text-sm font-medium text-zinc-950 dark:text-zinc-100">
               Context
