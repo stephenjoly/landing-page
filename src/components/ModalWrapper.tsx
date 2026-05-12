@@ -50,24 +50,33 @@ const ModalWrapper: React.FC<ModalProps> = ({
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-200 flex items-start justify-center overflow-y-auto bg-zinc-950/45 px-4 py-6 backdrop-blur-sm backdrop-filter sm:px-6 sm:py-10">
+    <div className="fixed inset-0 z-200 flex items-center justify-center overflow-y-auto bg-zinc-950/60 px-4 py-6 backdrop-blur-sm backdrop-filter sm:px-6 sm:py-10">
       <div
         ref={modalContentRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        className="relative my-auto w-full max-w-3xl overflow-hidden rounded-[2rem] bg-white shadow-2xl ring-1 ring-zinc-900/10 dark:bg-zinc-900 dark:ring-white/10 max-h-[calc(100dvh-3rem)] sm:max-h-[calc(100dvh-5rem)]"
+        className="relative max-h-[calc(100dvh-3rem)] w-full max-w-3xl overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl shadow-zinc-950/20 sm:max-h-[calc(100dvh-5rem)] dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-black/40"
       >
         <button
           ref={closeButtonRef}
           onClick={onRequestClose}
           aria-label="Close project details"
-          className="absolute top-5 right-5 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full bg-zinc-50 text-zinc-400 shadow-sm ring-1 ring-zinc-900/5 transition hover:bg-zinc-100 hover:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-zinc-800/80 dark:text-zinc-500 dark:ring-white/10 dark:hover:bg-zinc-800 dark:hover:text-zinc-300 dark:focus:ring-teal-400"
+          className="absolute top-4 right-4 z-20 inline-flex h-9 w-9 items-center justify-center rounded-md border border-zinc-200 bg-white text-zinc-500 shadow-sm transition hover:bg-zinc-50 hover:text-zinc-900 focus:ring-2 focus:ring-teal-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100 dark:focus:ring-teal-400"
         >
-          <span aria-hidden="true" className="text-lg leading-none">
-            ×
-          </span>
+          <svg
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            className="h-4 w-4 stroke-current"
+            fill="none"
+          >
+            <path
+              d="m4.25 4.25 7.5 7.5m0-7.5-7.5 7.5"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
         </button>
         <div>{children}</div>
       </div>
