@@ -28,7 +28,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
       descriptionId={descriptionId}
     >
       <div className="flex max-h-[calc(100dvh-3rem)] flex-col sm:max-h-[calc(100dvh-5rem)]">
-        <div className="border-b border-zinc-200 px-5 pt-5 pr-14 pb-4 sm:px-6 sm:pr-14 dark:border-zinc-800">
+        <div className="border-b border-zinc-200 px-6 pt-5 pr-14 pb-4 sm:px-8 sm:pr-16 dark:border-zinc-800">
           <div className="flex min-w-0 items-start gap-3.5">
             <div className="flex h-9 w-9 flex-none items-center justify-center rounded-lg border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
               <Image
@@ -65,7 +65,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
           </div>
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto px-5 py-5 sm:px-6">
+        <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5 sm:px-8">
           <section>
             <p className="text-xs font-semibold tracking-[0.16em] text-zinc-500 uppercase dark:text-zinc-400">
               Client Context
