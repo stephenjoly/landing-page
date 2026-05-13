@@ -29,7 +29,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
       <div className="flex h-full max-h-[calc(100dvh-3rem)] flex-col sm:max-h-[calc(100dvh-5rem)]">
         <div className="border-b border-zinc-200 px-6 py-5 sm:px-10 dark:border-zinc-800">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 pr-10 text-xs font-medium text-zinc-500 dark:text-zinc-400">
-            <span className="inline-flex h-7 items-center rounded-md border border-zinc-200 px-2.5 text-zinc-700 dark:border-zinc-800 dark:text-zinc-300">
+            <span className="inline-flex h-7 items-center text-zinc-700 dark:text-zinc-300">
               {project.descriptor}
             </span>
             <span
