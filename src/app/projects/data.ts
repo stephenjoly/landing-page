@@ -3,13 +3,14 @@ import type { ImageProps } from 'next/image'
 import logoDeloitte from '@/images/logos/deloitte.svg'
 import logoHomEquity from '@/images/logos/homequity.svg'
 import logoUofT from '@/images/logos/uoft.svg'
+import iconBackupAgent from '@/images/project-icons/backup-agent.svg'
 import iconCodexSessionIndexer from '@/images/project-icons/codex-session-indexer.svg'
 import iconDeployWizard from '@/images/project-icons/deploy-wizard.svg'
 import iconJolifyPpt from '@/images/project-icons/jolify-ppt.svg'
 import iconMarketCallSummaries from '@/images/project-icons/market-call-summaries.svg'
-import iconOtAssessmentTool from '@/images/project-icons/ot-assessment-tool.svg'
 import iconPizzaCalculator from '@/images/project-icons/pizza-calculator.svg'
 import iconScreenshotSense from '@/images/project-icons/screenshot-sense.svg'
+import iconSocialKnowledge from '@/images/project-icons/social-knowledge.svg'
 import iconTraefikRulesManager from '@/images/project-icons/traefik-rules-manager.svg'
 
 export interface CodingProject {
@@ -555,6 +556,26 @@ export const consultingProjects: ConsultingProject[] = [
 
 export const codingProjects: CodingProject[] = [
   {
+    name: 'Social Knowledge',
+    description:
+      'Self-hosted platform that turns social media posts into searchable, structured insights using transcription, AI synthesis, and taxonomy-driven organization.',
+    logo: iconSocialKnowledge,
+    link: {
+      href: 'https://social-knowledge.stephenjoly.net/',
+      label: 'social-knowledge.stephenjoly.net',
+    },
+  },
+  {
+    name: 'Backup Agent',
+    description:
+      'Portable Linux and macOS backup system that creates validated, space-efficient NAS snapshots with rsync, hard links, scheduling, and retention controls.',
+    logo: iconBackupAgent,
+    link: {
+      href: 'https://github.com/stephenjoly/backup-agent',
+      label: 'github.com',
+    },
+  },
+  {
     name: 'Deploy Wizard',
     description:
       'Opinionated CLI for branch-aware staging deploys of Docker Compose apps behind Traefik in a homelab environment.',
@@ -600,13 +621,6 @@ export const codingProjects: CodingProject[] = [
       href: 'https://stephenjoly.github.io/pizza-calculator/',
       label: 'stephenjoly.github.io',
     },
-  },
-  {
-    name: 'lei.ai',
-    description:
-      'Offline-first assessment app for occupational therapists that turns clinical notes into structured, AI-assisted reports.',
-    logo: iconOtAssessmentTool,
-    status: 'wip',
   },
   {
     name: 'Codex Session Indexer',
