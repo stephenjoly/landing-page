@@ -558,11 +558,11 @@ export const codingProjects: CodingProject[] = [
   {
     name: 'Social Knowledge',
     description:
-      'Self-hosted platform that turns social media posts into searchable, structured insights using transcription, AI synthesis, and taxonomy-driven organization.',
+      'Open-source, self-hosted platform that turns saved social videos into a private, searchable knowledge archive with transcription, AI synthesis, and grounded retrieval.',
     logo: iconSocialKnowledge,
     link: {
-      href: 'https://social-knowledge.stephenjoly.net/',
-      label: 'social-knowledge.stephenjoly.net',
+      href: 'https://github.com/stephenjoly/social-knowledge',
+      label: 'github.com',
     },
   },
   {
