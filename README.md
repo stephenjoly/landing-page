@@ -126,7 +126,7 @@ Then open `http://localhost:2001`.
 ## Deployment
 
 Dokploy builds and deploys the `main` branch directly from GitHub using the repository Dockerfile.
-A push-only repository webhook triggers the deployment. The application exposes `/health` for
+Its GitHub App triggers deployments for pushes to `main`. The application exposes `/health` for
 rolling, zero-downtime deployment checks. GitHub Actions validates that the Dockerfile still builds,
 but it does not publish or deploy an image.
 
