@@ -126,8 +126,9 @@ Then open `http://localhost:2001`.
 ## Deployment
 
 Dokploy builds and deploys the `main` branch directly from GitHub using the repository Dockerfile.
-The application exposes `/health` for rolling, zero-downtime deployment checks. GitHub Actions
-validates that the Dockerfile still builds, but it does not publish or deploy an image.
+A push-only repository webhook triggers the deployment. The application exposes `/health` for
+rolling, zero-downtime deployment checks. GitHub Actions validates that the Dockerfile still builds,
+but it does not publish or deploy an image.
 
 Production traffic reaches the Dokploy application through the shared Traefik instance. The retired
 Compose container on `vm-production` is retained in a stopped state as a short-term rollback target.
