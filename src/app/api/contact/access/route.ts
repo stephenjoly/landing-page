@@ -19,7 +19,8 @@ export const dynamic = 'force-dynamic'
 const pageHeaders = {
   ...privateHeaders,
   'Content-Type': 'text/html; charset=utf-8',
-  'Content-Security-Policy': "default-src 'none'; form-action 'self'; base-uri 'none'",
+  'Content-Security-Policy': "default-src 'none'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'",
+  'X-Frame-Options': 'DENY',
 }
 
 export async function GET(request: Request) {

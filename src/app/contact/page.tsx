@@ -72,6 +72,10 @@ export default function Contact({
               </label>
             </div>
             <div className="cf-turnstile" data-sitekey={process.env.TURNSTILE_SITE_KEY} />
+            <p className="text-xs text-zinc-500 dark:text-zinc-400">
+              Resend emails me a copy of your name, email, organization, and reason.
+              The site’s pending request record expires after seven days.
+            </p>
             <button
               type="submit"
               className="rounded-md bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-700"
