@@ -6,3 +6,5 @@ temp
 *.log
 Dockerfile*
 .git
+.env*
+private

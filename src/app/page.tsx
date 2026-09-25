@@ -281,12 +281,11 @@ function Resume() {
         ))}
       </ol>
       <Button
-        href="/files/Stephen Joly - Resume.pdf"
+        href="/contact"
         variant="secondary"
         className="group mt-6 w-full"
-        download
       >
-        Download Resume
+        Request Resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
     </div>
