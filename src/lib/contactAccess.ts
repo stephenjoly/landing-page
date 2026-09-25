@@ -65,7 +65,14 @@ export function validToken(value: string) {
 export async function redis() {
   if (!process.env.REDIS_URL) throw new Error('REDIS_URL is not configured')
   if (!redisPromise) {
-    const client = createClient({ url: process.env.REDIS_URL })
+    const client = createClient({
+      url: process.env.REDIS_URL,
+      socket: {
+        connectTimeout: 5000,
+        reconnectStrategy: (retries) =>
+          retries < 3 ? retries * 200 : new Error('Redis unavailable'),
+      },
+    })
     client.on('error', () => {})
     redisPromise = client.connect().catch((error) => {
       redisPromise = undefined

@@ -148,7 +148,8 @@ the request flow and its services are ready. Verify a sending domain with Resend
 `RESEND_FROM_EMAIL`, create a Turnstile widget for `stephenjoly.net`, and provide a persistent Redis
 instance through `REDIS_URL`. Mount the full résumé PDF outside the repository at
 `PRIVATE_RESUME_PATH` inside the running container. The file must not be placed under `public/`,
-copied into the Docker image, or committed to Git. The feature fails closed if its settings or
+copied into the Docker image, or committed to Git. The mounted file must be readable by the
+container's `nextjs` user (UID 1001). The feature fails closed if its settings or
 session store are unavailable.
 
 The old résumé was previously public. Removing it from the current site does not erase copies in
