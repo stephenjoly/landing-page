@@ -133,6 +133,17 @@ but it does not publish or deploy an image.
 Production traffic reaches the Dokploy application through the shared Traefik instance. The retired
 Compose container on `vm-production` is retained in a stopped state as a short-term rollback target.
 
+## Consulting case studies
+
+Open `/projects?tab=consulting` and select a project to view the Reader Hybrid
+layout, based on the local `ui.pen` frame “Detail Option E — Reader Hybrid”.
+The responsive dialog includes client/duration metadata, context, contributions,
+and a contact link that opens an email draft with the case-study title. Industry
+is omitted until authored data is available. Keyboard focus stays inside the
+reader; Escape, the close button, and clicking outside dismiss it. Long case
+studies scroll inside a viewport-height panel while the classification and close
+button remain visible.
+
 ## Known Cleanup Items
 
 - the homepage newsletter form is currently a UI flow only and posts to `/thank-you`

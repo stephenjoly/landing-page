@@ -1,4 +1,4 @@
-import { useId } from 'react'
+import { DialogTitle, Description } from '@headlessui/react'
 
 import type { ConsultingProject } from '@/app/projects/data'
 import ModalWrapper from './ModalWrapper'
@@ -14,80 +14,105 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
   onRequestClose,
   project,
 }) => {
-  const titleId = useId()
-  const descriptionId = useId()
-
   if (!isOpen || !project) return null
+
+  const years = [...new Set(project.timeline.match(/\b\d{4}\b/g) ?? [])]
+  const duration = project.timeline.match(/\(([^)]+)\)/)?.[1]
+  const contactHref = `mailto:stephen.a.joly@gmail.com?subject=${encodeURIComponent(
+    `Let's discuss: ${project.name}`,
+  )}&body=${encodeURIComponent(
+    `Hi Stephen,\n\nI'd like to discuss work related to your case study: ${project.name}.\n\n`,
+  )}`
 
   return (
     <ModalWrapper
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      titleId={titleId}
-      descriptionId={descriptionId}
+      header={
+        <p className="text-[10px] font-semibold tracking-[0.12em] text-zinc-500 uppercase dark:text-zinc-400">
+          Case study / Consulting{years.length > 0 && ` / ${years.join('–')}`}
+        </p>
+      }
     >
-      <div className="flex h-full max-h-[calc(100dvh-3rem)] flex-col sm:max-h-[calc(100dvh-5rem)]">
-        <div className="border-b border-zinc-200 px-6 py-5 sm:px-10 dark:border-zinc-800">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 pr-10 text-xs font-medium text-zinc-500 dark:text-zinc-400">
-            <span className="inline-flex h-7 items-center text-zinc-700 dark:text-zinc-300">
-              {project.descriptor}
-            </span>
-            <span
-              aria-hidden="true"
-              className="inline-flex h-7 items-center text-zinc-300 dark:text-zinc-700"
+      <article className="px-6 pb-7 sm:px-[34px]">
+        <header className="grid gap-6 border-b border-zinc-200 pb-5 sm:grid-cols-[minmax(0,1fr)_194px] sm:gap-[38px] dark:border-zinc-800">
+          <div>
+            <DialogTitle
+              as="h3"
+              className="text-[26px] leading-[1.12] font-semibold tracking-tight text-zinc-900 sm:text-[30px] dark:text-zinc-50"
             >
-              /
-            </span>
-            <span className="inline-flex h-7 items-center">
-              {project.timeline}
-            </span>
+              {project.name}
+            </DialogTitle>
+            <Description className="mt-3 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+              {project.description}
+            </Description>
           </div>
+          <dl className="grid grid-cols-2 gap-3 text-xs sm:grid-cols-1 sm:content-start sm:pt-1">
+            <div>
+              <dt className="text-[10px] font-semibold tracking-widest text-zinc-500 uppercase dark:text-zinc-400">
+                Client
+              </dt>
+              <dd className="mt-1 font-medium text-zinc-800 dark:text-zinc-200">
+                {project.descriptor}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-[10px] font-semibold tracking-widest text-zinc-500 uppercase dark:text-zinc-400">
+                {duration ? 'Duration' : 'Timeline'}
+              </dt>
+              <dd className="mt-1 font-medium text-zinc-800 dark:text-zinc-200">
+                {duration ?? project.timeline}
+              </dd>
+            </div>
+          </dl>
+        </header>
 
-          <h3
-            id={titleId}
-            className="mt-4 text-lg font-semibold tracking-tight text-zinc-950 sm:text-xl dark:text-zinc-50"
-          >
-            {project.name}
-          </h3>
-          <p
-            id={descriptionId}
-            className="mt-2 max-w-[38rem] text-sm leading-6 text-zinc-600 dark:text-zinc-400"
-          >
-            {project.description}
+        <section className="mt-5">
+          <h4 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
+            Context
+          </h4>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+            {project.context}
           </p>
-        </div>
+        </section>
 
-        <div className="min-h-0 flex-1 overflow-y-auto px-6 pt-6 pb-9 sm:px-10 sm:pb-10">
-          <section>
-            <p className="text-sm font-medium text-zinc-950 dark:text-zinc-100">
-              Context
-            </p>
-            <p className="mt-2 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-              {project.context}
-            </p>
-          </section>
+        <section className="mt-5">
+          <h4 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
+            Contributions
+          </h4>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+            {project.role[0]}
+          </p>
+          <ul className="mt-3 space-y-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+            {project.role.slice(1).map((line, index) => (
+              <li key={index} className="relative pl-4">
+                <span
+                  aria-hidden="true"
+                  className="absolute top-2 left-0 h-[5px] w-[5px] rounded-full bg-teal-500"
+                />
+                {line}
+              </li>
+            ))}
+          </ul>
+        </section>
 
-          <section className="mt-7">
-            <p className="text-sm font-medium text-zinc-950 dark:text-zinc-100">
-              Contributions
+        <footer className="mt-6 flex flex-col gap-4 rounded-xl border border-teal-700/15 bg-[#F1F8F7] px-4 py-3 sm:flex-row sm:items-center sm:justify-between dark:border-teal-400/20 dark:bg-teal-950/40">
+          <div>
+            <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
+              Want to discuss related work?
             </p>
-            <p className="mt-2 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-              {project.role[0]}
+            <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+              This case study will be included in your email.
             </p>
-            <ul className="mt-4 space-y-2.5 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-              {project.role.slice(1).map((line, index) => (
-                <li key={index} className="relative pl-5">
-                  <span
-                    aria-hidden="true"
-                    className="absolute top-2.5 left-0 h-1.5 w-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500"
-                  />
-                  {line}
-                </li>
-              ))}
-            </ul>
-          </section>
-        </div>
-      </div>
+          </div>
+          <a
+            href={contactHref}
+            className="inline-flex min-h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-[#137E72] px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-600"
+          >
+            Contact Stephen <span aria-hidden="true">→</span>
+          </a>
+        </footer>
+      </article>
     </ModalWrapper>
   )
 }
