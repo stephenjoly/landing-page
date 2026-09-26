@@ -7,3 +7,6 @@ context.md
 /codex-sessions.md
 .resources
 .DS_Store
+.env*
+!.env.example
+/private/

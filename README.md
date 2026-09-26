@@ -25,6 +25,8 @@ The site is content-first: a homepage with a short resume-style work history, an
 - `/speaking` speaking appearances
 - `/uses` equipment and software recommendations
 - `/thank-you` static form confirmation page
+- `/contact` request form for access to contact details and the résumé
+- `/contact/details` private contact page for approved visitors
 ## Local Development
 
 Install dependencies and start the dev server:
@@ -132,6 +134,27 @@ but it does not publish or deploy an image.
 
 Production traffic reaches the Dokploy application through the shared Traefik instance. The retired
 Compose container on `vm-production` is retained in a stopped state as a short-term rollback target.
+
+### Contact access
+
+Contact details and the full résumé are served only after approval. The public request form uses
+Cloudflare Turnstile, Redis holds short-lived request and access records, and Resend delivers the
+approval request and approved visitor's link. The approval email itself is the owner credential;
+the approval page requires a second click before sending access. Access links can be used once and
+the resulting browser session lasts seven days.
+
+Set the variables shown in `.env.example` in Dokploy, then set `CONTACT_ACCESS_ENABLED=1` only after
+the request flow and its services are ready. Verify a sending domain with Resend for
+`RESEND_FROM_EMAIL`, create a Turnstile widget for `stephenjoly.net`, and provide a persistent Redis
+instance through `REDIS_URL`. Mount the full résumé PDF outside the repository at
+`PRIVATE_RESUME_PATH` inside the running container. The file must not be placed under `public/`,
+copied into the Docker image, or committed to Git. The mounted file must be readable by the
+container's `nextjs` user (UID 1001). The feature fails closed if its settings or
+session store are unavailable.
+
+The old résumé was previously public. Removing it from the current site does not erase copies in
+Git history, search caches, or third-party archives. Change the phone number or email address if
+you need the old values to become unusable.
 
 ## Known Cleanup Items
 
