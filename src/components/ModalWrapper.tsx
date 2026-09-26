@@ -4,12 +4,14 @@ import { useEffect, useState, type ReactNode } from 'react'
 interface ModalProps {
   isOpen: boolean
   onRequestClose: () => void
+  header?: ReactNode
   children?: ReactNode
 }
 
 export default function ModalWrapper({
   isOpen,
   onRequestClose,
+  header,
   children,
 }: ModalProps) {
   const [trigger] = useState(() =>
@@ -32,15 +34,16 @@ export default function ModalWrapper({
         className="fixed inset-0 bg-zinc-950/55 backdrop-blur-sm"
         aria-hidden="true"
       />
-      <div className="fixed inset-0 overflow-y-auto">
-        <div className="flex min-h-full items-center justify-center px-4 py-6 sm:px-6 sm:py-10">
-          <DialogPanel className="relative w-full max-w-[877px] rounded-2xl border border-zinc-200 bg-white shadow-2xl shadow-zinc-950/20 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-black/40">
+      <div className="fixed inset-0 flex items-center justify-center px-4 py-6 sm:px-6 sm:py-10">
+        <DialogPanel className="relative flex max-h-[calc(100dvh-3rem)] w-full max-w-[877px] flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl shadow-zinc-950/20 sm:max-h-[calc(100dvh-5rem)] dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-black/40">
+          <div className="flex shrink-0 items-center justify-between gap-4 px-6 pt-6 pb-4 sm:px-[34px]">
+            {header}
             <button
               type="button"
               data-autofocus
               onClick={onRequestClose}
               aria-label="Close project details"
-              className="absolute top-6 right-5 inline-flex h-[38px] w-[38px] items-center justify-center rounded-full border border-zinc-200 text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 sm:right-[34px] dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100"
+              className="inline-flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full border border-zinc-200 text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100"
             >
               <svg
                 viewBox="0 0 16 16"
@@ -55,9 +58,16 @@ export default function ModalWrapper({
                 />
               </svg>
             </button>
+          </div>
+          <div
+            className="min-h-0 overflow-y-auto overscroll-contain [scrollbar-gutter:stable]"
+            tabIndex={0}
+            role="region"
+            aria-label="Case study content"
+          >
             {children}
-          </DialogPanel>
-        </div>
+          </div>
+        </DialogPanel>
       </div>
     </Dialog>
   )

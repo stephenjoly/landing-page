@@ -25,13 +25,17 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
   )}`
 
   return (
-    <ModalWrapper isOpen={isOpen} onRequestClose={onRequestClose}>
-      <article className="px-6 pt-6 pb-7 sm:px-[34px]">
-        <p className="flex min-h-[38px] items-center pr-12 text-[10px] font-semibold tracking-[0.12em] text-zinc-500 uppercase dark:text-zinc-400">
+    <ModalWrapper
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      header={
+        <p className="text-[10px] font-semibold tracking-[0.12em] text-zinc-500 uppercase dark:text-zinc-400">
           Case study / Consulting{years.length > 0 && ` / ${years.join('–')}`}
         </p>
-
-        <header className="mt-4 grid gap-6 border-b border-zinc-200 pb-5 sm:grid-cols-[minmax(0,1fr)_194px] sm:gap-[38px] dark:border-zinc-800">
+      }
+    >
+      <article className="px-6 pb-7 sm:px-[34px]">
+        <header className="grid gap-6 border-b border-zinc-200 pb-5 sm:grid-cols-[minmax(0,1fr)_194px] sm:gap-[38px] dark:border-zinc-800">
           <div>
             <DialogTitle
               as="h3"
