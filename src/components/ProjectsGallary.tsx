@@ -47,16 +47,16 @@ function TabButton({
       onClick={onClick}
       aria-pressed={active}
       className={clsx(
-        'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition sm:gap-3',
+        'relative z-10 inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300 motion-reduce:transition-none sm:gap-3',
         active
-          ? 'bg-white text-zinc-900 shadow-sm dark:bg-zinc-700 dark:text-zinc-100'
+          ? 'text-zinc-900 dark:text-zinc-100'
           : 'text-zinc-500 hover:text-teal-500 dark:text-zinc-400 dark:hover:text-teal-400',
       )}
     >
       {children}
       <span
         className={clsx(
-          'text-xs font-semibold tabular-nums',
+          'text-xs font-semibold tabular-nums transition-colors duration-300 motion-reduce:transition-none',
           active
             ? 'text-teal-500 dark:text-teal-400'
             : 'text-zinc-400 dark:text-zinc-500',
@@ -245,7 +245,14 @@ export default function ProjectsGallary({
         intro="This page brings together the work I build and the work I help deliver. Use the split view to move between coding projects and consulting engagements."
       >
         <div className="space-y-10">
-          <div className="inline-flex rounded-full bg-zinc-100 p-1.5 dark:bg-zinc-800">
+          <div className="relative inline-grid grid-cols-2 rounded-full bg-zinc-100 p-1.5 dark:bg-zinc-800">
+            <span
+              aria-hidden="true"
+              className={clsx(
+                'pointer-events-none absolute inset-y-1.5 left-1.5 w-[calc(50%-0.375rem)] rounded-full bg-white shadow-sm transition-transform duration-300 ease-in-out motion-reduce:transition-none dark:bg-zinc-700',
+                activeTab === 'consulting' ? 'translate-x-full' : 'translate-x-0',
+              )}
+            />
             <TabButton
               active={activeTab === 'coding'}
               count={codingProjects.length}

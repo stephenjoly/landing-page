@@ -90,6 +90,7 @@ The coding projects and consulting case studies use separate data collections an
 
 The projects toggle shows each collection's total, padded to two digits. Coding
 counts include works in progress; counts update automatically with the data.
+The active pill slides between categories, with animation disabled for reduced motion.
 
 ### Homepage / About / Speaking / Uses
 
