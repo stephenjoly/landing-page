@@ -1,88 +1,64 @@
-import React, { useEffect, useRef } from 'react'
+import { Dialog, DialogPanel } from '@headlessui/react'
+import { useEffect, useState, type ReactNode } from 'react'
 
 interface ModalProps {
-  descriptionId?: string
   isOpen: boolean
   onRequestClose: () => void
-  titleId?: string
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
-const ModalWrapper: React.FC<ModalProps> = ({
-  descriptionId,
+export default function ModalWrapper({
   isOpen,
   onRequestClose,
-  titleId,
   children,
-}) => {
-  const modalContentRef = useRef<HTMLDivElement>(null)
-  const closeButtonRef = useRef<HTMLButtonElement>(null)
+}: ModalProps) {
+  const [trigger] = useState(() =>
+    typeof document === 'undefined' ? null : document.activeElement,
+  )
 
   useEffect(() => {
-    if (!isOpen) return
-
-    modalContentRef.current?.focus()
-
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        modalContentRef.current &&
-        !modalContentRef.current.contains(event.target as Node)
-      ) {
-        onRequestClose()
-      }
-    }
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onRequestClose()
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    document.addEventListener('keydown', handleKeyDown)
-
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.removeEventListener('keydown', handleKeyDown)
+      // The gallery unmounts the dialog immediately when a case study closes.
+      requestAnimationFrame(() => {
+        if (trigger instanceof HTMLElement && trigger.isConnected)
+          trigger.focus()
+      })
     }
-  }, [isOpen, onRequestClose])
-
-  if (!isOpen) return null
+  }, [trigger])
 
   return (
-    <div className="fixed inset-0 z-200 flex items-center justify-center overflow-y-auto bg-zinc-950/50 px-4 py-6 backdrop-blur-sm backdrop-filter sm:px-6 sm:py-10">
+    <Dialog open={isOpen} onClose={onRequestClose} className="relative z-200">
       <div
-        ref={modalContentRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        aria-describedby={descriptionId}
-        tabIndex={-1}
-        className="relative max-h-[calc(100dvh-3rem)] min-h-[24rem] w-full max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl shadow-zinc-950/20 outline-none sm:max-h-[calc(100dvh-5rem)] sm:min-h-[26rem] sm:w-[50rem] dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-black/40"
-      >
-        <button
-          ref={closeButtonRef}
-          onClick={onRequestClose}
-          aria-label="Close project details"
-          className="absolute top-3.5 right-3.5 z-20 inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100 dark:focus-visible:ring-teal-400"
-        >
-          <svg
-            viewBox="0 0 16 16"
-            aria-hidden="true"
-            className="h-4 w-4 stroke-current"
-            fill="none"
-          >
-            <path
-              d="m4.25 4.25 7.5 7.5m0-7.5-7.5 7.5"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </button>
-        <div>{children}</div>
+        className="fixed inset-0 bg-zinc-950/55 backdrop-blur-sm"
+        aria-hidden="true"
+      />
+      <div className="fixed inset-0 overflow-y-auto">
+        <div className="flex min-h-full items-center justify-center px-4 py-6 sm:px-6 sm:py-10">
+          <DialogPanel className="relative w-full max-w-[877px] rounded-2xl border border-zinc-200 bg-white shadow-2xl shadow-zinc-950/20 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-black/40">
+            <button
+              type="button"
+              data-autofocus
+              onClick={onRequestClose}
+              aria-label="Close project details"
+              className="absolute top-6 right-5 inline-flex h-[38px] w-[38px] items-center justify-center rounded-full border border-zinc-200 text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 sm:right-[34px] dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                className="h-4 w-4 stroke-current"
+                fill="none"
+              >
+                <path
+                  d="m4.25 4.25 7.5 7.5m0-7.5-7.5 7.5"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+            {children}
+          </DialogPanel>
+        </div>
       </div>
-    </div>
+    </Dialog>
   )
 }
-
-export default ModalWrapper
