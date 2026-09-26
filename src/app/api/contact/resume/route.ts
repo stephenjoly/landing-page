@@ -2,12 +2,13 @@ import { readFile } from 'node:fs/promises'
 
 import { type NextRequest } from 'next/server'
 
-import { hasAccess, privateHeaders, SESSION_COOKIE } from '@/lib/contactAccess'
+import { hasAccess, isContactPreview, privateHeaders, SESSION_COOKIE } from '@/lib/contactAccess'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 export async function GET(request: NextRequest) {
+  if (isContactPreview()) return new Response('The real résumé is not included in this UI preview.', { headers: privateHeaders })
   let authorized = false
   try {
     authorized = await hasAccess(request.cookies.get(SESSION_COOKIE)?.value)

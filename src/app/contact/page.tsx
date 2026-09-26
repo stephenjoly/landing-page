@@ -2,7 +2,7 @@ import { type Metadata } from 'next'
 import Script from 'next/script'
 
 import { SimpleLayout } from '@/components/SimpleLayout'
-import { configurationReady } from '@/lib/contactAccess'
+import { configurationReady, isContactPreview } from '@/lib/contactAccess'
 
 export const dynamic = 'force-dynamic'
 
@@ -20,13 +20,21 @@ export default function Contact({
 }: {
   searchParams?: { sent?: string; error?: string }
 }) {
-  const ready = configurationReady()
+  const preview = isContactPreview()
+  const ready = preview || configurationReady()
 
   return (
     <SimpleLayout
       title="Request contact details"
       intro="If you’re reaching out about a job or professional opportunity, tell me who you are and why you’d like to connect. I review requests personally."
     >
+      {preview && (
+        <div className="mb-6 rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900">
+          UI preview — submissions are simulated and no emails are sent.{' '}
+          <a className="underline" href="/api/contact/approve?token=preview">Review sample request</a>{' · '}
+          <a className="underline" href="/contact/details">View sample contact details</a>
+        </div>
+      )}
       {searchParams?.sent === '1' ? (
         <p role="status" className="text-sm text-teal-700 dark:text-teal-400">
           Your request was sent. If I approve it, you’ll receive an access link by email.
@@ -44,10 +52,10 @@ export default function Contact({
                 : 'Your request could not be sent. Please try again later.'}
             </p>
           )}
-          <Script
+          {!preview && <Script
             src="https://challenges.cloudflare.com/turnstile/v0/api.js"
             strategy="afterInteractive"
-          />
+          />}
           <form action="/api/contact/request" method="post" className="max-w-xl space-y-5">
             <label className="block text-sm font-medium text-zinc-800 dark:text-zinc-200">
               Name
@@ -71,7 +79,7 @@ export default function Contact({
                 <input name="website" tabIndex={-1} autoComplete="off" />
               </label>
             </div>
-            <div className="cf-turnstile" data-sitekey={process.env.TURNSTILE_SITE_KEY} />
+            {preview ? <p className="text-sm text-zinc-500">Bot verification is disabled in this preview.</p> : <div className="cf-turnstile" data-sitekey={process.env.TURNSTILE_SITE_KEY} />}
             <p className="text-xs text-zinc-500 dark:text-zinc-400">
               Resend emails me a copy of your name, email, organization, and reason.
               The site’s pending request record expires after seven days.

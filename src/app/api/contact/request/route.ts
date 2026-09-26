@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 
 import {
   configurationReady,
+  isContactPreview,
   isSameOrigin,
   privateHeaders,
   readForm,
@@ -25,6 +26,7 @@ function back(result: string) {
 }
 
 export async function POST(request: Request) {
+  if (isContactPreview()) return back('sent=1')
   if (!configurationReady()) return back('error=unavailable')
   if (!isSameOrigin(request)) return new Response(null, { status: 403 })
 

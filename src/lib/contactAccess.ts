@@ -8,6 +8,11 @@ export const REQUEST_TTL = 7 * 24 * 60 * 60
 export const INVITE_TTL = 2 * 24 * 60 * 60
 export const SESSION_TTL = 7 * 24 * 60 * 60
 
+// UI-only preview: never grants a real session or sends email.
+export function isContactPreview() {
+  return process.env.CONTACT_UI_PREVIEW === '1'
+}
+
 export type ContactRequest = {
   name: string
   email: string
@@ -83,6 +88,7 @@ export async function redis() {
 }
 
 export async function sendEmail(to: string, subject: string, body: string) {
+  if (isContactPreview()) throw new Error('Email is disabled in UI previews')
   const key = process.env.RESEND_API_KEY
   const from = process.env.RESEND_FROM_EMAIL
   if (!key || !from) throw new Error('Resend is not configured')

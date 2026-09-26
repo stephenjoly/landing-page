@@ -1,5 +1,6 @@
 import {
   INVITE_TTL,
+  isContactPreview,
   isSameOrigin,
   privateHeaders,
   readForm,
@@ -51,12 +52,13 @@ function parseRequest(value: string): ContactRequest {
 }
 
 export async function GET(request: Request) {
-  const approvalToken = new URL(request.url).searchParams.get('token') || ''
-  if (!validToken(approvalToken)) return page('<h1>Invalid request link</h1>', 400)
+  const preview = isContactPreview()
+  const approvalToken = preview ? 'preview' : new URL(request.url).searchParams.get('token') || ''
+  if (!preview && !validToken(approvalToken)) return page('<h1>Invalid request link</h1>', 400)
 
   let details: ContactRequest
   try {
-    const raw = await (await redis()).get(tokenKey('request', approvalToken))
+    const raw = preview ? JSON.stringify({name: 'Alex Recruiter', email: 'alex@example.com', organization: 'Example Recruiting', reason: 'I would like to discuss a product leadership opportunity.', createdAt: 'Sample request — UI preview'}) : await (await redis()).get(tokenKey('request', approvalToken))
     if (!raw) return page('<h1>This request has expired or was already reviewed.</h1>', 410)
     details = parseRequest(raw)
   } catch {
@@ -69,6 +71,7 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  if (isContactPreview()) return page('<h1>Preview complete</h1><p>No decision was saved and no email was sent.</p><p><a href="/contact/details">View sample contact details</a></p>')
   if (!isSameOrigin(request)) return new Response(null, { status: 403 })
   let form: URLSearchParams
   try {

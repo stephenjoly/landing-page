@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 
 import {
   isSameOrigin,
+  isContactPreview,
   privateHeaders,
   readForm,
   redis,
@@ -24,6 +25,7 @@ const pageHeaders = {
 }
 
 export async function GET(request: Request) {
+  if (isContactPreview()) return new Response('UI preview: use /contact/details to view sample data.', { headers: privateHeaders })
   const accessToken = new URL(request.url).searchParams.get('token') || ''
   if (!validToken(accessToken)) {
     return new Response('This access link is invalid.', { status: 400, headers: privateHeaders })
@@ -47,6 +49,7 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  if (isContactPreview()) return new Response(null, { status: 403, headers: privateHeaders })
   if (!isSameOrigin(request)) return new Response(null, { status: 403 })
   let form: URLSearchParams
   try {
