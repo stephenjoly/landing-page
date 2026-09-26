@@ -33,10 +33,12 @@ function getValidTab(tab: string | null | undefined): ProjectTab {
 function TabButton({
   active,
   children,
+  count,
   onClick,
 }: {
   active: boolean
   children: React.ReactNode
+  count: number
   onClick: () => void
 }) {
   return (
@@ -45,13 +47,23 @@ function TabButton({
       onClick={onClick}
       aria-pressed={active}
       className={clsx(
-        'rounded-full px-4 py-2 text-sm font-medium transition',
+        'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition sm:gap-3',
         active
-          ? 'bg-zinc-800 text-zinc-100 shadow-sm dark:bg-zinc-100 dark:text-zinc-900'
-          : 'text-zinc-600 hover:text-teal-500 dark:text-zinc-300 dark:hover:text-teal-400',
+          ? 'bg-white text-zinc-900 shadow-sm dark:bg-zinc-700 dark:text-zinc-100'
+          : 'text-zinc-500 hover:text-teal-500 dark:text-zinc-400 dark:hover:text-teal-400',
       )}
     >
       {children}
+      <span
+        className={clsx(
+          'text-xs font-semibold tabular-nums',
+          active
+            ? 'text-teal-500 dark:text-teal-400'
+            : 'text-zinc-400 dark:text-zinc-500',
+        )}
+      >
+        {String(count).padStart(2, '0')}
+      </span>
     </button>
   )
 }
@@ -233,15 +245,17 @@ export default function ProjectsGallary({
         intro="This page brings together the work I build and the work I help deliver. Use the split view to move between coding projects and consulting engagements."
       >
         <div className="space-y-10">
-          <div className="inline-flex rounded-full bg-white/90 p-1.5 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10">
+          <div className="inline-flex rounded-full bg-zinc-100 p-1.5 dark:bg-zinc-800">
             <TabButton
               active={activeTab === 'coding'}
+              count={codingProjects.length}
               onClick={() => setTab('coding')}
             >
               Coding
             </TabButton>
             <TabButton
               active={activeTab === 'consulting'}
+              count={consultingProjects.length}
               onClick={() => setTab('consulting')}
             >
               Consulting

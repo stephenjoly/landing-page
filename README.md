@@ -88,6 +88,9 @@ The coding projects and consulting case studies use separate data collections an
 - coding projects link out directly
 - consulting projects open a modal case-study view
 
+The projects toggle shows each collection's total, padded to two digits. Coding
+counts include works in progress; counts update automatically with the data.
+
 ### Homepage / About / Speaking / Uses
 
 These pages are authored directly in TSX under `src/app/.../page.tsx`.
