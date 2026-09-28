@@ -43,20 +43,23 @@ export function ContactForm() {
   const headingRef = useRef<HTMLHeadingElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
   const submitting = useRef(false)
+  const focusTarget = useRef<string | null>(null)
 
   useEffect(() => {
     if (receipt) headingRef.current?.focus()
   }, [receipt])
 
-  function focusField(fieldErrors: ContactErrors) {
-    const first = fields.find(({ name }) => fieldErrors[name])
-    if (first) {
-      requestAnimationFrame(() => {
-        ;(
-          formRef.current?.elements.namedItem(first.name) as HTMLElement | null
-        )?.focus()
-      })
+  useEffect(() => {
+    if (!sending && focusTarget.current) {
+      const field = formRef.current?.elements.namedItem(focusTarget.current)
+      if (field instanceof HTMLElement) field.focus()
+      focusTarget.current = null
     }
+  }, [sending, errors, receipt])
+
+  function focusField(fieldErrors: ContactErrors) {
+    focusTarget.current =
+      fields.find(({ name }) => fieldErrors[name])?.name ?? null
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -95,15 +98,11 @@ export function ContactForm() {
   }
 
   function reset() {
+    focusTarget.current = 'name'
     setReceipt(null)
     setValues({ ...emptyContactValues })
     setErrors({})
     setError('')
-    requestAnimationFrame(() => {
-      ;(
-        formRef.current?.elements.namedItem('name') as HTMLInputElement | null
-      )?.focus()
-    })
   }
 
   return (
@@ -230,7 +229,7 @@ export function ContactForm() {
                     <textarea
                       {...props}
                       rows={5}
-                      className={`${inputClass} min-h-36 resize-y py-3`}
+                      className={`${inputClass} h-36 min-h-36 resize-y py-3`}
                     />
                   ) : (
                     <input
