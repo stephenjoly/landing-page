@@ -19,6 +19,8 @@ The site is content-first: a homepage with a short resume-style work history, an
 
 - `/` homepage with intro copy, social links, selected articles, and a work-history card
 - `/about` biography and profile links
+- `/contact` contact form with in-place confirmation
+- `/api/contact` POST-only email delivery endpoint
 - `/articles` article index
 - `/articles/[slug]` MDX article pages
 - `/projects` split view for coding projects and consulting case studies
@@ -152,3 +154,40 @@ button remain visible.
 
 - the homepage newsletter form is currently a UI flow only and posts to `/thank-you`
 - some template-era artifacts still remain in the repository and are being cleaned up incrementally
+
+
+## Contact delivery
+
+The Contact page posts to a Next.js route handler using the
+[Resend send-email API](https://resend.com/docs/api-reference/emails/send-email).
+Configure these **server-only runtime environment variables** in your deployment
+or local `.env.local` (never commit values):
+
+| Variable | Purpose |
+| --- | --- |
+| `RESEND_API_KEY` | Resend API key with sending permission |
+| `CONTACT_FROM_EMAIL` | Sender address on a domain verified in Resend |
+| `CONTACT_TO_EMAIL` | Stephen’s receiving inbox |
+
+Do not prefix these variables with `NEXT_PUBLIC_`. Configure them on the running
+container, not as build arguments. Missing configuration produces a recoverable
+error and preserves the visitor’s input. The visitor’s email is used as `reply_to`;
+messages are plain text and are not logged by application code.
+
+Client and server validate required name, email and message, format, and field
+lengths. The handler rejects the honeypot and caps request bodies at 32 KiB.
+Basic rate limiting allows five valid attempts per normalized email and thirty
+total attempts per 15-minute window, with a `Retry-After` header when exhausted.
+Only hashes and counters are held in memory. The global cap prevents rotating
+email addresses from bypassing the send budget; IP headers are not trusted.
+Limits are per Node process and reset on restart. Use a shared limiter or proxy
+rate limiting before scaling to multiple replicas; this is not a durable quota.
+
+A successful response means Resend accepted the email, not confirmed inbox
+arrival. The requested success design says “Delivered”; there is no delivery
+webhook or message persistence. Network/provider errors allow retry, which can
+produce a duplicate if the provider accepted a send before the connection failed.
+
+Run `npm run test:contact` for handler and validation checks using a mocked provider.
+No test sends live email. Before release, configure the variables and verify one
+real delivery and reply-to from the deployed site.
