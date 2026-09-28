@@ -62,7 +62,7 @@ export default function Uses() {
             workstation for my ThinkPad.
           </Tool>
           <Tool title="QwertyKeys QK75N Keyboard, Coffee Colourway">
-            There's no better feeling than clacking away at 5am. qwertykeys is
+            There&apos;s no better feeling than clacking away at 5am. qwertykeys is
             one of the best value keyboard manufacturers which i cannot
             recommend enough. i run my keyboard with Tangies and PBT WoB with
             the simple legends.
@@ -70,7 +70,7 @@ export default function Uses() {
           <Tool title="Logitech Superlight">
             Once you get used to the lightness of this mouse and the instant
             responsiveness of the 2.4 Ghz connections, its hard to go back to
-            any ol' bluetooth mouse.
+            any ol&apos; bluetooth mouse.
           </Tool>
           <Tool title="AirPod Pro 2">
             These are so ubiquitous in my life that i almost forgot to include
@@ -103,9 +103,9 @@ export default function Uses() {
         </ToolsSection>
         <ToolsSection title="Homelab">
           <Tool title="Proxmox">
-            It really doesn't get better than this when it comes to convenience
+            It really doesn&apos;t get better than this when it comes to convenience
             in running a homelab (at least in my experience). The amount of
-            machines i've had to backup, spin up, spin down, reprovision, etc...
+            machines i&apos;ve had to backup, spin up, spin down, reprovision, etc...
             without proxmox it would have been quite a lot harder to do.
           </Tool>
           <Tool title="Ubuntu Server & Docker">
@@ -121,7 +121,7 @@ export default function Uses() {
           </Tool>
           <Tool title="Prusa MK3S+">
             Having a 3D printer opens up a lot of possibilities for homelabbing.
-            No explanation needed. I've had a great experience with this model,
+            No explanation needed. I&apos;ve had a great experience with this model,
             though I know there are superior ones out there, this one has a
             great value for the price.
           </Tool>
@@ -136,8 +136,8 @@ export default function Uses() {
             shot. Such a lovely lens.
           </Tool>
           <Tool title="Fujifilm 16-80 F4 OIS WR">
-            For travel and for when you dont know what you'll be shooting that
-            day. Super versatile. Would recommend it for anyone's camera bag.
+            For travel and for when you dont know what you&apos;ll be shooting that
+            day. Super versatile. Would recommend it for anyone&apos;s camera bag.
           </Tool>
         </ToolsSection>
       </div>
