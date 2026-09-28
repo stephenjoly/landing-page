@@ -112,7 +112,7 @@ Homepage, About, Speaking, and Uses pages are largely authored directly in TSX f
 - `src/app/layout.tsx` sets global metadata, loads analytics, and wraps all pages in the shared shell.
 - `src/app/providers.tsx` manages theme state and preserves system theme behavior.
 - `src/components/Layout.tsx` composes the page chrome using the shared header and footer.
-- `src/components/Header.tsx` handles desktop/mobile navigation and the right-aligned Contact pill, which expands on hover or keyboard focus.
+- `src/components/Header.tsx` handles desktop/mobile navigation and the right-aligned, always-expanded Contact pill, matching navigation height and typography.
 - `src/components/ThemeSelector.tsx` provides the footer’s Light/Dark/System radio controls. Explicit choices persist; System follows device preference through `next-themes`.
 - `src/components/SimpleLayout.tsx`, `Container.tsx`, `Card.tsx`, and `Section.tsx` are the main page-building primitives.
 

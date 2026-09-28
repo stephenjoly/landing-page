@@ -381,7 +381,7 @@ export function Header() {
                   <Link
                     href="/contact"
                     aria-label="Contact me"
-                    className="group relative inline-flex h-11 w-11 shrink-0 items-center overflow-hidden rounded-full border-2 border-teal-600 bg-white/90 text-sm font-medium text-zinc-800 backdrop-blur-sm transition-[width,background-color] duration-150 hover:w-[136px] hover:bg-teal-50 focus-visible:w-[136px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-600 motion-reduce:transition-none dark:border-teal-400 dark:bg-zinc-900/90 dark:text-zinc-100 dark:hover:bg-teal-950"
+                    className="inline-flex h-10 shrink-0 items-center gap-2 rounded-full border-2 border-teal-600 bg-white/90 px-4 text-sm font-medium whitespace-nowrap text-zinc-800 backdrop-blur-sm transition-colors hover:bg-teal-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-600 motion-reduce:transition-none dark:border-teal-400 dark:bg-zinc-900/90 dark:text-zinc-100 dark:hover:bg-teal-950"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -391,13 +391,11 @@ export function Header() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       aria-hidden="true"
-                      className="absolute left-[11px] h-[18px] w-[18px] text-teal-700 dark:text-teal-400"
+                      className="h-[18px] w-[18px] shrink-0 text-teal-700 dark:text-teal-400"
                     >
                       <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z" />
                     </svg>
-                    <span className="absolute left-10 whitespace-nowrap opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none">
-                      Contact me
-                    </span>
+                    <span>Contact me</span>
                   </Link>
                 </div>
               </div>
