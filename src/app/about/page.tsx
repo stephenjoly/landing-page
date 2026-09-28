@@ -115,19 +115,30 @@ export default function About() {
               </SocialLink>
             ))}
           </ul>
-          <div className="mt-8 border-t border-zinc-200 pt-8 dark:border-zinc-700/40">
-            <h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
-              Have something in mind?
+          <div className="mt-8 rounded-2xl bg-teal-50 p-6 dark:bg-teal-950/50">
+            <h2 className="text-lg font-semibold text-teal-900 dark:text-teal-200">
+              Let’s talk
             </h2>
-            <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-              The contact form comes straight to me. I’ll reply as soon as I
-              can.
+            <p className="mt-2 text-sm leading-6 text-teal-800 dark:text-teal-300">
+              Have a question or an idea? Send me a message.
             </p>
             <Link
               href="/contact"
-              className="mt-4 inline-block text-sm font-semibold text-teal-700 hover:text-teal-600 dark:text-teal-400"
+              className="mt-4 flex min-h-12 items-center justify-center gap-2 rounded-lg bg-teal-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700 dark:bg-teal-400 dark:text-zinc-950 dark:hover:bg-teal-300 dark:focus-visible:outline-teal-400"
             >
-              Let&apos;s talk →
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                className="h-5 w-5"
+              >
+                <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z" />
+              </svg>
+              Get in touch
             </Link>
           </div>
         </div>

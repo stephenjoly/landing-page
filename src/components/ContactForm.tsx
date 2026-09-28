@@ -284,7 +284,9 @@ export function ContactForm() {
                 className="h-8 w-8 shrink-0 rounded-full object-cover"
               />
               <p className="max-w-64 text-xs leading-5 text-zinc-600 dark:text-zinc-400">
-                Comes straight to me. I’ll reply as soon as I can.
+                Comes straight to me.
+                <br />
+                I’ll reply as soon as I can.
               </p>
             </div>
           </div>
