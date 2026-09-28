@@ -7,3 +7,8 @@ context.md
 /codex-sessions.md
 .resources
 .DS_Store
+
+# Runtime secrets and local verification artifacts
+.env*
+output/
+.playwright-cli/

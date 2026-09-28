@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:contact": "node --test tests/contact.test.cjs"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
