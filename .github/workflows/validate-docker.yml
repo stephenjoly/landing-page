@@ -6,9 +6,15 @@ on:
       - main
   pull_request:
 
+# Stop obsolete validation runs when the same PR or branch is updated.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     permissions:
       contents: read
