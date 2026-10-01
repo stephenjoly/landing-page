@@ -191,3 +191,9 @@ produce a duplicate if the provider accepted a send before the connection failed
 Run `npm run test:contact` for handler and validation checks using a mocked provider.
 No test sends live email. Before release, configure the variables and verify one
 real delivery and reply-to from the deployed site.
+
+## Agent CI guidance
+
+Use the shared [agent-os CI efficiency skill](https://github.com/stephenjoly/agent-os/blob/main/skills/ci-efficiency/SKILL.md) for CI changes, checkpoint pushes, and retries. Keep reusable policy there; this repository intentionally excludes local `AGENTS.md` files from Git. Integrated agents discover the shared skill through agent-os; otherwise read the linked source through authenticated GitHub access.
+
+Create a task branch from freshly fetched `origin/main` and propose a PR into `main`. The Docker validation workflow preserves PR and post-merge builds, cancels obsolete validation runs for the same ref, and caps each build job at 30 minutes. Dokploy retains deployment ownership and native preview comments where configured.
