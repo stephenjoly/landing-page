@@ -191,3 +191,17 @@ produce a duplicate if the provider accepted a send before the connection failed
 Run `npm run test:contact` for handler and validation checks using a mocked provider.
 No test sends live email. Before release, configure the variables and verify one
 real delivery and reply-to from the deployed site.
+
+## Agent browser QA
+
+Paseo’s `paseo.json` worktree setup installs dependencies and matching browser binaries automatically. For existing checkouts, use Node.js 22+ and run:
+
+```bash
+npm ci
+npx playwright install
+npm run test:e2e
+```
+
+Playwright starts and stops its own loopback-only frontend server on port 4182. It refuses to reuse another task’s server. The smoke test checks frontend rendering/navigation only; backend data flows need synthetic fixtures and a separate disposable backend.
+
+Agents may run these commands autonomously for authorized local QA. Keep test data synthetic and do not submit real messages, calls, or production writes. Retain failure traces/screenshots outside Git; report failed and skipped tests explicitly. Browser caches are shared per host, while dependencies are installed per worktree.

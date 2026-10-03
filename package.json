@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:contact": "node --test tests/contact.test.cjs"
+    "test:contact": "node --test tests/contact.test.cjs",
+    "test:e2e": "playwright test",
+    "qa:install": "playwright install"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
@@ -36,6 +38,7 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@playwright/test": "1.63.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
     "prettier": "^3.3.2",
