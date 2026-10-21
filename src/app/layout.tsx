@@ -2,16 +2,26 @@ import { type Metadata } from 'next'
 
 import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
+import {
+  siteDescription,
+  siteName,
+  siteTitle,
+  siteUrl,
+  socialDefaults,
+} from '@/lib/site'
 import PlausibleProvider from 'next-plausible'
 import '@/styles/tailwind.css'
 
+// No canonical or og:url here: they would be inherited by every page.
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    template: '%s - Stephen Joly',
-    default: 'Stephen Joly - Product-minded builder',
+    template: `%s - ${siteName}`,
+    default: siteTitle,
   },
-  description:
-    'I’m Stephen, an engineer and aspiring technologist based in Toronto. I lead customer deployment for Strategic Workforce Planning at Dayforce and spend my time building tools, systems, and ideas that help people solve real-world problems.',
+  description: siteDescription,
+  authors: [{ name: siteName, url: siteUrl }],
+  ...socialDefaults,
 }
 
 export default function RootLayout({

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
@@ -144,6 +144,28 @@ function CodingProjectsGrid({ projects }: { projects: CodingProject[] }) {
   )
 }
 
+const consultingCategories: ConsultingProject['category'][] = [
+  'AI and analytics',
+  'Workforce and organization',
+  'Risk and operations',
+]
+
+function getCategoryId(category: ConsultingProject['category']) {
+  return `archive-${category.toLowerCase().replace(/[^a-z]+/g, '-')}`
+}
+
+function CaseMeta({ project }: { project: ConsultingProject }) {
+  return (
+    <>
+      {project.descriptor}
+      <span aria-hidden="true" className="mx-1.5">
+        ·
+      </span>
+      {project.year}
+    </>
+  )
+}
+
 function ConsultingProjectsGrid({
   onProjectSelect,
   projects,
@@ -151,6 +173,16 @@ function ConsultingProjectsGrid({
   onProjectSelect: (project: ConsultingProject) => void
   projects: ConsultingProject[]
 }) {
+  const featuredProjects = projects.filter((project) => project.featured)
+  const archiveGroups = consultingCategories
+    .map((category) => ({
+      category,
+      projects: projects.filter(
+        (project) => !project.featured && project.category === category,
+      ),
+    }))
+    .filter((group) => group.projects.length > 0)
+
   return (
     <div className="space-y-16">
       <div className="max-w-2xl">
@@ -160,35 +192,140 @@ function ConsultingProjectsGrid({
         </p>
       </div>
 
-      <ul
-        role="list"
-        className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        {projects.map((project) => (
-          <Card as="li" key={project.name}>
-            <div className="flex items-center space-x-3 pb-2">
-              <div className="relative z-10 flex h-12 w-12 flex-none items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                <Image
-                  src={project.logo}
-                  alt=""
-                  className="h-8 w-8 object-contain"
-                  unoptimized
-                />
+      <section aria-labelledby="featured-cases-title">
+        <h2
+          id="featured-cases-title"
+          className="text-xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
+        >
+          Featured consulting projects
+        </h2>
+        <ul
+          role="list"
+          className="mt-12 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {featuredProjects.map((project) => (
+            <Card as="li" key={project.slug}>
+              <div
+                data-case={project.slug}
+                className="flex items-center space-x-3 pb-2"
+              >
+                <div className="relative z-10 flex h-12 w-12 flex-none items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                  <Image
+                    src={project.logo}
+                    alt=""
+                    className="h-8 w-8 object-contain"
+                    unoptimized
+                  />
+                </div>
+                <h3 className="flex-grow font-semibold text-zinc-800 dark:text-zinc-100">
+                  <Card.Button onClick={() => onProjectSelect(project)}>
+                    <span className="text-left">{project.shortTitle}</span>
+                  </Card.Button>
+                </h3>
               </div>
-              <h2 className="flex-grow font-semibold text-zinc-800 dark:text-zinc-100">
-                <Card.Button onClick={() => onProjectSelect(project)}>
-                  <span className="text-left">{project.name}</span>
-                </Card.Button>
-              </h2>
-            </div>
-            <Card.Description>{project.description}</Card.Description>
-            <p className="relative z-10 mt-4 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
-              <LinkIcon className="h-6 w-6 flex-none" />
-              <span className="ml-2">Click here to learn more</span>
+              <p className="relative z-10 mt-2 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                <CaseMeta project={project} />
+              </p>
+              <Card.Description>{project.outcome}</Card.Description>
+              <p className="relative z-10 mt-4 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+                <LinkIcon className="h-6 w-6 flex-none" />
+                <span className="ml-2">View project</span>
+              </p>
+            </Card>
+          ))}
+        </ul>
+      </section>
+
+      {archiveGroups.length > 0 ? (
+        <section
+          aria-labelledby="case-archive-title"
+          className="border-t border-zinc-100 pt-12 dark:border-zinc-700/40"
+        >
+          <div className="max-w-2xl">
+            <h2
+              id="case-archive-title"
+              className="text-xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
+            >
+              Consulting project archive
+            </h2>
+            <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
+              More engagements from my consulting work, grouped by focus area.
             </p>
-          </Card>
-        ))}
-      </ul>
+          </div>
+
+          <nav aria-label="Archive categories" className="mt-6">
+            <ul role="list" className="flex flex-wrap gap-2">
+              {archiveGroups.map(({ category, projects }) => (
+                <li key={category}>
+                  <a
+                    href={`#${getCategoryId(category)}`}
+                    className="inline-flex items-center gap-2 rounded-full bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-600 transition hover:text-teal-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:text-teal-400"
+                  >
+                    {category}
+                    <span className="text-xs font-semibold text-zinc-400 tabular-nums dark:text-zinc-500">
+                      {String(projects.length).padStart(2, '0')}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="mt-12 space-y-14">
+            {archiveGroups.map(({ category, projects }) => (
+              <section
+                key={category}
+                id={getCategoryId(category)}
+                aria-labelledby={`${getCategoryId(category)}-title`}
+                className="scroll-mt-24"
+              >
+                <h3
+                  id={`${getCategoryId(category)}-title`}
+                  className="text-sm font-semibold text-zinc-900 dark:text-zinc-100"
+                >
+                  {category}
+                </h3>
+                <ul
+                  role="list"
+                  className="mt-4 divide-y divide-zinc-100 border-t border-zinc-100 dark:divide-zinc-700/40 dark:border-zinc-700/40"
+                >
+                  {projects.map((project) => (
+                    <li
+                      key={project.slug}
+                      data-case={project.slug}
+                      className="group relative"
+                    >
+                      <div className="absolute -inset-x-4 inset-y-0 bg-zinc-50 opacity-0 transition group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50" />
+                      <div className="relative grid gap-x-10 gap-y-2 py-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
+                        <div>
+                          <h4 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
+                            <button
+                              type="button"
+                              onClick={() => onProjectSelect(project)}
+                              className="text-left transition group-hover:text-teal-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-500 dark:group-hover:text-teal-400"
+                            >
+                              <span className="absolute inset-0" />
+                              <span className="relative">
+                                {project.shortTitle}
+                              </span>
+                            </button>
+                          </h4>
+                          <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+                            <CaseMeta project={project} />
+                          </p>
+                        </div>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                          {project.outcome}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </div>
   )
 }
@@ -207,17 +344,54 @@ export default function ProjectsGallary({
   const pathname = usePathname()
   const router = useRouter()
   const searchParams = useSearchParams()
-  const [selectedProject, setSelectedProject] =
-    useState<ConsultingProject | null>(null)
+  const openedInPage = useRef(false)
+  const previousCaseSlug = useRef<string | null>(null)
 
   const activeTab = getValidTab(searchParams.get('tab') ?? initialTab)
+  const caseSlug = searchParams.get('case')
+  const selectedProject =
+    activeTab === 'consulting' && caseSlug
+      ? consultingProjects.find((project) => project.slug === caseSlug) ?? null
+      : null
+
+  const getCaseUrl = (slug: string | null) => {
+    const params = new URLSearchParams(window.location.search)
+
+    params.set('tab', 'consulting')
+
+    if (slug) {
+      params.set('case', slug)
+    } else {
+      params.delete('case')
+    }
+
+    return `${pathname}?${params.toString()}`
+  }
 
   const setTab = (tab: ProjectTab) => {
     const params = new URLSearchParams(searchParams.toString())
 
     params.set('tab', tab)
+    params.delete('case')
 
     router.push(`${pathname}?${params.toString()}`, { scroll: false })
+  }
+
+  // Case studies live in the URL so they can be linked directly. Opening one
+  // adds a history entry, so Back closes it; closing a directly linked case
+  // only removes the query.
+  const openProject = (project: ConsultingProject) => {
+    openedInPage.current = true
+    window.history.pushState(null, '', getCaseUrl(project.slug))
+  }
+
+  const closeProject = () => {
+    if (openedInPage.current) {
+      openedInPage.current = false
+      window.history.back()
+    } else {
+      window.history.replaceState(null, '', getCaseUrl(null))
+    }
   }
 
   useEffect(() => {
@@ -233,10 +407,25 @@ export default function ProjectsGallary({
   }, [selectedProject])
 
   useEffect(() => {
-    if (activeTab === 'coding') {
-      setSelectedProject(null)
-    }
-  }, [activeTab])
+    const closedSlug = previousCaseSlug.current
+
+    previousCaseSlug.current = selectedProject?.slug ?? null
+
+    if (selectedProject || !closedSlug) return
+
+    openedInPage.current = false
+
+    // A directly linked case has no trigger to return focus to, so move focus
+    // to the case in the list once the modal has finished restoring focus.
+    requestAnimationFrame(() => {
+      if (document.activeElement && document.activeElement !== document.body)
+        return
+
+      document
+        .querySelector<HTMLButtonElement>(`[data-case="${closedSlug}"] button`)
+        ?.focus()
+    })
+  }, [selectedProject])
 
   return (
     <>
@@ -274,7 +463,7 @@ export default function ProjectsGallary({
           ) : (
             <ConsultingProjectsGrid
               projects={consultingProjects}
-              onProjectSelect={setSelectedProject}
+              onProjectSelect={openProject}
             />
           )}
         </div>
@@ -283,7 +472,7 @@ export default function ProjectsGallary({
       {selectedProject ? (
         <ProjectModal
           isOpen
-          onRequestClose={() => setSelectedProject(null)}
+          onRequestClose={closeProject}
           project={selectedProject}
         />
       ) : null}

@@ -1,13 +1,13 @@
 # Stephen Joly Website
 
-Personal website and writing site built with Next.js 14, TypeScript, Tailwind CSS, and MDX.
+Personal website and writing site built with Next.js 16, TypeScript, Tailwind CSS, and MDX.
 
-The site is content-first: a homepage with a short resume-style work history, an About page, MDX articles, a split `Coding` / `Consulting` projects page, a Speaking page, and a Uses page.
+The site is content-first: a homepage featuring selected coding projects and consulting projects, a compact career summary, an About page, MDX articles, a split `Coding` / `Consulting` projects page, a Speaking page, and a Uses page.
 
 ## Stack
 
-- Next.js 14 App Router
-- React 18
+- Next.js 16 App Router
+- React 19
 - TypeScript
 - Tailwind CSS v4
 - MDX via `@next/mdx`
@@ -17,22 +17,23 @@ The site is content-first: a homepage with a short resume-style work history, an
 
 ## Routes
 
-- `/` homepage with intro copy, social links, selected articles, and a work-history card
+- `/` homepage with intro copy, photos, three coding projects, a six-project consulting carousel, recent writing, and a compact career card
 - `/about` biography and profile links
 - `/contact` contact form with in-place confirmation
 - `/api/contact` POST-only email delivery endpoint
 - `/articles` article index
 - `/articles/[slug]` MDX article pages
-- `/projects` split view for coding projects and consulting case studies
+- `/projects` split view for coding projects and consulting projects
 - `/speaking` speaking appearances
 - `/uses` equipment and software recommendations
 - `/thank-you` static form confirmation page
 ## Local Development
 
-Install dependencies and start the dev server:
+Use Node.js 24 LTS (pinned in `.nvmrc`), then install the locked dependencies and start the dev server:
 
 ```bash
-npm install
+nvm use
+npm ci
 npm run dev
 ```
 
@@ -85,10 +86,12 @@ Projects are defined in:
 src/app/projects/data.ts
 ```
 
-The coding projects and consulting case studies use separate data collections and different interaction patterns:
+The coding projects and consulting projects use separate data collections and different interaction patterns:
 
 - coding projects link out directly
-- consulting projects open a modal case-study view
+- consulting projects open a project detail modal
+
+Consulting shows six featured projects and groups the remaining projects in an archive by focus area. Each project has a stable `slug`, short title, year, and evidenced outcome or deliverable. Link directly to a reader with `/projects?tab=consulting&case=<slug>`. Homepage selections use `homeFeatured` and `homeSummary` from the same data; work in progress stays clearly labelled.
 
 The projects toggle shows each collection's total, padded to two digits. Coding
 counts include works in progress; counts update automatically with the data.
@@ -100,9 +103,17 @@ These pages are authored directly in TSX under `src/app/.../page.tsx`.
 
 ## Build
 
-Run a production build locally with:
+The build and development commands explicitly use webpack to preserve the existing
+MDX remark/rehype plugin and dynamic article import pipeline. Lint runs separately
+with ESLint 9 flat config; Next.js 16 no longer runs lint during builds.
+
+Run the checks and a production build locally with:
 
 ```bash
+npm run lint
+npm run typecheck
+npm run test:contact
+npm run test:runtime
 npm run build
 ```
 
@@ -111,6 +122,14 @@ Start the production server with:
 ```bash
 npm run start
 ```
+
+## Workspace preview
+
+After `npm ci` and `npm run build`, start the **Preview** script in Paseo. The
+repository's `paseo.json` runs the production server on the workspace-allocated
+port and registers a managed proxy URL. Rebuild and restart the script after
+source changes. The proxy's `.localhost` URL is host-local unless a public proxy
+is configured; public review URLs are managed separately. This preview does not deploy to production.
 
 ## Docker
 
@@ -139,20 +158,18 @@ but it does not publish or deploy an image.
 Production traffic reaches the Dokploy application through the shared Traefik instance. The retired
 Compose container on `vm-production` is retained in a stopped state as a short-term rollback target.
 
-## Consulting case studies
+## Consulting projects
 
 Open `/projects?tab=consulting` and select a project to view the Reader Hybrid
 layout, based on the local `ui.pen` frame “Detail Option E — Reader Hybrid”.
 The responsive dialog includes client/duration metadata, context, contributions,
-and a contact link that opens an email draft with the case-study title. Industry
+and a contact link that opens an email draft with the project title. Industry
 is omitted until authored data is available. Keyboard focus stays inside the
-reader; Escape, the close button, and clicking outside dismiss it. Long case
-studies scroll inside a viewport-height panel while the classification and close
+reader; Escape, the close button, and clicking outside dismiss it. Long projects scroll inside a viewport-height panel while the classification and close
 button remain visible.
 
 ## Known Cleanup Items
 
-- the homepage newsletter form is currently a UI flow only and posts to `/thank-you`
 - some template-era artifacts still remain in the repository and are being cleaned up incrementally
 
 
@@ -184,13 +201,13 @@ Limits are per Node process and reset on restart. Use a shared limiter or proxy
 rate limiting before scaling to multiple replicas; this is not a durable quota.
 
 A successful response means Resend accepted the email, not confirmed inbox
-arrival. The requested success design says “Delivered”; there is no delivery
+arrival. The success message says “Sent”; there is no delivery
 webhook or message persistence. Network/provider errors allow retry, which can
 produce a duplicate if the provider accepted a send before the connection failed.
 
 Run `npm run test:contact` for handler and validation checks using a mocked provider.
-No test sends live email. Before release, configure the variables and verify one
-real delivery and reply-to from the deployed site.
+No test sends live email. A separately authorized real submission is needed to verify
+inbox delivery and reply-to; automated checks do not establish either.
 
 ## Agent browser QA
 

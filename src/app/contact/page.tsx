@@ -1,12 +1,14 @@
 import { type Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { ContactForm } from '@/components/ContactForm'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Contact',
   description:
     'Tell me what you’re working on, a role you have in mind, or an idea you’d like to explore.',
-}
+  path: '/contact',
+})
 
 export default function Contact() {
   return (

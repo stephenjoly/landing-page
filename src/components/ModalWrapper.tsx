@@ -63,7 +63,7 @@ export default function ModalWrapper({
             className="min-h-0 overflow-y-auto overscroll-contain [scrollbar-gutter:stable]"
             tabIndex={0}
             role="region"
-            aria-label="Case study content"
+            aria-label="Project details"
           >
             {children}
           </div>

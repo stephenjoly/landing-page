@@ -16,12 +16,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
 }) => {
   if (!isOpen || !project) return null
 
-  const years = [...new Set(project.timeline.match(/\b\d{4}\b/g) ?? [])]
   const duration = project.timeline.match(/\(([^)]+)\)/)?.[1]
   const contactHref = `mailto:stephen.a.joly@gmail.com?subject=${encodeURIComponent(
     `Let's discuss: ${project.name}`,
   )}&body=${encodeURIComponent(
-    `Hi Stephen,\n\nI'd like to discuss work related to your case study: ${project.name}.\n\n`,
+    `Hi Stephen,\n\nI'd like to discuss work related to a consulting project you contributed to: ${project.name}.\n\n`,
   )}`
 
   return (
@@ -30,7 +29,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
       onRequestClose={onRequestClose}
       header={
         <p className="text-[10px] font-semibold tracking-[0.12em] text-zinc-500 uppercase dark:text-zinc-400">
-          Case study / Consulting{years.length > 0 && ` / ${years.join('–')}`}
+          Consulting project / {project.year}
         </p>
       }
     >
@@ -102,7 +101,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
               Want to discuss related work?
             </p>
             <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
-              This case study will be included in your email.
+              This project will be included in your email.
             </p>
           </div>
           <a

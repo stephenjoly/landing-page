@@ -1,22 +1,23 @@
 import { type Metadata } from 'next'
 import ProjectsGallary from '@/components/ProjectsGallary'
+import { pageMetadata } from '@/lib/site'
 
 import { codingProjects, consultingProjects } from './data'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Projects',
   description:
     'A split view of coding and consulting work, from software experiments to client delivery.',
-}
+  path: '/projects',
+})
 
-export default function Projects({
+export default async function Projects({
   searchParams,
 }: {
-  searchParams?: { tab?: string | string[] }
+  searchParams: Promise<{ tab?: string | string[] }>
 }) {
-  const tabParam = Array.isArray(searchParams?.tab)
-    ? searchParams?.tab[0]
-    : searchParams?.tab
+  const query = await searchParams
+  const tabParam = Array.isArray(query.tab) ? query.tab[0] : query.tab
 
   const initialTab = tabParam === 'consulting' ? 'consulting' : 'coding'
 

@@ -46,7 +46,11 @@ export function ContactForm() {
   const focusTarget = useRef<string | null>(null)
 
   useEffect(() => {
-    if (receipt) headingRef.current?.focus()
+    if (receipt) {
+      const heading = headingRef.current
+      heading?.focus({ preventScroll: true })
+      heading?.scrollIntoView({ block: 'center', behavior: 'instant' })
+    }
   }, [receipt])
 
   useEffect(() => {
@@ -121,7 +125,7 @@ export function ContactForm() {
       </h1>
       <p className="mt-5 text-base leading-7 [overflow-wrap:anywhere] text-zinc-600 dark:text-zinc-400">
         {receipt
-          ? `It’s in my inbox now. I’ll reply to ${receipt.values.email} as soon as I can.`
+          ? `It’s on its way to me. I’ll reply to ${receipt.values.email} as soon as I can.`
           : 'Tell me what you’re working on, a role you have in mind, or an idea you’d like to explore.'}
       </p>
       {receipt ? (
@@ -140,7 +144,7 @@ export function ContactForm() {
                 <path d="m8 12 3 3 5-6" />
               </svg>
               <span>
-                Delivered ·{' '}
+                Sent ·{' '}
                 <time dateTime={receipt.deliveredAt}>
                   {new Date(receipt.deliveredAt).toLocaleString(undefined, {
                     month: 'short',
