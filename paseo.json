@@ -1,0 +1,13 @@
+{
+  "worktree": {
+    "servicePorts": {
+      "range": "41005-41005"
+    }
+  },
+  "scripts": {
+    "Preview": {
+      "type": "service",
+      "command": "npm run start -- --hostname 0.0.0.0 --port \"$PASEO_PORT\""
+    }
+  }
+}

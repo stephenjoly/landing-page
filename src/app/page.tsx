@@ -4,6 +4,7 @@ import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
+import { ConsultingProjectsCarousel } from '@/components/ConsultingProjectsCarousel'
 import { Container } from '@/components/Container'
 import {
   GitHubIcon,
@@ -11,9 +12,13 @@ import {
   LinkedInIcon,
   XIcon,
 } from '@/components/SocialIcons'
-import logoHomEquity from '@/images/logos/homequity.svg'
+import {
+  type CodingProject,
+  type ConsultingProject,
+  codingProjects,
+  consultingProjects,
+} from '@/app/projects/data'
 import logoDeloitte from '@/images/logos/deloitte.svg'
-import logoUofT from '@/images/logos/uoft.svg'
 import logoAgentnoon from '@/images/logos/agentnoon.svg'
 import logoDayforce from '@/images/logos/dayforce.svg'
 import image1 from '@/images/photos/image-1.jpg'
@@ -23,6 +28,7 @@ import image4 from '@/images/photos/image-4.jpeg'
 import image5 from '@/images/photos/image-5.jpg'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
+import { pageMetadata, siteDescription } from '@/lib/site'
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -80,6 +86,187 @@ function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         strokeLinejoin="round"
       />
     </svg>
+  )
+}
+
+function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        d="M15.712 11.823a.75.75 0 1 0 1.06 1.06l-1.06-1.06Zm-4.95 1.768a.75.75 0 0 0 1.06-1.06l-1.06 1.06Zm-2.475-1.414a.75.75 0 1 0-1.06-1.06l1.06 1.06Zm4.95-1.768a.75.75 0 1 0-1.06 1.06l1.06-1.06Zm3.359.53-.884.884 1.06 1.06.885-.883-1.061-1.06Zm-4.95-2.12 1.414-1.415L12 6.344l-1.415 1.413 1.061 1.061Zm0 3.535a2.5 2.5 0 0 1 0-3.536l-1.06-1.06a4 4 0 0 0 0 5.656l1.06-1.06Zm4.95-4.95a2.5 2.5 0 0 1 0 3.535L17.656 12a4 4 0 0 0 0-5.657l-1.06 1.06Zm1.06-1.06a4 4 0 0 0-5.656 0l1.06 1.06a2.5 2.5 0 0 1 3.536 0l1.06-1.06Zm-7.07 7.07.176.177 1.06-1.06-.176-.177-1.06 1.06Zm-3.183-.353.884-.884-1.06-1.06-.884.883 1.06 1.06Zm4.95 2.121-1.414 1.414 1.06 1.06 1.415-1.413-1.06-1.061Zm0-3.536a2.5 2.5 0 0 1 0 3.536l1.06 1.06a4 4 0 0 0 0-5.656l-1.06 1.06Zm-4.95 4.95a2.5 2.5 0 0 1 0-3.535L6.344 12a4 4 0 0 0 0 5.656l1.06-1.06Zm-1.06 1.06a4 4 0 0 0 5.657 0l-1.061-1.06a2.5 2.5 0 0 1-3.535 0l-1.061 1.06Zm7.07-7.07-.176-.177-1.06 1.06.176.178 1.06-1.061Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+function SectionHeading({
+  as: Component = 'h3',
+  id,
+  title,
+  href,
+  linkLabel,
+}: {
+  as?: 'h2' | 'h3'
+  id: string
+  title: string
+  href: string
+  linkLabel: string
+}) {
+  return (
+    <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+      <Component
+        id={id}
+        className="text-sm font-semibold text-zinc-900 dark:text-zinc-100"
+      >
+        {title}
+      </Component>
+      <Link
+        href={href}
+        className="text-sm font-medium text-teal-600 transition hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
+      >
+        {linkLabel} <span aria-hidden="true">→</span>
+      </Link>
+    </div>
+  )
+}
+
+function FeaturedCodingProject({ project }: { project: CodingProject }) {
+  return (
+    <Card as="li">
+      <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+        <Image src={project.logo} alt="" className="h-8 w-8" unoptimized />
+      </div>
+      <h4 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+        {project.link ? (
+          <Card.Link
+            href={project.link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {project.name}
+            <span className="sr-only"> (opens in a new tab)</span>
+          </Card.Link>
+        ) : (
+          project.name
+        )}
+      </h4>
+      <Card.Description>
+        {project.homeSummary ?? project.description}
+      </Card.Description>
+      {project.link ? <Card.Cta>View on {project.link.label}</Card.Cta> : null}
+    </Card>
+  )
+}
+
+function FeaturedConsultingProject({
+  project,
+}: {
+  project: ConsultingProject
+}) {
+  return (
+    // Mirrors the featured cards on the Projects page. Slides share a height,
+    // so the call to action sits on one line across the visible cards.
+    <Card as="article" className="w-full">
+      <div className="flex w-full items-center gap-3">
+        <div className="relative z-10 flex h-12 w-12 flex-none items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+          <Image
+            src={project.logo}
+            alt=""
+            className="h-8 w-8 object-contain"
+            unoptimized
+          />
+        </div>
+        <h4 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
+          <Card.Link
+            href={`/projects?tab=consulting&case=${project.slug}`}
+            data-home-project={project.slug}
+          >
+            {project.shortTitle}
+          </Card.Link>
+        </h4>
+      </div>
+      <p className="relative z-10 mt-4 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+        {project.descriptor}
+        <span aria-hidden="true" className="mx-1.5">
+          ·
+        </span>
+        <span className="whitespace-nowrap">{project.year}</span>
+      </p>
+      <Card.Description>
+        {project.homeSummary ?? project.outcome}
+      </Card.Description>
+      <p
+        aria-hidden="true"
+        className="relative z-10 mt-auto flex pt-4 text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200"
+      >
+        <LinkIcon className="h-6 w-6 flex-none" />
+        <span className="ml-2">View project</span>
+      </p>
+    </Card>
+  )
+}
+
+function SelectedWork() {
+  let featuredCoding = codingProjects.filter((project) => project.homeFeatured)
+  let featuredConsulting = consultingProjects.filter(
+    (project) => project.featured,
+  )
+
+  return (
+    <section aria-labelledby="selected-work-title">
+      <div className="max-w-2xl">
+        <h2
+          id="selected-work-title"
+          className="text-2xl font-bold tracking-tight text-zinc-800 sm:text-3xl dark:text-zinc-100"
+        >
+          Selected work
+        </h2>
+        <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
+          A few things I&apos;ve built on my own time, and client work I&apos;ve
+          helped deliver.
+        </p>
+      </div>
+
+      <section aria-labelledby="selected-coding-title" className="mt-12">
+        <SectionHeading
+          id="selected-coding-title"
+          title="Coding projects"
+          href="/projects?tab=coding"
+          linkLabel="All coding projects"
+        />
+        <ul
+          role="list"
+          className="mt-12 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {featuredCoding.map((project) => (
+            <FeaturedCodingProject key={project.name} project={project} />
+          ))}
+        </ul>
+      </section>
+
+      <section
+        aria-labelledby="selected-consulting-title"
+        className="mt-20 border-t border-zinc-100 pt-12 dark:border-zinc-700/40"
+      >
+        <SectionHeading
+          id="selected-consulting-title"
+          title="Consulting projects"
+          href="/projects?tab=consulting"
+          linkLabel="All consulting projects"
+        />
+        <div className="mt-12">
+          <ConsultingProjectsCarousel
+            label="Featured consulting projects"
+            projects={featuredConsulting}
+          >
+            {featuredConsulting.map((project) => (
+              <FeaturedConsultingProject key={project.slug} project={project} />
+            ))}
+          </ConsultingProjectsCarousel>
+        </div>
+      </section>
+    </section>
   )
 }
 
@@ -219,53 +406,11 @@ function Resume() {
       end: { label: 'Oct 2025', dateTime: '2025-10' },
     },
     {
-      company: 'Deloitte Canada, Strategy and Innovation',
-      title: 'Senior Consultant',
+      company: 'Deloitte Canada',
+      title: 'Business Analyst to Senior Consultant',
       logo: logoDeloitte,
-      start: { label: 'Jan 2025', dateTime: '2025-01' },
-      end: { label: 'Aug 2025', dateTime: '2025-08' },
-    },
-    {
-      company: 'Deloitte Canada, Human Capital',
-      title: 'Senior Consultant',
-      logo: logoDeloitte,
-      start: { label: 'Jan 2023', dateTime: '2023-01' },
-      end: { label: 'Dec 2024', dateTime: '2024-12' },
-    },
-    {
-      company: 'Deloitte Canada, Human Capital',
-      title: 'Consultant',
-      logo: logoDeloitte,
-      start: { label: 'Jan 2022', dateTime: '2022-01' },
-      end: { label: 'Dec 2022', dateTime: '2022-12' },
-    },
-    {
-      company: 'Deloitte Canada, Strategic Risk',
-      title: 'Consultant',
-      logo: logoDeloitte,
-      start: { label: 'Sept 2020', dateTime: '2020-09' },
-      end: { label: 'Dec 2021', dateTime: '2021-12' },
-    },
-    {
-      company: 'University of Toronto, Faculty of Engineering',
-      title: 'Lead Campus Experience Officer',
-      logo: logoUofT,
-      start: { label: 'Sept 2019', dateTime: '2019-09' },
-      end: { label: 'May 2020', dateTime: '2020-05' },
-    },
-    {
-      company: 'Deloitte Canada, Regulatory Risk',
-      title: 'Business Analyst',
-      logo: logoDeloitte,
-      start: { label: 'Sept 2018', dateTime: '2018-09' },
-      end: { label: 'Aug 2019', dateTime: '2019-08' },
-    },
-    {
-      company: 'HomEquity Bank, Process Engineering',
-      title: 'Business Process Analyst',
-      logo: logoHomEquity,
-      start: { label: 'May 2017', dateTime: '2017-05' },
-      end: { label: 'Aug 2017', dateTime: '2017-08' },
+      start: { label: '2018', dateTime: '2018-09' },
+      end: { label: '2025', dateTime: '2025-08' },
     },
   ]
 
@@ -280,6 +425,18 @@ function Resume() {
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
+      <div className="mt-6 space-y-3 border-t border-zinc-100 pt-5 text-sm text-zinc-600 dark:border-zinc-700/40 dark:text-zinc-400">
+        <p>
+          I joined Dayforce through Agentnoon, a Y Combinator-backed workforce
+          planning startup that Dayforce acquired.
+        </p>
+        <p>
+          Before that, I spent six years at Deloitte advising clients on
+          regulatory risk, operational resilience, and workforce strategy, then
+          moved into the Office of Generative AI. My full history is in my
+          resume.
+        </p>
+      </div>
       <Button
         href="/files/Stephen Joly - Resume.pdf"
         variant="secondary"
@@ -295,6 +452,13 @@ function Resume() {
 
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+  let alts = [
+    'Four skiers in helmets and goggles posing on a snowy slope',
+    'A home lab rack of mini PCs, a network switch, and a multi-bay storage unit on wooden shelves',
+    'A red dirt trail lined with hydrangeas through a lush green forest',
+    'A cyclist lifting a road bike overhead in front of an event banner',
+    'A turquoise cove with a small beach beneath tall limestone cliffs',
+  ]
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -309,7 +473,7 @@ function Photos() {
           >
             <Image
               src={image}
-              alt=""
+              alt={alts[imageIndex]}
               sizes="(min-width: 640px) 18rem, 11rem"
               className="absolute inset-0 h-full w-full object-cover"
             />
@@ -320,8 +484,13 @@ function Photos() {
   )
 }
 
+export const metadata = pageMetadata({
+  description: siteDescription,
+  path: '/',
+})
+
 export default async function Home() {
-  let articles = (await getAllArticles()).slice(0, 4)
+  let articles = (await getAllArticles()).slice(0, 3)
 
   return (
     <>
@@ -332,11 +501,11 @@ export default async function Home() {
             execution.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Stephen, an engineer and aspiring technologist based in
-            Toronto. I lead customer deployment for Strategic Workforce
-            Planning at Dayforce and spend my time building tools, systems, and
-            ideas that help people solve real-world problems. I&apos;m also an
-            avid homelabber, photographer, and traveller.
+            I’m Stephen, an engineer and technologist based in Toronto. I lead
+            customer deployment for Strategic Workforce Planning at Dayforce and
+            spend my time building tools, systems, and ideas that help people
+            solve real-world problems. I&apos;m also an avid homelabber,
+            photographer, and traveller.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -364,12 +533,24 @@ export default async function Home() {
       </Container>
       <Photos />
       <Container className="mt-24 md:mt-28">
+        <SelectedWork />
+      </Container>
+      <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-[minmax(0,0.95fr)_minmax(27rem,1.05fr)] xl:grid-cols-[minmax(0,0.9fr)_minmax(28rem,1.1fr)]">
-          <div className="flex flex-col gap-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
-          </div>
+          <section aria-labelledby="recent-writing-title">
+            <SectionHeading
+              as="h2"
+              id="recent-writing-title"
+              title="Recent writing"
+              href="/articles"
+              linkLabel="All articles"
+            />
+            <div className="mt-12 flex flex-col gap-16">
+              {articles.map((article) => (
+                <Article key={article.slug} article={article} />
+              ))}
+            </div>
+          </section>
           <div className="space-y-10 lg:pl-12 xl:pl-14">
             {/* <Newsletter /> */}
             <Resume />

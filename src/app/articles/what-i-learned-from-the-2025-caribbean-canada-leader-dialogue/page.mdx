@@ -1,4 +1,5 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
+import { pageMetadata } from '@/lib/site'
 import designSystem from './planetaria-design-system.png'
 import pic1 from './pic1.jpeg'
 import pic2 from './pic2.jpeg'
@@ -16,10 +17,12 @@ export const article = {
     'A personal reflection on leadership, collaboration, and cultural connection shaped by the transformative 2025 Caribbean Canada Leaders Dialogue experience and its lifelong lessons.',
 }
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: article.title,
   description: article.description,
-}
+  path: '/articles/what-i-learned-from-the-2025-caribbean-canada-leader-dialogue',
+  article,
+})
 
 export default (props) => <ArticleLayout article={article} {...props} />
 
@@ -31,7 +34,10 @@ The 2025 Caribbean Canada Leaders Dialogue (CCLD) was definitely the latter—a 
 
 In this article, I want to unpack what the CCLD is about, highlight the unexpected lessons I learned, and share how it’s already changing how I show up in my work and my life.
 
-<Image src={pic1} alt="" />
+<Image
+  src={pic1}
+  alt="Dozens of program participants, many waving, gather on a curved outdoor staircase among palm trees, with the sea behind them."
+/>
 
 ## What Is the CCLD?
 
@@ -41,7 +47,10 @@ Created under the patronage of the Duke of Edinburgh and organized in partnershi
 
 The goal isn’t merely to build skills or transfer knowledge—it’s to connect people on a human level. By doing so, the hope is that we become more compassionate, emotionally intelligent, and culturally attuned as decision-makers. The Duke believed that transformative leadership begins by seeing the humanity in one another—and that’s a belief this program put into practice at every turn.
 
-<Image src={pic2} alt="" />
+<Image
+  src={pic2}
+  alt="About twenty participants pose in front of a CCLD 25 backdrop, with those seated in front holding up a Barbados scarf."
+/>
 
 ## What Made It So Special?
 
@@ -51,7 +60,10 @@ We had academics, policymakers, entrepreneurs, civil servants, and grassroots or
 
 It’s rare to be part of a group where the shared goal is not to outshine one another, but to deeply connect, collaborate, and co-create sustainable change. CCLD intentionally created that space, and it was powerful.
 
-<Image src={pic3} alt="" />
+<Image
+  src={pic3}
+  alt="A large group of participants with conference lanyards poses together in a formal reception room with flags and framed paintings."
+/>
 
 ## A Program Built for Adaptability (And Maybe a Bit of Chaos)
 
@@ -63,7 +75,10 @@ At the time, I’ll admit, I was frustrated. But in hindsight, I see what CCLD w
 
 It was an opportunity to reflect on how we show up when nothing is going according to plan.
 
-<Image src={pic4} alt="" />
+<Image
+  src={pic4}
+  alt="About twenty participants with conference lanyards pose in a warmly lit room beside a red Canada banner."
+/>
 
 ## Lessons from the Study Tours: Doing Good Can (and Should) Be Profitable
 
@@ -82,7 +97,10 @@ It shouldn't be revolutionary to think that every resource-extractive project sh
 
 The lesson is simple: doing good shouldn’t be charity. It should be smart business—and the leadership challenge is figuring out how to engineer that reality everywhere we can.
 
-<Image src={pic5} alt="" />
+<Image
+  src={pic5}
+  alt="Participants stand smiling behind a row of chairs as a guest in a teal scarf speaks with them."
+/>
 
 ## What I Learned About Leadership From the Experience
 
@@ -122,7 +140,10 @@ A quote that stuck with me came from our team lead, Cara Lambee:
 
 It landed. And I appreciated the honesty.
 
-<Image src={pic6} alt="" />
+<Image
+  src={pic6}
+  alt="Panelists sit in a row on stage while one speaks into a microphone, holding a tablet."
+/>
 
 ## Final Reflections: How This Changed Me
 
@@ -135,7 +156,10 @@ This experience didn’t just give me a new appreciation for Caribbean leadershi
 - **Letting Go of Control:** Not everything is mine to fix. Sometimes, the act of not stepping in is the right kind of leadership.
 - **Balancing Financial Viability with Social Good:** You can’t fund the change you want to see if you don’t have fuel. We need models that support making an impact sustainably—and that includes supportive policy, business incentives, and funding architecture.
 
-<Image src={pic7} alt="" />
+<Image
+  src={pic7}
+  alt="A participant in a suit and lanyard stands at a railing overlooking a bright atrium decorated with UN Sustainable Development Goal icons."
+/>
 
 ## Closing Thought:
 

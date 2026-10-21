@@ -4,6 +4,7 @@ import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
+import { pageMetadata } from '@/lib/site'
 
 function Article({ article }: { article: ArticleWithSlug }) {
   return (
@@ -34,19 +35,20 @@ function Article({ article }: { article: ArticleWithSlug }) {
   )
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Articles',
   description:
-    'All of my long-form thoughts on leadership, home labbing, and more, collected in chronological order.',
-}
+    'Occasional notes on leadership, technology, and things I’m learning.',
+  path: '/articles',
+})
 
 export default async function ArticlesIndex() {
   let articles = await getAllArticles()
 
   return (
     <SimpleLayout
-      title="Writing on leadership, home labbing, and other topics that inspire me."
-      intro="All of my long-form thoughts on leadership, home labbing, and more, collected in chronological order."
+      title="Notes on leadership, technology, and things I’m learning."
+      intro="Occasional notes on leadership, technology, and things I’m learning."
     >
       <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
         <div className="flex max-w-3xl flex-col space-y-16">

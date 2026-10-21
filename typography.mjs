@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const typography = {
   theme: {
     typography: ({ theme }) => ({
       invert: {
@@ -244,3 +244,5 @@ export default {
     }),
   },
 }
+
+export default typography

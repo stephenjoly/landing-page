@@ -8,8 +8,8 @@ const ts = require('typescript')
 function loadTs(relative, cache = new Map()) {
   const filename = path.resolve(__dirname, '..', relative)
   if (cache.has(filename)) return cache.get(filename)
-  const module = { exports: {} }
-  cache.set(filename, module.exports)
+  const loadedModule = { exports: {} }
+  cache.set(filename, loadedModule.exports)
   const source = ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
     compilerOptions: {
       module: ts.ModuleKind.CommonJS,
@@ -22,10 +22,10 @@ function loadTs(relative, cache = new Map()) {
       : require(name)
   new Function('require', 'module', 'exports', source)(
     localRequire,
-    module,
-    module.exports,
+    loadedModule,
+    loadedModule.exports,
   )
-  return module.exports
+  return loadedModule.exports
 }
 const contact = loadTs('src/lib/contact.ts')
 const valid = {

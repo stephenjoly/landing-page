@@ -1,13 +1,13 @@
 # Stephen Joly Website
 
-Personal website and writing site built with Next.js 14, TypeScript, Tailwind CSS, and MDX.
+Personal website and writing site built with Next.js 16, TypeScript, Tailwind CSS, and MDX.
 
-The site is content-first: a homepage with a short resume-style work history, an About page, MDX articles, a split `Coding` / `Consulting` projects page, a Speaking page, and a Uses page.
+The site is content-first: a homepage featuring selected coding projects and consulting cases, a compact career summary, an About page, MDX articles, a split `Coding` / `Consulting` projects page, a Speaking page, and a Uses page.
 
 ## Stack
 
-- Next.js 14 App Router
-- React 18
+- Next.js 16 App Router
+- React 19
 - TypeScript
 - Tailwind CSS v4
 - MDX via `@next/mdx`
@@ -17,7 +17,7 @@ The site is content-first: a homepage with a short resume-style work history, an
 
 ## Routes
 
-- `/` homepage with intro copy, social links, selected articles, and a work-history card
+- `/` homepage with intro copy, photos, three coding projects, two consulting cases, recent writing, and a compact career card
 - `/about` biography and profile links
 - `/contact` contact form with in-place confirmation
 - `/api/contact` POST-only email delivery endpoint
@@ -29,10 +29,11 @@ The site is content-first: a homepage with a short resume-style work history, an
 - `/thank-you` static form confirmation page
 ## Local Development
 
-Install dependencies and start the dev server:
+Use Node.js 24 LTS (pinned in `.nvmrc`), then install the locked dependencies and start the dev server:
 
 ```bash
-npm install
+nvm use
+npm ci
 npm run dev
 ```
 
@@ -90,6 +91,8 @@ The coding projects and consulting case studies use separate data collections an
 - coding projects link out directly
 - consulting projects open a modal case-study view
 
+Consulting shows six featured cases and groups the remaining cases in an archive by focus area. Each case has a stable `slug`, short title, year, and evidenced outcome or deliverable. Link directly to a reader with `/projects?tab=consulting&case=<slug>`. Homepage selections use `homeFeatured` and `homeSummary` from the same data; work in progress stays clearly labelled.
+
 The projects toggle shows each collection's total, padded to two digits. Coding
 counts include works in progress; counts update automatically with the data.
 The active pill slides between categories, with animation disabled for reduced motion.
@@ -100,9 +103,17 @@ These pages are authored directly in TSX under `src/app/.../page.tsx`.
 
 ## Build
 
-Run a production build locally with:
+The build and development commands explicitly use webpack to preserve the existing
+MDX remark/rehype plugin and dynamic article import pipeline. Lint runs separately
+with ESLint 9 flat config; Next.js 16 no longer runs lint during builds.
+
+Run the checks and a production build locally with:
 
 ```bash
+npm run lint
+npm run typecheck
+npm run test:contact
+npm run test:runtime
 npm run build
 ```
 
@@ -111,6 +122,15 @@ Start the production server with:
 ```bash
 npm run start
 ```
+
+## Workspace preview
+
+After `npm ci` and `npm run build`, start the **Preview** script in Paseo. The
+repository's `paseo.json` runs the production server on the workspace-allocated
+port and registers a managed proxy URL. Rebuild and restart the script after
+source changes. The proxy's `.localhost` URL is host-local unless a public proxy
+is configured; review-specific connection details are recorded in
+`docs/website-feedback-report.md`. This preview does not deploy to production.
 
 ## Docker
 
