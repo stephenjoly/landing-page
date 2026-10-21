@@ -2,7 +2,11 @@
   "worktree": {
     "servicePorts": {
       "range": "41005-41005"
-    }
+    },
+    "setup": [
+      "npm ci",
+      "npx playwright install"
+    ]
   },
   "scripts": {
     "Preview": {

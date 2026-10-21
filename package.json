@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "test:contact": "node --test tests/contact.test.cjs",
     "typecheck": "tsc --noEmit",
-    "test:runtime": "node --test tests/runtime.test.cjs"
+    "test:runtime": "node --test tests/runtime.test.cjs",
+    "test:e2e": "playwright test",
+    "qa:install": "playwright install"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
@@ -42,7 +44,8 @@
     "eslint-config-next": "16.4.2",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "sharp": "0.35.5"
+    "sharp": "0.35.5",
+    "@playwright/test": "1.63.0"
   },
   "engines": {
     "node": ">=24.22.1 <25"

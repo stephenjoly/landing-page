@@ -12,3 +12,9 @@ context.md
 .env*
 output/
 .playwright-cli/
+
+node_modules/
+
+playwright-report/
+
+test-results/

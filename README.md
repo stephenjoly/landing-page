@@ -2,7 +2,7 @@
 
 Personal website and writing site built with Next.js 16, TypeScript, Tailwind CSS, and MDX.
 
-The site is content-first: a homepage featuring selected coding projects and consulting cases, a compact career summary, an About page, MDX articles, a split `Coding` / `Consulting` projects page, a Speaking page, and a Uses page.
+The site is content-first: a homepage featuring selected coding projects and consulting projects, a compact career summary, an About page, MDX articles, a split `Coding` / `Consulting` projects page, a Speaking page, and a Uses page.
 
 ## Stack
 
@@ -17,13 +17,13 @@ The site is content-first: a homepage featuring selected coding projects and con
 
 ## Routes
 
-- `/` homepage with intro copy, photos, three coding projects, two consulting cases, recent writing, and a compact career card
+- `/` homepage with intro copy, photos, three coding projects, a six-project consulting carousel, recent writing, and a compact career card
 - `/about` biography and profile links
 - `/contact` contact form with in-place confirmation
 - `/api/contact` POST-only email delivery endpoint
 - `/articles` article index
 - `/articles/[slug]` MDX article pages
-- `/projects` split view for coding projects and consulting case studies
+- `/projects` split view for coding projects and consulting projects
 - `/speaking` speaking appearances
 - `/uses` equipment and software recommendations
 - `/thank-you` static form confirmation page
@@ -86,12 +86,12 @@ Projects are defined in:
 src/app/projects/data.ts
 ```
 
-The coding projects and consulting case studies use separate data collections and different interaction patterns:
+The coding projects and consulting projects use separate data collections and different interaction patterns:
 
 - coding projects link out directly
-- consulting projects open a modal case-study view
+- consulting projects open a project detail modal
 
-Consulting shows six featured cases and groups the remaining cases in an archive by focus area. Each case has a stable `slug`, short title, year, and evidenced outcome or deliverable. Link directly to a reader with `/projects?tab=consulting&case=<slug>`. Homepage selections use `homeFeatured` and `homeSummary` from the same data; work in progress stays clearly labelled.
+Consulting shows six featured projects and groups the remaining projects in an archive by focus area. Each project has a stable `slug`, short title, year, and evidenced outcome or deliverable. Link directly to a reader with `/projects?tab=consulting&case=<slug>`. Homepage selections use `homeFeatured` and `homeSummary` from the same data; work in progress stays clearly labelled.
 
 The projects toggle shows each collection's total, padded to two digits. Coding
 counts include works in progress; counts update automatically with the data.
@@ -129,8 +129,7 @@ After `npm ci` and `npm run build`, start the **Preview** script in Paseo. The
 repository's `paseo.json` runs the production server on the workspace-allocated
 port and registers a managed proxy URL. Rebuild and restart the script after
 source changes. The proxy's `.localhost` URL is host-local unless a public proxy
-is configured; review-specific connection details are recorded in
-`docs/website-feedback-report.md`. This preview does not deploy to production.
+is configured; public review URLs are managed separately. This preview does not deploy to production.
 
 ## Docker
 
@@ -159,20 +158,18 @@ but it does not publish or deploy an image.
 Production traffic reaches the Dokploy application through the shared Traefik instance. The retired
 Compose container on `vm-production` is retained in a stopped state as a short-term rollback target.
 
-## Consulting case studies
+## Consulting projects
 
 Open `/projects?tab=consulting` and select a project to view the Reader Hybrid
 layout, based on the local `ui.pen` frame “Detail Option E — Reader Hybrid”.
 The responsive dialog includes client/duration metadata, context, contributions,
-and a contact link that opens an email draft with the case-study title. Industry
+and a contact link that opens an email draft with the project title. Industry
 is omitted until authored data is available. Keyboard focus stays inside the
-reader; Escape, the close button, and clicking outside dismiss it. Long case
-studies scroll inside a viewport-height panel while the classification and close
+reader; Escape, the close button, and clicking outside dismiss it. Long projects scroll inside a viewport-height panel while the classification and close
 button remain visible.
 
 ## Known Cleanup Items
 
-- the homepage newsletter form is currently a UI flow only and posts to `/thank-you`
 - some template-era artifacts still remain in the repository and are being cleaned up incrementally
 
 
@@ -204,10 +201,24 @@ Limits are per Node process and reset on restart. Use a shared limiter or proxy
 rate limiting before scaling to multiple replicas; this is not a durable quota.
 
 A successful response means Resend accepted the email, not confirmed inbox
-arrival. The requested success design says “Delivered”; there is no delivery
+arrival. The success message says “Sent”; there is no delivery
 webhook or message persistence. Network/provider errors allow retry, which can
 produce a duplicate if the provider accepted a send before the connection failed.
 
 Run `npm run test:contact` for handler and validation checks using a mocked provider.
-No test sends live email. Before release, configure the variables and verify one
-real delivery and reply-to from the deployed site.
+No test sends live email. A separately authorized real submission is needed to verify
+inbox delivery and reply-to; automated checks do not establish either.
+
+## Agent browser QA
+
+Paseo’s `paseo.json` worktree setup installs dependencies and matching browser binaries automatically. For existing checkouts, use Node.js 22+ and run:
+
+```bash
+npm ci
+npx playwright install
+npm run test:e2e
+```
+
+Playwright starts and stops its own loopback-only frontend server on port 4182. It refuses to reuse another task’s server. The smoke test checks frontend rendering/navigation only; backend data flows need synthetic fixtures and a separate disposable backend.
+
+Agents may run these commands autonomously for authorized local QA. Keep test data synthetic and do not submit real messages, calls, or production writes. Retain failure traces/screenshots outside Git; report failed and skipped tests explicitly. Browser caches are shared per host, while dependencies are installed per worktree.
