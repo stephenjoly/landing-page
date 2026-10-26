@@ -13,7 +13,7 @@ The site is content-first: a homepage featuring selected coding projects and con
 - MDX via `@next/mdx`
 - `remark-gfm` and `rehype-prism` for article rendering
 - `next-themes` for dark mode
-- `next-plausible` for analytics
+- `posthog-js` for production pageview analytics
 
 ## Routes
 
@@ -157,6 +157,12 @@ but it does not publish or deploy an image.
 
 Production traffic reaches the Dokploy application through the shared Traefik instance. The retired
 Compose container on `vm-production` is retained in a stopped state as a short-term rollback target.
+
+Set the server runtime environment variable `POSTHOG_KEY` to this site's shared PostHog
+project key. The browser loads analytics only on `stephenjoly.net` and
+`www.stephenjoly.net`; local and preview hosts do not initialize analytics.
+Next.js proxies `/ingest/static/*` to `https://us-assets.i.posthog.com/static/*`
+and `/ingest/*` to `https://us.i.posthog.com/*` on the site's own origin.
 
 ## Consulting projects
 

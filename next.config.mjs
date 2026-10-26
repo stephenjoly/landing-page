@@ -5,6 +5,19 @@ import remarkGfm from 'remark-gfm'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  skipTrailingSlashRedirect: true,
+  async rewrites() {
+    return [
+      {
+        source: '/ingest/static/:path*',
+        destination: 'https://us-assets.i.posthog.com/static/:path*',
+      },
+      {
+        source: '/ingest/:path*',
+        destination: 'https://us.i.posthog.com/:path*',
+      },
+    ]
+  },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   webpack(config, { isServer }) {
     if (!isServer) return config

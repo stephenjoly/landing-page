@@ -1,6 +1,6 @@
 import { type Metadata } from 'next'
 
-// Production origin, confirmed from the Plausible domain and the contact/sitemap
+// Production origin, confirmed from the former analytics domain and the contact/sitemap
 // branches. Kept as a constant so preview hostnames never reach canonical URLs.
 export const siteUrl = 'https://stephenjoly.net'
 export const siteName = 'Stephen Joly'
