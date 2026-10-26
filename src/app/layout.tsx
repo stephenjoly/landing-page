@@ -9,7 +9,7 @@ import {
   siteUrl,
   socialDefaults,
 } from '@/lib/site'
-import PlausibleProvider from 'next-plausible'
+import { PostHogAnalytics } from '@/lib/posthog'
 import '@/styles/tailwind.css'
 
 // No canonical or og:url here: they would be inherited by every page.
@@ -31,15 +31,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
-      <head>
-        <PlausibleProvider
-          domain="stephenjoly.net"
-          customDomain="https://plausible.stephenjoly.net"
-          trackLocalhost
-          enabled
-        />
-      </head>
       <body className="flex h-full bg-zinc-50 dark:bg-black">
+        <PostHogAnalytics />
         <Providers>
           <div className="flex w-full">
             <Layout>{children}</Layout>
