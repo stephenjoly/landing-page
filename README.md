@@ -134,6 +134,12 @@ See `docs/cv-mockup-brief.md` for approved scope and `docs/cv-review.md` for
 the review script and validation. This is a design preview, not a production
 route or deployment.
 
+The detailed experience inventory in `docs/cv-experience-points.json` maps all
+20 roles and 60 achievement bullets to the supplied PDFs and live LinkedIn.
+The HTML is static: update both the inventory and matching bullet text when
+editing career content. Source reconciliation and coverage evidence are
+summarized in `docs/cv-content-completeness.md`.
+
 ### Application preview
 
 After `npm ci` and `npm run build`, start the **Preview** script in Paseo. The

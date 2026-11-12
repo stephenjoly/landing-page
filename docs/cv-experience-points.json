@@ -1,0 +1,518 @@
+{
+  "scope": "Complete substantive experience points; preserve the approved layout, deduplicate equivalent claims, omit private contact details and client names.",
+  "sources": {
+    "linkedin": "https://www.linkedin.com/in/stephenjoly/details/experience/",
+    "volunteering": "https://www.linkedin.com/in/stephenjoly/details/volunteering-experiences/",
+    "export": "Supplied six-page LinkedIn PDF",
+    "resume": "Supplied one-page redacted resume PDF"
+  },
+  "metricDecision": "Current LinkedIn’s $45M optimization opportunity is retained as potential value at Agentnoon. The resume’s US$41M numerical variant is not repeated; its first-principles analysis, contingency method, and executive presentation remain under the Dayforce chapter where the resume records them. No equivalence or addition of the two figures is asserted. User can steer this source-freshness choice.",
+  "roles": [
+    {
+      "id": "dayforce",
+      "employer": "Dayforce",
+      "title": "Manager, Customer Deployment · Strategic Workforce Planning",
+      "start": "2025",
+      "end": "Present",
+      "context": "Toronto. Joined through Dayforce’s acquisition of Agentnoon.",
+      "points": [
+        {
+          "id": "dayforce-delivery-model",
+          "sources": ["linkedin:dayforce:1"],
+          "text": "Established the foundations of the post-acquisition delivery model for Dayforce Strategic Workforce Planning: authored the deployment playbook, co-developed implementation training, and worked with cross-functional leaders to standardize delivery into a repeatable workflow."
+        },
+        {
+          "id": "dayforce-stakeholder-network",
+          "sources": ["linkedin:dayforce:2"],
+          "text": "Built a cross-company stakeholder network by consulting dozens of colleagues, working with senior leaders across services, implementation, support, commercialization, enablement, and the global customer and project management offices."
+        },
+        {
+          "id": "dayforce-customer-lifecycle",
+          "sources": [
+            "linkedin:dayforce:3",
+            "export:dayforce:1",
+            "export:dayforce:2"
+          ],
+          "text": "Lead the post-sale lifecycle for enterprise customers, from the Sales handoff through Engineering, with a team responsible for onboarding, implementation, training, support, product, and customer experience. Drive cross-functional handoffs, product adoption, customer outcomes, operational excellence, and continuous feedback into the product roadmap."
+        },
+        {
+          "id": "dayforce-largest-implementation",
+          "sources": ["linkedin:dayforce:4", "resume:dayforce:1"],
+          "text": "Personally led implementation for the largest SWP customer, a major Fortune 500 organization representing $700K in annual recurring revenue, as sole implementer and primary contact. Established a new implementation method using Dayforce’s architecture, databases, and purpose-built tools."
+        },
+        {
+          "id": "dayforce-engineering-operations",
+          "sources": ["linkedin:dayforce:5"],
+          "text": "Run engineering operations alongside engineering leaders, coordinating bugs, on-call coverage, and delivery processes, and using AI to improve team effectiveness and streamline how the team works."
+        },
+        {
+          "id": "dayforce-discover",
+          "sources": ["linkedin:dayforce:6", "resume:dayforce:2"],
+          "text": "Led a one-hour breakout session at Dayforce Discover in Las Vegas on Dayforce SWP and strategic workforce planning as an HR practice, with 145 registered participants. Met customers to understand their processes and demonstrate where SWP fits."
+        },
+        {
+          "id": "dayforce-scale-playbooks",
+          "sources": ["resume:dayforce:4"],
+          "text": "Stood up the implementation network and advanced deployment playbooks to support scaling from 23 customers toward a target of 1,200."
+        },
+        {
+          "id": "dayforce-eight-features",
+          "sources": ["resume:dayforce:5"],
+          "text": "Managed development of eight major application feature sets, keeping engineering unblocked by securing access to resources and teams across Dayforce."
+        },
+        {
+          "id": "dayforce-hands-on-shipping",
+          "sources": ["resume:dayforce:6"],
+          "text": "Shipped product changes hands-on, opening pull requests and releasing features with AI coding tools. Automated deployment workflows across Jira, Confluence, and the browser using Claude, Cursor, and Codex."
+        },
+        {
+          "id": "dayforce-workforce-spend-analysis",
+          "sources": ["resume:dayforce:3"],
+          "text": "Built a first-principles workforce-spend analysis with contingency allowances and presented findings to VP and senior-leader audiences."
+        }
+      ]
+    },
+    {
+      "id": "agentnoon",
+      "employer": "Agentnoon",
+      "title": "AI Customer Deployment Product Manager",
+      "start": "2025",
+      "end": "2025",
+      "context": "Toronto. Acquired by Dayforce in 2025.",
+      "points": [
+        {
+          "id": "agentnoon-deployment",
+          "sources": ["linkedin:agentnoon:1", "export:agentnoon"],
+          "text": "Led customer deployment at Agentnoon, a Y Combinator Winter 2022-backed workforce planning and organizational design startup later acquired by Dayforce."
+        },
+        {
+          "id": "agentnoon-enterprise-partnerships",
+          "sources": ["linkedin:agentnoon:2", "export:summary"],
+          "text": "Partnered with global enterprise customers and Agentnoon’s engineering team to deliver workforce planning and organizational design solutions."
+        },
+        {
+          "id": "agentnoon-reporting-opportunity",
+          "sources": ["linkedin:agentnoon:3"],
+          "text": "Helped build and productize reporting services that identified a $45M opportunity to optimize workforce and organizational design."
+        },
+        {
+          "id": "agentnoon-engineering-priorities",
+          "sources": ["linkedin:agentnoon:4"],
+          "text": "Coordinated engineering priorities around customer needs, using AI to adapt quickly as the product and customer base grew."
+        }
+      ]
+    },
+    {
+      "id": "deloitte-ai",
+      "employer": "Deloitte Canada",
+      "title": "Senior Consultant, Strategy and Innovation",
+      "unit": "Office of Generative AI",
+      "start": "2025",
+      "end": "2025",
+      "points": [
+        {
+          "id": "deloitte-ai-enablement",
+          "sources": ["linkedin:deloitte-ai:1"],
+          "text": "Drove internal generative AI enablement, working with product, design, and strategy teams to move AI use cases from idea to adoption."
+        },
+        {
+          "id": "deloitte-ai-impact-model",
+          "sources": ["linkedin:deloitte-ai:2"],
+          "text": "Built an AI workforce impact model in Power BI, with an Excel function that queries an Azure-hosted large language model."
+        },
+        {
+          "id": "deloitte-ai-workflows",
+          "sources": ["linkedin:deloitte-ai:3"],
+          "text": "Translated business needs into practical AI workflows and requirements for the teams building them."
+        }
+      ]
+    },
+    {
+      "id": "deloitte-senior-workforce",
+      "employer": "Deloitte Canada",
+      "title": "Senior Consultant, Workforce Transformation",
+      "start": "2023",
+      "end": "2025",
+      "points": [
+        {
+          "id": "deloitte-senior-workforce-strategy",
+          "sources": [
+            "linkedin:deloitte-senior:1",
+            "linkedin:deloitte-senior:context"
+          ],
+          "text": "Led workforce planning and talent strategy work for public- and private-sector clients, from current-state analysis through tool and process design, with a focus on strategic workforce planning, leadership, culture, and behaviour."
+        },
+        {
+          "id": "deloitte-senior-automation",
+          "sources": ["linkedin:deloitte-senior:2"],
+          "text": "Built Python and Power BI automation that replaced manual analysis and reporting on client engagements."
+        }
+      ]
+    },
+    {
+      "id": "deloitte-workforce",
+      "employer": "Deloitte Canada",
+      "title": "Consultant, Workforce Transformation",
+      "start": "2022",
+      "end": "2023",
+      "points": [
+        {
+          "id": "deloitte-workforce-programs",
+          "sources": [
+            "linkedin:deloitte-consultant:1",
+            "linkedin:deloitte-consultant:context"
+          ],
+          "text": "Delivered workforce planning and talent strategy analysis for client programs, with a focus on strategic workforce planning, leadership, culture, and behaviour, and built reporting tools to speed up recurring work."
+        }
+      ]
+    },
+    {
+      "id": "deloitte-resilience",
+      "employer": "Deloitte Canada",
+      "title": "Business Analyst, Crisis and Resilience",
+      "start": "2020",
+      "end": "2022",
+      "points": [
+        {
+          "id": "deloitte-resilience-programs",
+          "sources": ["linkedin:deloitte-analyst:1"],
+          "text": "Supported operational resilience programs for financial services clients, including roadmaps and executive reporting."
+        },
+        {
+          "id": "deloitte-resilience-automation",
+          "sources": ["linkedin:deloitte-analyst:2"],
+          "text": "Automated business impact analysis work with Python and VBA."
+        }
+      ]
+    },
+    {
+      "id": "deloitte-intern",
+      "employer": "Deloitte Canada",
+      "title": "Intern, Regulatory Risk and Compliance",
+      "start": "2018",
+      "end": "2019",
+      "points": [
+        {
+          "id": "deloitte-intern-capability-mapping",
+          "sources": ["linkedin:deloitte-intern:1", "export:deloitte-intern:1"],
+          "text": "Mapped 200+ open regulatory compliance issues to 45 key capabilities on a $1M+ engagement, assessing the maturity of a large international Schedule I financial institution’s compliance function."
+        },
+        {
+          "id": "deloitte-intern-deliverables",
+          "sources": ["export:deloitte-intern:2"],
+          "text": "Created 8+ client deliverables across projects with a cumulative value of $2M+, including design presentations, proposals, Gantt charts, educational presentations, and business architecture flowcharts."
+        },
+        {
+          "id": "deloitte-intern-audits",
+          "sources": ["linkedin:deloitte-intern:2", "export:deloitte-intern:3"],
+          "text": "Visited seven First Nation communities in Northern Ontario to conduct procedural audits of three government services, following testing protocols for 150+ ministry documents."
+        },
+        {
+          "id": "deloitte-intern-pursuit-planning",
+          "sources": ["export:deloitte-intern:4"],
+          "text": "Developed a 100+ task Gantt chart with defined dependencies and milestones for an $800K financial-services pursuit, to be included in the proposal."
+        },
+        {
+          "id": "deloitte-intern-united-way",
+          "sources": ["export:deloitte-intern:5"],
+          "text": "Managed merchandise donations from 40+ partners to encourage contributions from 2,000+ employees during the United Way Giving campaign, which raised more than $1M in total."
+        },
+        {
+          "id": "deloitte-intern-regulatory-manuals",
+          "sources": ["linkedin:deloitte-intern:1", "export:deloitte-intern:6"],
+          "text": "Reviewed 150+ draft regulation interpretations and consolidated them into eight individualized compliance manuals for business units of a large national Schedule I financial institution."
+        }
+      ]
+    },
+    {
+      "id": "troost-research",
+      "employer": "Troost Institute for Leadership Education in Engineering",
+      "title": "Research Assistant · Motivation in Engineering Teams",
+      "start": "2020",
+      "end": "2020",
+      "points": [
+        {
+          "id": "troost-literature-review",
+          "sources": [
+            "linkedin:troost:1",
+            "export:troost:intro",
+            "export:troost:4"
+          ],
+          "text": "Researched motivation in engineering teams with Dr. Emily Moore, reviewing 40+ academic papers across engineering education, psychology, and organizational behaviour."
+        },
+        {
+          "id": "troost-novel-principle",
+          "sources": ["export:troost:1"],
+          "text": "Identified a novel principle in engineering education highlighting opportunities for institutions to reduce conflict and introduce mindfulness into the curriculum."
+        },
+        {
+          "id": "troost-research-scope",
+          "sources": ["export:troost:3"],
+          "text": "Scoped the project to explore interventions and literature within more specific segments of engineering education."
+        },
+        {
+          "id": "troost-presentation",
+          "sources": ["linkedin:troost:1", "export:troost:2"],
+          "text": "Developed and delivered a 15-minute presentation of findings and proposed interventions to a panel of professors and peers."
+        }
+      ]
+    },
+    {
+      "id": "uoft-campus",
+      "employer": "University of Toronto",
+      "title": "Lead Campus Experience Officer · Vice Dean’s Office",
+      "start": "2019",
+      "end": "2020",
+      "points": [
+        {
+          "id": "uoft-team-structure",
+          "sources": ["linkedin:uoft:1", "export:uoft:1"],
+          "text": "Designed the organizational structure for 12 student leaders, establishing functional groups across marketing, event planning, finance, and logistics to support the program’s mandate."
+        },
+        {
+          "id": "uoft-pilot-report",
+          "sources": ["linkedin:uoft:1", "export:uoft:2"],
+          "text": "Prepared a PowerPoint report on the pilot program for the Dean’s Strategic Fund committee, covering outreach, financial analysis, strategic decisions, and mentor feedback to inform future terms."
+        }
+      ]
+    },
+    {
+      "id": "youre-next",
+      "employer": "You’re Next Career Network",
+      "title": "Operations Associate",
+      "start": "2019",
+      "end": "2020",
+      "points": [],
+      "source": "export:youre-next",
+      "note": "Source provides title and dates only; do not invent bullets."
+    },
+    {
+      "id": "homequity",
+      "employer": "HomEquity Bank",
+      "title": "Process Analyst · Business Process Improvement Office",
+      "start": "2017",
+      "end": "2017",
+      "points": [
+        {
+          "id": "homequity-qa",
+          "sources": ["linkedin:homequity:1", "export:homequity:1"],
+          "text": "Built an Excel quality assurance program to capture and report on daily data, reducing the program timeline by 15% and saving approximately 180 work hours per quarter."
+        },
+        {
+          "id": "homequity-reporting",
+          "sources": ["linkedin:homequity:1", "export:homequity:2a"],
+          "text": "Automated daily operational reporting in Excel, cutting task time by 57% per report and saving more than 25 hours per quarter."
+        },
+        {
+          "id": "homequity-dashboard",
+          "sources": ["linkedin:homequity:1", "export:homequity:2b"],
+          "text": "Consolidated report data into a user-friendly dashboard for management review."
+        }
+      ]
+    },
+    {
+      "id": "phi-change",
+      "employer": "Phi Gamma Delta",
+      "title": "Chair, Change Management Office",
+      "start": "2019",
+      "end": "2020",
+      "points": [
+        {
+          "id": "phi-change-mandate",
+          "sources": ["export:phi-change:1"],
+          "text": "Defined the committee’s mandate and operating procedures, including how members would work together."
+        },
+        {
+          "id": "phi-change-workshops",
+          "sources": ["export:phi-change:2"],
+          "text": "Facilitated three workshops to define the target operating model, assess the current state, identify gaps, and develop solutions to open operational issues."
+        },
+        {
+          "id": "phi-change-solutions",
+          "sources": ["export:phi-change:2a"],
+          "text": "Identified 46 gaps and generated 55 potential solutions, ranging from quick wins to larger change projects."
+        }
+      ]
+    },
+    {
+      "id": "phi-president",
+      "employer": "Phi Gamma Delta",
+      "title": "Chapter President",
+      "start": "2018",
+      "end": "2019",
+      "points": [
+        {
+          "id": "phi-president-events",
+          "sources": ["export:phi-president:1"],
+          "text": "Led a chapter of 30 members in organizing and delivering 50+ events during the academic year, raising $10,000+ for chapter functions and contributing 700+ community service hours."
+        },
+        {
+          "id": "phi-president-advisors",
+          "sources": ["export:phi-president:2"],
+          "text": "Met with the Board of Chapter Advisors on a bimonthly basis to provide a holistic assessment of the chapter and request assistance and resources as needed."
+        },
+        {
+          "id": "phi-president-property",
+          "sources": ["export:phi-president:3"],
+          "text": "Liaised monthly with the Building Association on management of a $3M+ chapter property, checking compliance with city regulations and reporting significant issues for remediation."
+        }
+      ]
+    },
+    {
+      "id": "phi-treasurer",
+      "employer": "Phi Gamma Delta",
+      "title": "Chapter Treasurer / Vice-President",
+      "start": "2017",
+      "end": "2018",
+      "points": [
+        {
+          "id": "phi-treasurer-debt",
+          "sources": ["export:phi-treasurer:1"],
+          "text": "Recovered the chapter from $10,000+ in landlord debt by collecting overdue tenant payments and allocating 10% of budget contingencies to repayment."
+        },
+        {
+          "id": "phi-treasurer-records",
+          "sources": ["export:phi-treasurer:2"],
+          "text": "Managed chapter financial records in QuickBooks Online, logging more than 200 transactions."
+        },
+        {
+          "id": "phi-treasurer-statements",
+          "sources": ["export:phi-treasurer:3"],
+          "text": "Produced bimonthly financial statements for review at Board of Chapter Advisors meetings."
+        }
+      ]
+    },
+    {
+      "id": "phi-recruitment",
+      "employer": "Phi Gamma Delta",
+      "title": "Chair, Recruitment Committee",
+      "start": "2016",
+      "end": "2018",
+      "points": [
+        {
+          "id": "phi-recruitment-strategy",
+          "sources": ["export:phi-recruitment:1"],
+          "text": "Implemented the marketing and logistics strategy for recruitment week, delivering the chapter’s most multidisciplinary pledge class since 1923."
+        },
+        {
+          "id": "phi-recruitment-team",
+          "sources": ["export:phi-recruitment:2"],
+          "text": "Mobilized a multidisciplinary team of 23 students to coordinate event planning across ten private student organizations using Gantt charts."
+        },
+        {
+          "id": "phi-recruitment-fundraising",
+          "sources": ["export:phi-recruitment:3"],
+          "text": "Planned recruitment events that raised more than $10,000 during the academic year."
+        }
+      ]
+    },
+    {
+      "id": "cheme-mentor",
+      "employer": "Chemical Engineering Mentorship Program",
+      "title": "Mentor",
+      "start": "2017",
+      "end": "2020",
+      "context": "Science and technology",
+      "points": [],
+      "source": "volunteering:mentor",
+      "note": "Live profile provides title, dates, and cause only."
+    },
+    {
+      "id": "ayf-political",
+      "employer": "Armenian Youth Federation of Canada",
+      "title": "Vice President, Political Committee",
+      "start": "2013",
+      "end": "2015",
+      "points": [
+        {
+          "id": "ayf-political-workshops",
+          "sources": ["volunteering:ayf-political:1"],
+          "text": "Organized workshops and events to raise young people’s awareness of political issues, inviting politicians to speak to members and the wider community."
+        },
+        {
+          "id": "ayf-political-elections",
+          "sources": ["volunteering:ayf-political:2"],
+          "text": "Volunteered for provincial and municipal election candidates in the local riding, canvassing and working as a scrutineer."
+        }
+      ]
+    },
+    {
+      "id": "ayf-education",
+      "employer": "Armenian Youth Federation of Canada",
+      "title": "Secretary, Educational / PR Committee",
+      "start": "2013",
+      "end": "2015",
+      "points": [
+        {
+          "id": "ayf-education-outreach",
+          "sources": ["volunteering:ayf-education:1"],
+          "text": "Organized lectures and events and created informational pamphlets to strengthen the organization."
+        },
+        {
+          "id": "ayf-education-community",
+          "sources": ["volunteering:ayf-education:2"],
+          "text": "Planned Friday evening outings after general meetings, chapter-wide retreats, and holiday celebrations to bring members closer together."
+        }
+      ]
+    },
+    {
+      "id": "sara-corning",
+      "employer": "Sara Corning Centre for Genocide Education",
+      "title": "Organizer",
+      "start": "2014",
+      "end": "2015",
+      "points": [
+        {
+          "id": "sara-corning-100-voices",
+          "sources": ["volunteering:sara-corning:1"],
+          "text": "Filmed 100 interviews, edited the footage, and prepared computer-based presentations for “100 Voices,” a project commemorating the 1.5 million lives lost in the Armenian Genocide of 1915."
+        }
+      ],
+      "link": {
+        "href": "https://www.youtube.com/watch?v=qYw7WXkD5A4",
+        "text": "Watch the 100 Voices teaser"
+      }
+    },
+    {
+      "id": "anct-board",
+      "employer": "Armenian National Committee of Toronto",
+      "title": "Board Member",
+      "start": "2014",
+      "end": "2015",
+      "points": [
+        {
+          "id": "anct-youth-liaison",
+          "sources": ["volunteering:anct:1"],
+          "text": "Served as a youth liaison between the board and the Armenian Youth Federation’s Political Committee through involvement in AYF."
+        }
+      ]
+    }
+  ],
+  "sharedDeloittePoints": [
+    {
+      "id": "deloitte-secondment",
+      "sources": ["resume:senior:1"],
+      "text": "Spearheaded design and implementation of a strategic workforce planning process during a four-month secondment: led stakeholder workshops, developed process frameworks, co-created MVP tools, built an implementation roadmap, and piloted the end-to-end approach with cross-functional teams to gather feedback and drive progress."
+    },
+    {
+      "id": "deloitte-workforce-readiness",
+      "sources": ["resume:senior:2"],
+      "text": "Built data-driven workforce readiness tools and models in Excel, Power Query, and Power Pivot for a multi-million-dollar capital project, evaluating sourcing strategies, prioritizing skill gaps, and assessing organizational health through custom decision matrices and risk indicators."
+    },
+    {
+      "id": "deloitte-job-mapping",
+      "sources": ["resume:senior:3"],
+      "text": "Standardized and automated the firm’s job-mapping methodology with a generative AI-powered Python tool, achieving 99% efficiency gains and 90% accuracy, saving $17K on the project and projecting $400K in annual impact."
+    },
+    {
+      "id": "deloitte-performance-management",
+      "sources": ["resume:consultant:1"],
+      "text": "Supported a refreshed performance management program through discovery workshops and synthesized interview insights. Developed stakeholder personas, visual process flows, and a high-level implementation roadmap, taking ownership of outputs to maintain quality."
+    },
+    {
+      "id": "deloitte-cross-engagement-automation",
+      "sources": ["resume:consultant:2"],
+      "text": "Automated data consolidation, reporting, and computation with Python and VBA, saving 165 project hours across initiatives, and developed scalable Excel-based resilience and business impact assessment tools adopted by 60 business units."
+    }
+  ]
+}

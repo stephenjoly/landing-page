@@ -4,9 +4,10 @@
 
 Approved standalone HTML mockup of a CV page inside Stephen's current visual
 identity. Application routes, navigation, and production are unchanged.
-Content inventory: 15 distinct work/leadership roles, two education entries,
-skills, three languages, and seven recognition entries. Both supplied PDFs
-were read; the normalized source inventory is `docs/cv-content.md`.
+Content inventory: 20 distinct work/leadership roles, 60 achievement bullets,
+two education entries, skills, three languages, and seven recognition entries.
+Both supplied PDFs and current LinkedIn experience/volunteering pages were
+read; the detailed source inventory is `docs/cv-experience-points.json`.
 
 ## Review screens and script
 
@@ -16,8 +17,8 @@ This is the workspace's host-local managed preview, not a public deployment.
 1. **CV / Desktop:** open the CV Mockup preview from this workspace. Scan the
    introduction, résumé action, and professional history. Check the Dayforce /
    Agentnoon transition and all five Deloitte roles.
-2. Use section links to inspect research/early experience, the four community
-   leadership roles, education, skills/languages, and all awards.
+2. Use section links to inspect research/early experience, all nine community
+   leadership/volunteering roles, education, skills/languages, and all awards.
 3. Open the résumé download and check the supplied redacted one-page PDF.
 4. **CV / Mobile:** narrow the window to 390 px. Check complete content,
    readable dates and titles, usable navigation, and reachable résumé action.
@@ -30,16 +31,22 @@ This is the workspace's host-local managed preview, not a public deployment.
 - Private phone/email and customer-specific details are omitted.
 - No synthetic career claims or fake endorsements. Source history is the
   appropriate review fixture, so synthetic preview data is unnecessary.
-- Keep the conference appearance as 'selected to present'. Proficiency and
-  language levels remain as supplied.
+- Current LinkedIn confirms the conference session was delivered, with 145
+  registered participants. Proficiency and language levels remain as supplied.
 
 ## Verification
 
-Content pass: HTML contains all 15 role entries, both education entries, all
-three languages with their original levels, and all seven recognition entries.
-The page preserves 'selected to deliver' for Dayforce Discover, labels the
-Agentnoon acquisition, and separates the Deloitte internship from full-time
-dates. No private contact or client-specific details appear in the draft.
+Content pass: HTML contains all 20 role entries and 60 detailed bullets, both
+education entries, all three languages with their original levels, and all
+seven recognition entries. Current LinkedIn supplies the delivered Discover
+session and five additional volunteer roles. The page labels the Agentnoon
+acquisition and separates the Deloitte internship from full-time dates.
+Private contacts and client names are omitted; outcome metrics remain.
+
+See `cv-content-completeness.md` for the content revision's source reconciliation
+and current validation. The original visual-review evidence below applies to
+the approved appearance; fresh content captures are in
+`.impeccable/review/content-update/`.
 
 Rendered checks passed at 1440, 1024, 768, 390, and 320 px: no horizontal
 overflow or clipped elements. Images loaded without script or request errors.

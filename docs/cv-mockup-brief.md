@@ -2,6 +2,12 @@
 
 Status: approved by Stephen in this conversation on 2026-11-11.
 
+Content revision authorized in the follow-up: retain the approved appearance,
+include every substantive experience point from both PDFs and live LinkedIn,
+and add the volunteer roles found on the profile. The detailed point inventory
+in `cv-experience-points.json` supersedes the condensed-content instructions
+below. Older entries now retain full achievement bullets, not short summaries.
+
 ## Purpose and audience
 
 Give visitors to Stephen Joly's personal site one readable, complete record of
@@ -30,16 +36,17 @@ The design-app connection is currently unavailable.
   and Deloitte's 2018–2019 internship. Early experience includes HomEquity Bank,
   Troost Institute research, University of Toronto campus work, and You're Next
   Career Network. Leadership includes all four Phi Gamma Delta roles.
-- Group related roles so promotion history remains legible. Recent work gets
-  concise achievement bullets; older roles use shorter summaries. Link relevant
+- Group related roles so promotion history remains legible. All roles retain
+  their sourced achievement bullets, including earlier experience. Link relevant
   work to existing Projects rather than duplicating full case studies.
 
 ## Content rules
 
-Use both supplied PDFs: LinkedIn export supplies the complete role inventory;
-the résumé supplies newer achievements and technical skills. Do not invent
+Use both supplied PDFs and current live LinkedIn experience and volunteering
+pages. The résumé supplies additional achievements and technical skills. Do not invent
 claims or convert projected savings into realized outcomes. Exclude private
-phone/email and client-specific details from the draft. Use year-level dates
+phone/email and named clients from the draft. Retain sourced professional
+outcome metrics with anonymized client context. Use year-level dates
 where sources conflict; keep unresolved month-level differences in review
 notes. No synthetic career history: the supplied history is the review data.
 

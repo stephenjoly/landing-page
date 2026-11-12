@@ -13,8 +13,9 @@ concept tournament or raster comp: the responsive HTML is the review mockup.
 ## Direction contract
 
 **THESIS:** One complete professional record, readable at two depths: recent
-achievements first, compact older roles and leadership below. Group Deloitte
-promotions while preserving every title and date.
+achievements first, complete earlier roles and leadership below. Group Deloitte
+promotions while preserving every title and date. The content revision retains
+every substantive sourced achievement bullet, including earlier work.
 
 **OWN-WORLD:** Existing white canvas on zinc-50, zinc-800 headings, zinc-600 body
 text, restrained teal links, sans-serif type, and familiar small avatar/pill

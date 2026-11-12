@@ -1,5 +1,10 @@
 # CV mockup — designer report
 
+This records the initial visual-design milestone. Its original 15-role content
+counts and condensed bullets are superseded by the expanded 20-role, 60-bullet
+inventory and source review in `cv-content-completeness.md`. The approved visual
+identity described here is preserved.
+
 Static, editable, responsive HTML mockup of a new **CV** page for
 stephenjoly.net. It extends the live site's visual world and doesn't redesign
 it. The UI files are frozen for the parent's final screenshots, detector pass,

@@ -29,10 +29,12 @@ Keep Stephen Joly's name, existing site identity, and clear factual voice.
 
 ## Evidence on Hand
 
-Two supplied PDFs provide the career record. The approved scope is recorded in
+Two supplied PDFs and Stephen's live LinkedIn experience and volunteering
+pages provide the career record. The approved scope is recorded in
 `docs/cv-mockup-brief.md`; a normalized, privacy-filtered content inventory lives
 in `docs/cv-content.md`. Use years where sources disagree. Exclude private
-contact details and client-specific details. Never invent claims or present
+contact details and named clients; retain substantive professional achievement
+points and sourced metrics. Never invent claims or present
 projected outcomes as realized results.
 
 ## Product Principles

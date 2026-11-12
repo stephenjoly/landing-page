@@ -141,6 +141,8 @@ Approved CV-page mockup work is isolated under `mockups/cv/`, with source
 inventory and review instructions in `docs/cv-*.md`. The **CV Mockup** Paseo
 script serves only that directory for responsive desktop/mobile review. It
 does not add a production `/cv` route or change application navigation.
+The expanded experience inventory in `docs/cv-experience-points.json` maps 20
+roles and 60 detailed bullets to the PDFs and current LinkedIn profile.
 
 ## Maintenance Priorities
 
