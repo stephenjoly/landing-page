@@ -135,6 +135,13 @@ This project was clearly adapted from a portfolio/blog starter. A few inherited 
 - When changing navigation, update both header and footer links.
 - When changing brand copy or career history, review `/`, `/about`, `/projects`, and the resume PDF in `public/files` for consistency.
 
+## CV Design Draft
+
+Approved CV-page mockup work is isolated under `mockups/cv/`, with source
+inventory and review instructions in `docs/cv-*.md`. The **CV Mockup** Paseo
+script serves only that directory for responsive desktop/mobile review. It
+does not add a production `/cv` route or change application navigation.
+
 ## Maintenance Priorities
 
 - Keep `context.md` current when routes, architecture, or content patterns change.

@@ -125,6 +125,17 @@ npm run start
 
 ## Workspace preview
 
+### CV mockup
+
+The standalone CV design draft is in `mockups/cv/`. Start **CV Mockup** in
+Paseo to review its responsive desktop/mobile layout without building or
+changing the application. The script serves only that mockup directory.
+See `docs/cv-mockup-brief.md` for approved scope and `docs/cv-review.md` for
+the review script and validation. This is a design preview, not a production
+route or deployment.
+
+### Application preview
+
 After `npm ci` and `npm run build`, start the **Preview** script in Paseo. The
 repository's `paseo.json` runs the production server on the workspace-allocated
 port and registers a managed proxy URL. Rebuild and restart the script after
