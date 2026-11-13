@@ -91,6 +91,9 @@ Projects are hard-coded in `src/app/projects/data.ts` as two structured collecti
 - `consultingProjects`
   Modal-driven case studies for client and advisory work.
 
+University student mentorship and HomEquity's in-house business process
+automation are CV experience, excluded from the consulting project collection.
+
 The `/projects` route renders both collections through a split-view UI. The active view is controlled by the `tab` query param, defaults to `coding`, and preserves the existing modal experience for consulting projects.
 
 ### Contact Delivery

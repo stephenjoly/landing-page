@@ -1,8 +1,6 @@
 import type { ImageProps } from 'next/image'
 
 import logoDeloitte from '@/images/logos/deloitte.svg'
-import logoHomEquity from '@/images/logos/homequity.svg'
-import logoUofT from '@/images/logos/uoft.svg'
 import iconBackupAgent from '@/images/project-icons/backup-agent.svg'
 import iconCodexSessionIndexer from '@/images/project-icons/codex-session-indexer.svg'
 import iconDeployWizard from '@/images/project-icons/deploy-wizard.svg'
@@ -731,54 +729,6 @@ export const consultingProjects: ConsultingProject[] = [
     outcome:
       'I mapped 393 regulatory issues to 47 activities and produced 23 Tableau figures for executive review.',
     year: '2018',
-    featured: false,
-  },
-  {
-    name: 'Engineering Campus Experience Office Program',
-    logo: logoUofT,
-    descriptor: 'Large Canadian Higher Education Institution',
-    timeline: 'Sept 2019 – May 2020 (8 months)',
-    context:
-      'To improve student experience and support students throughout their engineering education, the University developed a novel strategic initiative focused on providing ad hoc mentorship to a student body of over 5000, deemed the Engineering Campus Experience Officer (engCEO) program.',
-    role: [
-      'I was hired to lead the engCEO program and contributed in the following capacity:',
-      'I developed an organizational structure for a team of 12 student leaders – synthesizing functional groups to support execution of the mandate with respect to marketing, event planning, financial, and logistical operations.',
-      "I supported the team by providing regular guidance and feedback, ensuring that each member was aligned with the program's goals and objectives.",
-      'I promoted the engCEO program through various marketing channels, including social media, newsletters, and campus events, to increase visibility and participation.',
-      "I monitored and evaluated the program's impact through surveys and feedback sessions, making data-driven decisions to refine and enhance the initiative.",
-      "I managed the program's budget, ensuring that all expenditures were within the allocated funds and providing financial reports to stakeholders.",
-      "I produced a thorough report using MS PowerPoint to provide an overview of the pilot program's performance for review by the Dean's Strategic Fund committee including content relating to program outreach, financial analysis, overview of strategic decisions, and feedback from mentors for future terms.",
-    ],
-    description:
-      'I led the engCEO mentorship program and its 12-person student team, supporting a body of 5000+ engineering students.',
-    slug: 'engineering-campus-experience',
-    shortTitle: 'Engineering student mentorship',
-    category: 'Workforce and organization',
-    outcome:
-      'I led a 12-person student team and reported on the engCEO pilot’s outreach, finances, and mentor feedback.',
-    year: '2019–2020',
-    featured: false,
-  },
-  {
-    name: 'Business Process Analysis',
-    logo: logoHomEquity,
-    descriptor: 'Schedule 1 Financial Institution',
-    timeline: 'May – August 2017 (4 months)',
-    context:
-      'During my first co-op placement, I supported the Business Process manager in analysing and enhancing business processes on an ad hoc basis, independently identifying opportunities for improvement and optimizing procedures by developing tools or reviewing process designs.',
-    role: [
-      'I contributed in a support role:',
-      'I built a Quality Assurance program using Excel to capture and produce reports on data being collected on a day-to-day basis, expediting task timeline by 15% and saving an estimated 180 hours of work per quarter.',
-      'I streamlined daily operational reporting by developing a user-friendly Excel program for management review to automate repeatable processes and visualize key performance indicators, reducing task duration by 57% per report and saving over 25 hours of work per quarter.',
-    ],
-    description:
-      'I analyzed and improved business processes through Excel tool development and process design review.',
-    slug: 'business-process-analysis',
-    shortTitle: 'Business process automation',
-    category: 'Risk and operations',
-    outcome:
-      'My Excel tools reduced quality assurance task timelines by 15% and daily reporting time by 57%.',
-    year: '2017',
     featured: false,
   },
 ]
