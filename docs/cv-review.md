@@ -16,7 +16,10 @@ This is the workspace's host-local managed preview, not a public deployment.
 
 1. **CV / Desktop:** open the CV Mockup preview from this workspace. Scan the
    introduction, résumé action, and professional history. Check the Dayforce /
-   Agentnoon transition and all five Deloitte roles.
+   Agentnoon transition and all five Deloitte roles. Under Deloitte Canada,
+   select **See all my Deloitte projects** to open the Projects page's
+   Consulting tab. The button uses the existing teal action style and appears
+   before the detailed promotion history.
 2. Use section links to inspect research/early experience, all nine community
    leadership/volunteering roles, education, skills/languages, and all awards.
 3. Open the résumé download and check the supplied redacted one-page PDF.

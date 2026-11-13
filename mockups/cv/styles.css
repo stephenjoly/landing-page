@@ -1013,6 +1013,10 @@ a {
   margin-top: 0.75rem;
 }
 
+.entry-body > .button-primary {
+  margin-top: 1.25rem;
+}
+
 /* ---------- Disclosure ---------- */
 
 .disclosure {
