@@ -39,8 +39,10 @@ complete-bullets update. No other person's contact details or records appear.
 
 Every role in the inventory has one visible entry with its matching ID. Every
 point has one visible bullet with its matching ID and complete authored text.
-The HTML remains static; edit the inventory and HTML together. Deloitte's five
-résumé achievements sit in a shared employer-level list because its résumé
+The application server-renders `src/app/cv/page.tsx`; the standalone reference
+remains in `mockups/cv/index.html`. Edit the inventory, TSX, and reference HTML
+together. `e2e/cv.spec.ts` checks the application against the inventory.
+Deloitte's five résumé achievements sit in a shared employer-level list because its résumé
 job bands span multiple detailed LinkedIn titles. This avoids inventing a more
 specific role attribution. Two title-only roles (You're Next and chemical
 engineering mentorship) have no invented responsibilities.
