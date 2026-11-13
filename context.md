@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository is Stephen Joly's personal landing page and content site. It is a content-focused Next.js application built on the App Router, styled with Tailwind CSS, and customized from a template-based starting point. The site combines personal branding, long-form writing, speaking history, project case studies, and a small newsletter-style signup flow.
+This repository is Stephen Joly's personal website at `stephenjoly.net`. It is a content-focused Next.js App Router application styled with Tailwind CSS and adapted from a portfolio template. The site combines personal branding, long-form writing, speaking history, project case studies, and a contact form.
 
 The project is primarily a frontend application. The contact form uses a Next.js route handler and Resend for email delivery. There is no database or authenticated user area.
 
@@ -16,21 +16,22 @@ The project is primarily a frontend application. The contact form uses a Next.js
 
 ## Stack
 
-- Next.js 14 with the App Router
-- React 18
+- Next.js 16 with the App Router
+- React 19
 - TypeScript
 - Tailwind CSS v4
 - MDX via `@next/mdx`
 - `remark-gfm` for GitHub-flavored Markdown features
 - `@mapbox/rehype-prism` for code highlighting in MDX
 - `next-themes` for theme switching
-- `next-plausible` for analytics
+- `posthog-js` for production pageview analytics
 
 ## Runtime And Deployment
 
-- `next.config.mjs` enables MDX page extensions and `output: 'standalone'`.
-- Plausible analytics is injected in the root layout.
-- Docker support exists via `Dockerfile` and `docker-compose.yml`.
+- `next.config.mjs` enables MDX page extensions, `output: 'standalone'`, and same-origin `/ingest` rewrites to PostHog's US ingest and asset hosts.
+- `src/app/layout.tsx` mounts `src/lib/posthog.tsx`. Analytics initializes only on `stephenjoly.net` and `www.stephenjoly.net`, reads the public project key from `/api/analytics-config`, and registers `site: 'stephenjoly.net'`. It records pageviews and page leaves, with autocapture, surveys, and session recording disabled.
+- `POSTHOG_KEY` is a server runtime environment variable. The shared PostHog project uses the `site` event property to distinguish this website's traffic.
+- Dokploy builds and deploys the GitHub `main` branch using `Dockerfile`; the app exposes `/health` for deployment checks. `docker-compose.yml` describes a retired deployment, not the current production path.
 
 ## Application Structure
 
@@ -39,7 +40,7 @@ The project is primarily a frontend application. The contact form uses a Next.js
 - `src/components`
   Shared layout primitives and reusable UI components.
 - `src/lib`
-  Small utilities for article discovery and date formatting.
+  Article discovery, metadata, contact validation/rate limiting, analytics, and other shared utilities.
 - `src/images`
   Avatars, portraits, logos, and photo assets bundled with the site.
 - `public`
@@ -48,19 +49,25 @@ The project is primarily a frontend application. The contact form uses a Next.js
 ## Routes
 
 - `/`
-  Homepage with intro copy, social links, resume-style experience list, selected articles, photo strip, and a newsletter form UI.
+  Homepage with intro copy, social links, photos, selected coding projects, a consulting-project carousel, recent articles, and a compact career summary.
 - `/about`
   Biography with career chapters, portrait, shared social profiles, and a contact invitation.
 - `/contact`
   Accessible contact form with inline validation and in-place success; submits to `/api/contact`.
 - `/api/contact`
   POST-only Resend delivery handler with server validation, honeypot, bounded request size, and process-local rate limiting.
+- `/api/analytics-config`
+  Returns the public PostHog project key from the server runtime environment without caching.
+- `/health`
+  Uncached health response used by deployment checks.
+- `/social-card.png`
+  Generated social sharing image.
 - `/articles`
   Article index built from MDX metadata.
 - `/articles/[slug]`
   MDX article pages under `src/app/articles/*/page.mdx`.
 - `/projects`
-  Split project view with `Coding` and `Consulting` tabs, persisted through the `tab` query param.
+  Split project view with `Coding` and `Consulting` tabs in the `tab` query param; consulting case studies can be linked with the `case` query param.
 - `/speaking`
   Curated speaking appearances with outbound links.
 - `/uses`
@@ -84,17 +91,17 @@ Articles live under `src/app/articles/<slug>/page.mdx`. Each article exports:
 
 ### Projects
 
-Projects are hard-coded in `src/app/projects/data.ts` as two structured collections:
+Projects are authored in `src/app/projects/data.ts` as two structured collections:
 
 - `codingProjects`
   Link-driven cards for software and build projects.
 - `consultingProjects`
-  Modal-driven case studies for client and advisory work.
+  Featured and archived case studies for client and advisory work, opened in a modal.
 
 University student mentorship and HomEquity's in-house business process
 automation are CV experience, excluded from the consulting project collection.
 
-The `/projects` route renders both collections through a split-view UI. The active view is controlled by the `tab` query param, defaults to `coding`, and preserves the existing modal experience for consulting projects.
+The `/projects` route renders both collections through a split-view UI. The active view is controlled by the `tab` query param and defaults to `coding`. The `case` query param selects a consulting case study for direct links and browser history.
 
 ### Contact Delivery
 
@@ -121,14 +128,11 @@ Homepage, About, Speaking, and Uses pages are largely authored directly in TSX f
 
 ## Environment Expectations
 
-Contact delivery requires server-only `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, and `CONTACT_TO_EMAIL`. Without configuration the endpoint returns a recoverable error, never a fake success. See README for setup and rate-limit scope.
+Contact delivery requires server-only `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, and `CONTACT_TO_EMAIL`. Without configuration the endpoint returns a recoverable error, never a fake success. Production analytics requires server runtime `POSTHOG_KEY`; the client fetches this public project key only on the configured production host. See README for setup and rate-limit scope.
 
 ## Known Template Inheritance
 
-This project was clearly adapted from a portfolio/blog starter. A few inherited artifacts still exist and should be treated carefully when making updates:
-
-- Some commented references to older template branding remain in project data.
-- The homepage newsletter form currently posts to `/thank-you` only; it is a UI flow, not a real email subscription integration.
+This project was adapted from a portfolio/blog starter. A newsletter form remains in the homepage source but is not rendered. The `/thank-you` page remains from that template flow; there is no email subscription integration.
 
 ## Working Guidance
 
