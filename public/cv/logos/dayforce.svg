@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="256" cy="256" r="208" fill="url(#dayforce-gradient)"/>
+  <path d="M312 92V191.1C294.9 179.216 273.927 172.225 251.3 172.225C192.51 172.225 146.95 218.91 146.95 278.675C146.95 338.44 192.51 385.125 251.3 385.125C310.09 385.125 355.65 338.44 355.65 278.675V92H312ZM251.3 336.575C219.621 336.575 195.9 312.139 195.9 278.675C195.9 245.211 219.621 220.775 251.3 220.775C282.979 220.775 306.7 245.211 306.7 278.675C306.7 312.139 282.979 336.575 251.3 336.575Z" fill="white"/>
+  <defs>
+    <linearGradient id="dayforce-gradient" x1="94" y1="74" x2="418" y2="438" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D5EEA"/>
+      <stop offset="1" stop-color="#22B8F5"/>
+    </linearGradient>
+  </defs>
+</svg>

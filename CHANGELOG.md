@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-13
+
+- Add the CV page with the complete sourced experience record, education,
+  leadership, skills, languages, awards and résumé download.
+- Add CV to desktop, mobile and footer navigation, with a subtle Deloitte
+  projects text link to the Consulting tab.
+- Remove university mentorship and in-house process automation from the
+  consulting project archive.
+
 ## 2025-05-02
 
 - Change email input border to an outline ([related tweet](https://x.com/adamwathan/status/1917984295148302743))

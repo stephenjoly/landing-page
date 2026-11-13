@@ -24,6 +24,7 @@ The site is content-first: a homepage featuring selected coding projects and con
 - `/articles` article index
 - `/articles/[slug]` MDX article pages
 - `/projects` split view for coding projects and consulting projects
+- `/cv` complete experience, education, leadership, skills, languages, awards, and résumé download
 - `/speaking` speaking appearances
 - `/uses` equipment and software recommendations
 - `/thank-you` static form confirmation page
@@ -46,6 +47,7 @@ Useful pages while working:
 - `http://localhost:3000/projects`
 - `http://localhost:3000/projects?tab=coding`
 - `http://localhost:3000/projects?tab=consulting`
+- `http://localhost:3000/cv`
 - `http://localhost:3000/articles`
 
 If Next.js gets into a stale dev-cache state after branch switches or config changes:
@@ -124,6 +126,36 @@ npm run start
 ```
 
 ## Workspace preview
+
+### CV page
+
+Open `/cv` in the application preview. It contains the approved 20 roles and
+60 sourced experience bullets, education, leadership, skills, languages and
+awards. The Deloitte text link opens the Consulting tab on Projects; university
+mentorship and in-house HomEquity work remain in CV experience. CV appears in
+desktop, mobile and footer navigation. See `docs/cv-production-brief.md` for
+the implementation scope and acceptance checks.
+
+Edit career content in `src/app/cv/page.tsx` alongside the inventory and
+standalone reference described below. Run `npm run test:e2e -- e2e/cv.spec.ts`
+to check content coverage, navigation, disclosure, themes, and résumé download.
+
+### CV mockup
+
+The standalone CV design draft is in `mockups/cv/`. Start **CV Mockup** in
+Paseo to review its responsive desktop/mobile layout without building or
+changing the application. The script serves only that mockup directory.
+See `docs/cv-mockup-brief.md` for the original design scope and
+`docs/cv-review.md` for its review script and validation. Production now uses
+the approved design at `/cv`; this script still serves the standalone reference.
+
+The detailed experience inventory in `docs/cv-experience-points.json` maps all
+20 roles and 60 achievement bullets to the supplied PDFs and live LinkedIn.
+The HTML is static: update both the inventory and matching bullet text when
+editing career content. Source reconciliation and coverage evidence are
+summarized in `docs/cv-content-completeness.md`.
+
+### Application preview
 
 After `npm ci` and `npm run build`, start the **Preview** script in Paseo. The
 repository's `paseo.json` runs the production server on the workspace-allocated

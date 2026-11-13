@@ -1,7 +1,7 @@
 {
   "worktree": {
     "servicePorts": {
-      "range": "41005-41005"
+      "range": "41005-41015"
     },
     "setup": [
       "npm ci",
@@ -9,6 +9,10 @@
     ]
   },
   "scripts": {
+    "CV Mockup": {
+      "type": "service",
+      "command": "python3 -m http.server \"$PASEO_PORT\" --bind 127.0.0.1 --directory mockups/cv"
+    },
     "Preview": {
       "type": "service",
       "command": "npm run start -- --hostname 0.0.0.0 --port \"$PASEO_PORT\""
