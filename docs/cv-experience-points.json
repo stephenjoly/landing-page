@@ -6,7 +6,7 @@
     "export": "Supplied six-page LinkedIn PDF",
     "resume": "Supplied one-page redacted resume PDF"
   },
-  "metricDecision": "Current LinkedIn’s $45M optimization opportunity is retained as potential value at Agentnoon. The resume’s US$41M numerical variant is not repeated; its first-principles analysis, contingency method, and executive presentation remain under the Dayforce chapter where the resume records them. No equivalence or addition of the two figures is asserted. User can steer this source-freshness choice.",
+  "metricDecision": "On 2026-11-13 Stephen explicitly selected the resume’s US$41M forecast including contingencies. Show it as a projected reduction under the Dayforce chapter where the resume records it, never as realized savings. Keep Agentnoon’s reporting-services achievement qualitative and omit LinkedIn’s alternative numerical amount.",
   "roles": [
     {
       "id": "dayforce",
@@ -68,7 +68,7 @@
         {
           "id": "dayforce-workforce-spend-analysis",
           "sources": ["resume:dayforce:3"],
-          "text": "Built a first-principles workforce-spend analysis with contingency allowances and presented findings to VP and senior-leader audiences."
+          "text": "Built a first-principles workforce-spend analysis forecasting a US$41M reduction, including contingencies, and presented findings to VP and senior-leader audiences."
         }
       ]
     },
@@ -93,7 +93,7 @@
         {
           "id": "agentnoon-reporting-opportunity",
           "sources": ["linkedin:agentnoon:3"],
-          "text": "Helped build and productize reporting services that identified a $45M opportunity to optimize workforce and organizational design."
+          "text": "Helped build and productize reporting services that identified opportunities to optimize workforce and organizational design."
         },
         {
           "id": "agentnoon-engineering-priorities",

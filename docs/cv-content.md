@@ -25,10 +25,11 @@ volunteer roles and the Power BI / Excel / Azure LLM impact-model details.
 Use year-level dates where the supplied documents differ. Merge equivalent
 claims without dropping methods, deliverables, audiences, quantities, or
 outcomes. Keep projected savings and scaling targets distinct from realized
-results. The current LinkedIn optimization opportunity is $45M; the résumé's
-US$41M contingency-adjusted numerical variant is superseded, with its analysis
-methods and executive presentation retained. This follows source freshness;
-the user was offered the choice to correct that reconciliation.
+results. On 2026-11-13 Stephen explicitly selected the résumé's **US$41M
+forecast including contingencies**. Show this projected reduction in the
+Dayforce analysis bullet, alongside its methods and executive presentation.
+Omit LinkedIn's alternative numerical amount; keep Agentnoon's reporting-services
+achievement qualitative. The user's selection supersedes source-freshness inference.
 
 Private contacts and named clients remain omitted. The local page includes
 professional outcome metrics and anonymized client context requested in the

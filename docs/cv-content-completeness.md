@@ -27,12 +27,11 @@ also adds the Power BI workforce-impact model, Excel/Azure-hosted LLM
 function, engineering operations work, and fuller post-acquisition delivery
 responsibilities. All original PDF-only historical achievements remain.
 
-Current LinkedIn reports a $45M optimization opportunity; the résumé reports a
-US$41M forecast including contingency. The newer LinkedIn amount is used, with
-the first-principles method, contingency work, and executive presentation kept
-separately under the Dayforce chapter where the résumé records them. No
-equivalence or addition of the two numerical figures is asserted. These are
-potential outcomes, not realized savings.
+On 2026-11-13 Stephen explicitly chose the résumé's **US$41M forecast including
+contingencies**. The projected reduction, first-principles method, and executive
+presentation remain under the Dayforce chapter where the résumé records them.
+LinkedIn's alternative numerical amount is omitted; Agentnoon's reporting-services
+achievement remains qualitative. The amount is a forecast, not realized savings.
 Private contact details and client names remain omitted as previously agreed.
 
 ## Verification
@@ -43,6 +42,10 @@ Private contact details and client names remain omitted as previously agreed.
 - Independent review compared the page directly with the current LinkedIn
   source texts and both sanitized PDF texts. Final disposition: **ship**, with
   no meaningful experience omissions or invented achievements found.
+  That review predates the narrow metric correction explicitly selected by Stephen.
+- Metric follow-up (2026-11-13): all 60 bullet texts still match the inventory;
+  the served preview shows the US$41M forecast including contingencies and no
+  alternative figure. Desktop and 390 px mobile checks passed without overflow.
 - Layout: no horizontal overflow/clipping at 1440, 1024, 768, 390, or 320 px.
   Desktop/mobile captures in both themes were inspected; longer bullet lists
   remain readable. No script or asset-request errors were observed.
