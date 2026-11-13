@@ -93,6 +93,7 @@ for (const width of [1440, 1024, 768, 390, 320]) {
       exact: true,
     })
     await expect(link).toHaveAttribute('href', '/projects?tab=consulting')
+    await page.keyboard.press('Tab')
     await link.focus()
     expect(
       await link.evaluate((el) => el.matches(':focus-visible')),
