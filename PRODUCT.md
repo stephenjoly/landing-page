@@ -9,7 +9,7 @@ web
 ## Product Purpose
 
 Present Stephen's professional story, experience, projects, and writing. The
-approved CV mockup gives visitors one complete, readable professional record,
+approved CV page gives visitors one complete, readable professional record,
 complementing the biography on About and case studies on Projects.
 
 ## Users
@@ -20,8 +20,8 @@ career progression, read achievements, and download the existing résumé.
 ## Capabilities and Constraints
 
 Existing site: Next.js App Router, React, TypeScript, Tailwind, MDX, responsive
-layout, and light/dark themes. Current task is a separate editable HTML mockup
-with desktop/mobile layouts. Production routes and navigation are out of scope.
+layout, and light/dark themes. The approved CV is implemented at `/cv`, integrated
+with the shared navigation. Its standalone HTML mockup remains a design reference.
 
 ## Brand Commitments
 
@@ -32,7 +32,8 @@ Keep Stephen Joly's name, existing site identity, and clear factual voice.
 Two supplied PDFs and Stephen's live LinkedIn experience and volunteering
 pages provide the career record. The approved scope is recorded in
 `docs/cv-mockup-brief.md`; a normalized, privacy-filtered content inventory lives
-in `docs/cv-content.md`. Use years where sources disagree. Exclude private
+in `docs/cv-experience-points.json`, with production scope in
+`docs/cv-production-brief.md`. Use years where sources disagree. Exclude private
 contact details and named clients; retain substantive professional achievement
 points and sourced metrics. Never invent claims or present
 projected outcomes as realized results.

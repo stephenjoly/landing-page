@@ -51,9 +51,18 @@ function MobileNavItem({
   href: string
   children: React.ReactNode
 }) {
+  const isActive = usePathname() === href
   return (
     <li>
-      <PopoverButton as={Link} href={href} className="block py-2">
+      <PopoverButton
+        as={Link}
+        href={href}
+        aria-current={isActive ? 'page' : undefined}
+        className={clsx(
+          'block py-2',
+          isActive && 'text-teal-700 dark:text-teal-400',
+        )}
+      >
         {children}
       </PopoverButton>
     </li>
@@ -92,6 +101,7 @@ function MobileNavigation(
             <MobileNavItem href="/about">About</MobileNavItem>
             <MobileNavItem href="/articles">Articles</MobileNavItem>
             <MobileNavItem href="/projects">Projects</MobileNavItem>
+            <MobileNavItem href="/cv">CV</MobileNavItem>
             <MobileNavItem href="/speaking">Speaking</MobileNavItem>
             <MobileNavItem href="/uses">Uses</MobileNavItem>
             <MobileNavItem href="/contact">Contact</MobileNavItem>
@@ -115,10 +125,11 @@ function NavItem({
     <li>
       <Link
         href={href}
+        aria-current={isActive ? 'page' : undefined}
         className={clsx(
           'relative block px-3 py-2 transition',
           isActive
-            ? 'text-teal-500 dark:text-teal-400'
+            ? 'text-teal-700 dark:text-teal-400'
             : 'hover:text-teal-500 dark:hover:text-teal-400',
         )}
       >
@@ -139,6 +150,7 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
         <NavItem href="/about">About</NavItem>
         <NavItem href="/articles">Articles</NavItem>
         <NavItem href="/projects">Projects</NavItem>
+        <NavItem href="/cv">CV</NavItem>
         <NavItem href="/speaking">Speaking</NavItem>
         <NavItem href="/uses">Uses</NavItem>
       </ul>

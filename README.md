@@ -125,14 +125,23 @@ npm run start
 
 ## Workspace preview
 
+### CV page
+
+Open `/cv` in the application preview. It contains the approved 20 roles and
+60 sourced experience bullets, education, leadership, skills, languages and
+awards. The Deloitte text link opens the Consulting tab on Projects; university
+mentorship and in-house HomEquity work remain in CV experience. CV appears in
+desktop, mobile and footer navigation. See `docs/cv-production-brief.md` for
+the implementation scope and acceptance checks.
+
 ### CV mockup
 
 The standalone CV design draft is in `mockups/cv/`. Start **CV Mockup** in
 Paseo to review its responsive desktop/mobile layout without building or
 changing the application. The script serves only that mockup directory.
-See `docs/cv-mockup-brief.md` for approved scope and `docs/cv-review.md` for
-the review script and validation. This is a design preview, not a production
-route or deployment.
+See `docs/cv-mockup-brief.md` for the original design scope and
+`docs/cv-review.md` for its review script and validation. Production now uses
+the approved design at `/cv`; this script still serves the standalone reference.
 
 The detailed experience inventory in `docs/cv-experience-points.json` maps all
 20 roles and 60 achievement bullets to the supplied PDFs and live LinkedIn.

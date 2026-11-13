@@ -68,6 +68,9 @@ The project is primarily a frontend application. The contact form uses a Next.js
   MDX article pages under `src/app/articles/*/page.mdx`.
 - `/projects`
   Split project view with `Coding` and `Consulting` tabs in the `tab` query param; consulting case studies can be linked with the `case` query param.
+- `/cv`
+  Complete professional record with grouped promotions, education, leadership,
+  skills, languages and awards. Includes a résumé download and consulting link.
 - `/speaking`
   Curated speaking appearances with outbound links.
 - `/uses`
@@ -142,14 +145,21 @@ This project was adapted from a portfolio/blog starter. A newsletter form remain
 - When changing navigation, update both header and footer links.
 - When changing brand copy or career history, review `/`, `/about`, `/projects`, and the resume PDF in `public/files` for consistency.
 
-## CV Design Draft
+## CV
 
-Approved CV-page mockup work is isolated under `mockups/cv/`, with source
-inventory and review instructions in `docs/cv-*.md`. The **CV Mockup** Paseo
-script serves only that directory for responsive desktop/mobile review. It
-does not add a production `/cv` route or change application navigation.
-The expanded experience inventory in `docs/cv-experience-points.json` maps 20
-roles and 60 detailed bullets to the PDFs and current LinkedIn profile.
+`src/app/cv/page.tsx` server-renders the approved record. `cv.module.css` scopes
+the inherited zinc/teal design to this page; `CVNavigation.tsx` supplies scroll
+wayfinding. The shared header and footer expose `/cv` as “CV”. Education uses a
+native disclosure, and the existing redacted résumé stays in `public/files`.
+
+The content inventory in `docs/cv-experience-points.json` maps 20 roles and 60
+detailed bullets to the supplied PDFs and LinkedIn. Preserve all of them when
+editing. Use the selected US$41M forecast including contingencies, keep projected
+outcomes qualified, and omit private contact and client names. The Deloitte text
+link leads to `/projects?tab=consulting`. See `docs/cv-production-brief.md`.
+
+`mockups/cv/` remains the approved standalone design reference, served by the
+**CV Mockup** Paseo script. It is separate from the application preview.
 
 ## Maintenance Priorities
 

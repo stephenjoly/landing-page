@@ -1013,10 +1013,6 @@ a {
   margin-top: 0.75rem;
 }
 
-.entry-body > .button-primary {
-  margin-top: 1.25rem;
-}
-
 /* ---------- Disclosure ---------- */
 
 .disclosure {
@@ -1340,5 +1336,88 @@ a {
   }
   .theme-selector {
     align-self: flex-start;
+  }
+}
+
+/* Approved option C — Deloitte projects text action. */
+#deloitte-projects-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  margin-top: 0.5rem;
+  padding: 0;
+  color: var(--accent);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  transition: color 150ms ease;
+}
+
+#deloitte-projects-link .deloitte-link-label {
+  text-decoration-line: underline;
+  text-decoration-color: var(--teal-500);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  transition: text-decoration-color 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#deloitte-projects-link .deloitte-link-arrow {
+  width: 1.5rem;
+  height: 1rem;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#deloitte-projects-link:hover {
+  color: var(--accent-hover);
+}
+
+#deloitte-projects-link:hover .deloitte-link-label {
+  text-decoration-color: currentColor;
+}
+
+#deloitte-projects-link:hover .deloitte-link-arrow {
+  transform: translateX(4px);
+}
+
+#deloitte-projects-link:active {
+  transition: none;
+  opacity: 0.85;
+}
+
+#deloitte-projects-link:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+#deloitte-projects-link:focus-visible .deloitte-link-label {
+  text-decoration-color: currentColor;
+}
+
+:root.dark #deloitte-projects-link .deloitte-link-label {
+  text-decoration-color: var(--teal-700);
+}
+
+:root.dark #deloitte-projects-link:hover .deloitte-link-label,
+:root.dark #deloitte-projects-link:focus-visible .deloitte-link-label {
+  text-decoration-color: currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #deloitte-projects-link,
+  #deloitte-projects-link .deloitte-link-label,
+  #deloitte-projects-link .deloitte-link-arrow {
+    transition: none;
+  }
+
+  #deloitte-projects-link:hover .deloitte-link-arrow {
+    transform: none;
   }
 }

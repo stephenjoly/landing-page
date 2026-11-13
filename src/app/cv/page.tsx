@@ -1,0 +1,1380 @@
+import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Container } from '@/components/Container'
+import { pageMetadata } from '@/lib/site'
+import { CVNavigation } from './CVNavigation'
+import styles from './cv.module.css'
+
+export const metadata: Metadata = pageMetadata({
+  title: 'CV',
+  description:
+    'Stephen Joly’s experience, career progression, leadership, education, skills, languages, and recognition.',
+  path: '/cv',
+})
+
+export default function CV() {
+  return (
+    <Container className={styles.page}>
+      <header className={styles['intro']}>
+        {' '}
+        <h1>Experience</h1>{' '}
+        <p className={styles['intro-lead']}>
+          {' '}
+          I lead customer deployment for Dayforce Strategic Workforce Planning
+          in Toronto, where customers, product, and engineering meet. I joined
+          Dayforce through Agentnoon, and before that spent six years at
+          Deloitte across regulatory risk, operational resilience, workforce
+          strategy, and generative AI.{' '}
+        </p>{' '}
+        <p>
+          {' '}
+          I trained as a chemical engineer, and I still like building things
+          myself: deployment playbooks, automation, and the occasional product
+          change shipped with AI coding tools.{' '}
+        </p>{' '}
+        <div className={styles['intro-actions']}>
+          {' '}
+          <a
+            className={styles['button-primary']}
+            href="/files/Stephen%20Joly%20-%20Resume.pdf"
+            download="Stephen Joly - Resume.pdf"
+          >
+            {' '}
+            Download résumé{' '}
+            <svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              className={styles['icon-16']}
+            >
+              {' '}
+              <path d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"></path>{' '}
+            </svg>{' '}
+          </a>{' '}
+          <span className={styles['file-meta']}>PDF, one page</span>{' '}
+          <a
+            className={styles['text-link']}
+            href="https://www.linkedin.com/in/stephenjoly"
+          >
+            {' '}
+            LinkedIn{' '}
+            <svg
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              className={styles['icon-16']}
+            >
+              {' '}
+              <path d="M6.25 4.75h5v5M11 5l-6.25 6.25"></path>{' '}
+            </svg>{' '}
+          </a>{' '}
+        </div>{' '}
+      </header>
+      <div className={styles['cv-body']}>
+        {' '}
+        <CVNavigation />{' '}
+        <div className={styles['sections']}>
+          {' '}
+          <section
+            className={styles['cv-section']}
+            id="professional"
+            aria-labelledby="professional-title"
+          >
+            {' '}
+            <h2 id="professional-title">Professional experience</h2>{' '}
+            <ol
+              className={
+                styles['rail'] +
+                ' ' +
+                styles['entries'] +
+                ' ' +
+                styles['entries-major']
+              }
+            >
+              {' '}
+              <li className={styles['entry']} id="dayforce">
+                {' '}
+                <p className={styles['entry-date']}>
+                  {' '}
+                  <time dateTime="2025">2025</time>
+                  <span aria-hidden="true"> — </span>
+                  <span className={styles['sr-only']}> to </span>Present{' '}
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <div className={styles['org']}>
+                    {' '}
+                    <span className={styles['org-logo']}>
+                      <Image
+                        src="/cv/logos/dayforce.svg"
+                        alt=""
+                        width={28}
+                        height={28}
+                      />
+                    </span>{' '}
+                    <div>
+                      {' '}
+                      <h3 className={styles['org-name']}>Dayforce</h3>{' '}
+                      <p className={styles['org-role']}>
+                        {' '}
+                        Manager, Customer Deployment · Strategic Workforce
+                        Planning{' '}
+                      </p>{' '}
+                    </div>{' '}
+                  </div>{' '}
+                  <p className={styles['entry-context']}>
+                    {' '}
+                    Toronto. Joined through Dayforce’s acquisition of Agentnoon.{' '}
+                  </p>{' '}
+                  <ul className={styles['bullets']}>
+                    {' '}
+                    <li id="dayforce-delivery-model">
+                      {' '}
+                      Established the foundations of the post-acquisition
+                      delivery model for Dayforce Strategic Workforce Planning:
+                      authored the deployment playbook, co-developed
+                      implementation training, and worked with cross-functional
+                      leaders to standardize delivery into a repeatable
+                      workflow.{' '}
+                    </li>{' '}
+                    <li id="dayforce-stakeholder-network">
+                      {' '}
+                      Built a cross-company stakeholder network by consulting
+                      dozens of colleagues, working with senior leaders across
+                      services, implementation, support, commercialization,
+                      enablement, and the global customer and project management
+                      offices.{' '}
+                    </li>{' '}
+                    <li id="dayforce-customer-lifecycle">
+                      {' '}
+                      Lead the post-sale lifecycle for enterprise customers,
+                      from the Sales handoff through Engineering, with a team
+                      responsible for onboarding, implementation, training,
+                      support, product, and customer experience. Drive
+                      cross-functional handoffs, product adoption, customer
+                      outcomes, operational excellence, and continuous feedback
+                      into the product roadmap.{' '}
+                    </li>{' '}
+                    <li id="dayforce-largest-implementation">
+                      {' '}
+                      Personally led implementation for the largest SWP
+                      customer, a major Fortune 500 organization representing
+                      $700K in annual recurring revenue, as sole implementer and
+                      primary contact. Established a new implementation method
+                      using Dayforce’s architecture, databases, and
+                      purpose-built tools.{' '}
+                    </li>{' '}
+                    <li id="dayforce-engineering-operations">
+                      {' '}
+                      Run engineering operations alongside engineering leaders,
+                      coordinating bugs, on-call coverage, and delivery
+                      processes, and using AI to improve team effectiveness and
+                      streamline how the team works.{' '}
+                    </li>{' '}
+                    <li id="dayforce-discover">
+                      {' '}
+                      Led a one-hour breakout session at Dayforce Discover in
+                      Las Vegas on Dayforce SWP and strategic workforce planning
+                      as an HR practice, with 145 registered participants. Met
+                      customers to understand their processes and demonstrate
+                      where SWP fits.{' '}
+                    </li>{' '}
+                    <li id="dayforce-scale-playbooks">
+                      {' '}
+                      Stood up the implementation network and advanced
+                      deployment playbooks to support scaling from 23 customers
+                      toward a target of 1,200.{' '}
+                    </li>{' '}
+                    <li id="dayforce-eight-features">
+                      {' '}
+                      Managed development of eight major application feature
+                      sets, keeping engineering unblocked by securing access to
+                      resources and teams across Dayforce.{' '}
+                    </li>{' '}
+                    <li id="dayforce-hands-on-shipping">
+                      {' '}
+                      Shipped product changes hands-on, opening pull requests
+                      and releasing features with AI coding tools. Automated
+                      deployment workflows across Jira, Confluence, and the
+                      browser using Claude, Cursor, and Codex.{' '}
+                    </li>{' '}
+                    <li id="dayforce-workforce-spend-analysis">
+                      {' '}
+                      Built a first-principles workforce-spend analysis
+                      forecasting a US$41M reduction, including contingencies,
+                      and presented findings to VP and senior-leader audiences.{' '}
+                    </li>{' '}
+                  </ul>{' '}
+                </div>{' '}
+              </li>{' '}
+              <li className={styles['entry']} id="agentnoon">
+                {' '}
+                <p className={styles['entry-date']}>
+                  <time dateTime="2025">2025</time>
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <div className={styles['org']}>
+                    {' '}
+                    <span className={styles['org-logo']}>
+                      <Image
+                        src="/cv/logos/agentnoon.svg"
+                        alt=""
+                        width={28}
+                        height={28}
+                      />
+                    </span>{' '}
+                    <div>
+                      {' '}
+                      <h3 className={styles['org-name']}>Agentnoon</h3>{' '}
+                      <p className={styles['org-role']}>
+                        {' '}
+                        AI Customer Deployment Product Manager{' '}
+                      </p>{' '}
+                    </div>{' '}
+                  </div>{' '}
+                  <p className={styles['entry-context']}>
+                    {' '}
+                    Toronto. Acquired by Dayforce in 2025.{' '}
+                  </p>{' '}
+                  <ul className={styles['bullets']}>
+                    {' '}
+                    <li id="agentnoon-deployment">
+                      {' '}
+                      Led customer deployment at Agentnoon, a Y Combinator
+                      Winter 2022-backed workforce planning and organizational
+                      design startup later acquired by Dayforce.{' '}
+                    </li>{' '}
+                    <li id="agentnoon-enterprise-partnerships">
+                      {' '}
+                      Partnered with global enterprise customers and Agentnoon’s
+                      engineering team to deliver workforce planning and
+                      organizational design solutions.{' '}
+                    </li>{' '}
+                    <li id="agentnoon-reporting-opportunity">
+                      {' '}
+                      Helped build and productize reporting services that
+                      identified opportunities to optimize workforce and
+                      organizational design.{' '}
+                    </li>{' '}
+                    <li id="agentnoon-engineering-priorities">
+                      {' '}
+                      Coordinated engineering priorities around customer needs,
+                      using AI to adapt quickly as the product and customer base
+                      grew.{' '}
+                    </li>{' '}
+                  </ul>{' '}
+                </div>{' '}
+              </li>{' '}
+              <li className={styles['entry']} id="deloitte">
+                {' '}
+                <p className={styles['entry-date']}>
+                  {' '}
+                  <time dateTime="2018">2018</time>
+                  <span aria-hidden="true"> — </span>
+                  <span className={styles['sr-only']}> to </span>
+                  <time dateTime="2025">2025</time>{' '}
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <div className={styles['org']}>
+                    {' '}
+                    <span className={styles['org-logo']}>
+                      <Image
+                        src="/cv/logos/deloitte.svg"
+                        alt=""
+                        width={28}
+                        height={28}
+                      />
+                    </span>{' '}
+                    <div>
+                      {' '}
+                      <h3 className={styles['org-name']}>
+                        Deloitte Canada
+                      </h3>{' '}
+                      <p className={styles['org-role']}>
+                        {' '}
+                        Full-time 2020<span aria-hidden="true"> — </span>
+                        <span className={styles['sr-only']}> to </span>2025 ·
+                        Internship 2018<span aria-hidden="true"> — </span>
+                        <span className={styles['sr-only']}> to </span>2019{' '}
+                      </p>{' '}
+                    </div>{' '}
+                  </div>{' '}
+                  <p className={styles['entry-context']}>
+                    {' '}
+                    Regulatory risk, operational resilience, and workforce
+                    strategy, then the Office of Generative AI.{' '}
+                  </p>{' '}
+                  <Link
+                    id="deloitte-projects-link"
+                    href="/projects?tab=consulting"
+                    className={styles['deloitte-projects-link']}
+                  >
+                    <span className={styles['deloitte-link-label']}>
+                      See all my Deloitte projects
+                    </span>
+                    <svg
+                      className={styles['deloitte-link-arrow']}
+                      viewBox="0 0 24 16"
+                      aria-hidden="true"
+                    >
+                      <path d="M3.75 8h15.5M14.5 3.75 19.25 8l-4.75 4.25"></path>
+                    </svg>
+                  </Link>{' '}
+                  <ol
+                    className={styles['roles']}
+                    aria-label="Roles at Deloitte Canada, most recent first"
+                  >
+                    {' '}
+                    <li className={styles['role']} id="deloitte-ai">
+                      {' '}
+                      <div className={styles['role-head']}>
+                        {' '}
+                        <h4 className={styles['role-title']}>
+                          {' '}
+                          Senior Consultant, Strategy and Innovation
+                          <span className={styles['role-unit']}>
+                            Office of Generative AI
+                          </span>{' '}
+                        </h4>{' '}
+                        <p className={styles['role-date']}>
+                          {' '}
+                          <time dateTime="2025">2025</time>{' '}
+                        </p>{' '}
+                      </div>{' '}
+                      <ul className={styles['bullets']}>
+                        {' '}
+                        <li id="deloitte-ai-enablement">
+                          {' '}
+                          Drove internal generative AI enablement, working with
+                          product, design, and strategy teams to move AI use
+                          cases from idea to adoption.{' '}
+                        </li>{' '}
+                        <li id="deloitte-ai-impact-model">
+                          {' '}
+                          Built an AI workforce impact model in Power BI, with
+                          an Excel function that queries an Azure-hosted large
+                          language model.{' '}
+                        </li>{' '}
+                        <li id="deloitte-ai-workflows">
+                          {' '}
+                          Translated business needs into practical AI workflows
+                          and requirements for the teams building them.{' '}
+                        </li>{' '}
+                      </ul>{' '}
+                    </li>{' '}
+                    <li
+                      className={styles['role']}
+                      id="deloitte-senior-workforce"
+                    >
+                      {' '}
+                      <div className={styles['role-head']}>
+                        {' '}
+                        <h4 className={styles['role-title']}>
+                          {' '}
+                          Senior Consultant, Workforce Transformation{' '}
+                        </h4>{' '}
+                        <p className={styles['role-date']}>
+                          {' '}
+                          <time dateTime="2023">2023</time>
+                          <span aria-hidden="true"> — </span>
+                          <span className={styles['sr-only']}> to </span>
+                          <time dateTime="2025">2025</time>{' '}
+                        </p>{' '}
+                      </div>{' '}
+                      <ul className={styles['bullets']}>
+                        {' '}
+                        <li id="deloitte-senior-workforce-strategy">
+                          {' '}
+                          Led workforce planning and talent strategy work for
+                          public- and private-sector clients, from current-state
+                          analysis through tool and process design, with a focus
+                          on strategic workforce planning, leadership, culture,
+                          and behaviour.{' '}
+                        </li>{' '}
+                        <li id="deloitte-senior-automation">
+                          {' '}
+                          Built Python and Power BI automation that replaced
+                          manual analysis and reporting on client engagements.{' '}
+                        </li>{' '}
+                      </ul>{' '}
+                    </li>{' '}
+                    <li className={styles['role']} id="deloitte-workforce">
+                      {' '}
+                      <div className={styles['role-head']}>
+                        {' '}
+                        <h4 className={styles['role-title']}>
+                          {' '}
+                          Consultant, Workforce Transformation{' '}
+                        </h4>{' '}
+                        <p className={styles['role-date']}>
+                          {' '}
+                          <time dateTime="2022">2022</time>
+                          <span aria-hidden="true"> — </span>
+                          <span className={styles['sr-only']}> to </span>
+                          <time dateTime="2023">2023</time>{' '}
+                        </p>{' '}
+                      </div>{' '}
+                      <ul className={styles['bullets']}>
+                        {' '}
+                        <li id="deloitte-workforce-programs">
+                          {' '}
+                          Delivered workforce planning and talent strategy
+                          analysis for client programs, with a focus on
+                          strategic workforce planning, leadership, culture, and
+                          behaviour, and built reporting tools to speed up
+                          recurring work.{' '}
+                        </li>{' '}
+                      </ul>{' '}
+                    </li>{' '}
+                    <li className={styles['role']} id="deloitte-resilience">
+                      {' '}
+                      <div className={styles['role-head']}>
+                        {' '}
+                        <h4 className={styles['role-title']}>
+                          {' '}
+                          Business Analyst, Crisis and Resilience{' '}
+                        </h4>{' '}
+                        <p className={styles['role-date']}>
+                          {' '}
+                          <time dateTime="2020">2020</time>
+                          <span aria-hidden="true"> — </span>
+                          <span className={styles['sr-only']}> to </span>
+                          <time dateTime="2022">2022</time>{' '}
+                        </p>{' '}
+                      </div>{' '}
+                      <ul className={styles['bullets']}>
+                        {' '}
+                        <li id="deloitte-resilience-programs">
+                          {' '}
+                          Supported operational resilience programs for
+                          financial services clients, including roadmaps and
+                          executive reporting.{' '}
+                        </li>{' '}
+                        <li id="deloitte-resilience-automation">
+                          {' '}
+                          Automated business impact analysis work with Python
+                          and VBA.{' '}
+                        </li>{' '}
+                      </ul>{' '}
+                    </li>{' '}
+                    <li className={styles['role']} id="deloitte-intern">
+                      {' '}
+                      <div className={styles['role-head']}>
+                        {' '}
+                        <h4 className={styles['role-title']}>
+                          {' '}
+                          Intern, Regulatory Risk and Compliance{' '}
+                        </h4>{' '}
+                        <p className={styles['role-date']}>
+                          {' '}
+                          <time dateTime="2018">2018</time>
+                          <span aria-hidden="true"> — </span>
+                          <span className={styles['sr-only']}> to </span>
+                          <time dateTime="2019">2019</time>{' '}
+                        </p>{' '}
+                      </div>{' '}
+                      <ul className={styles['bullets']}>
+                        {' '}
+                        <li id="deloitte-intern-capability-mapping">
+                          {' '}
+                          Mapped 200+ open regulatory compliance issues to 45
+                          key capabilities on a $1M+ engagement, assessing the
+                          maturity of a large international Schedule I financial
+                          institution’s compliance function.{' '}
+                        </li>{' '}
+                        <li id="deloitte-intern-deliverables">
+                          {' '}
+                          Created 8+ client deliverables across projects with a
+                          cumulative value of $2M+, including design
+                          presentations, proposals, Gantt charts, educational
+                          presentations, and business architecture flowcharts.{' '}
+                        </li>{' '}
+                        <li id="deloitte-intern-audits">
+                          {' '}
+                          Visited seven First Nation communities in Northern
+                          Ontario to conduct procedural audits of three
+                          government services, following testing protocols for
+                          150+ ministry documents.{' '}
+                        </li>{' '}
+                        <li id="deloitte-intern-pursuit-planning">
+                          {' '}
+                          Developed a 100+ task Gantt chart with defined
+                          dependencies and milestones for an $800K
+                          financial-services pursuit, to be included in the
+                          proposal.{' '}
+                        </li>{' '}
+                        <li id="deloitte-intern-united-way">
+                          {' '}
+                          Managed merchandise donations from 40+ partners to
+                          encourage contributions from 2,000+ employees during
+                          the United Way Giving campaign, which raised more than
+                          $1M in total.{' '}
+                        </li>{' '}
+                        <li id="deloitte-intern-regulatory-manuals">
+                          {' '}
+                          Reviewed 150+ draft regulation interpretations and
+                          consolidated them into eight individualized compliance
+                          manuals for business units of a large national
+                          Schedule I financial institution.{' '}
+                        </li>{' '}
+                      </ul>{' '}
+                    </li>{' '}
+                  </ol>{' '}
+                  <p className={styles['entry-context']}>
+                    {' '}
+                    Selected work across Deloitte roles{' '}
+                  </p>{' '}
+                  <ul className={styles['bullets']}>
+                    {' '}
+                    <li id="deloitte-secondment">
+                      {' '}
+                      Spearheaded design and implementation of a strategic
+                      workforce planning process during a four-month secondment:
+                      led stakeholder workshops, developed process frameworks,
+                      co-created MVP tools, built an implementation roadmap, and
+                      piloted the end-to-end approach with cross-functional
+                      teams to gather feedback and drive progress.{' '}
+                    </li>{' '}
+                    <li id="deloitte-workforce-readiness">
+                      {' '}
+                      Built data-driven workforce readiness tools and models in
+                      Excel, Power Query, and Power Pivot for a
+                      multi-million-dollar capital project, evaluating sourcing
+                      strategies, prioritizing skill gaps, and assessing
+                      organizational health through custom decision matrices and
+                      risk indicators.{' '}
+                    </li>{' '}
+                    <li id="deloitte-job-mapping">
+                      {' '}
+                      Standardized and automated the firm’s job-mapping
+                      methodology with a generative AI-powered Python tool,
+                      achieving 99% efficiency gains and 90% accuracy, saving
+                      $17K on the project and projecting $400K in annual impact.{' '}
+                    </li>{' '}
+                    <li id="deloitte-performance-management">
+                      {' '}
+                      Supported a refreshed performance management program
+                      through discovery workshops and synthesized interview
+                      insights. Developed stakeholder personas, visual process
+                      flows, and a high-level implementation roadmap, taking
+                      ownership of outputs to maintain quality.{' '}
+                    </li>{' '}
+                    <li id="deloitte-cross-engagement-automation">
+                      {' '}
+                      Automated data consolidation, reporting, and computation
+                      with Python and VBA, saving 165 project hours across
+                      initiatives, and developed scalable Excel-based resilience
+                      and business impact assessment tools adopted by 60
+                      business units.{' '}
+                    </li>{' '}
+                  </ul>{' '}
+                </div>{' '}
+              </li>{' '}
+            </ol>{' '}
+          </section>{' '}
+          <section
+            className={styles['cv-section']}
+            id="early"
+            aria-labelledby="early-title"
+          >
+            {' '}
+            <h2 id="early-title">Research and early experience</h2>{' '}
+            <ol
+              className={
+                styles['rail'] +
+                ' ' +
+                styles['entries'] +
+                ' ' +
+                styles['entries-compact']
+              }
+            >
+              {' '}
+              <li className={styles['entry']} id="troost-research">
+                {' '}
+                <p className={styles['entry-date']}>
+                  <time dateTime="2020">2020</time>
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <h3 className={styles['entry-title']}>
+                    {' '}
+                    Troost Institute for Leadership Education in Engineering{' '}
+                  </h3>{' '}
+                  <p className={styles['entry-subtitle']}>
+                    {' '}
+                    Research Assistant · Motivation in Engineering Teams{' '}
+                  </p>{' '}
+                  <ul className={styles['bullets']}>
+                    {' '}
+                    <li id="troost-literature-review">
+                      {' '}
+                      Researched motivation in engineering teams with Dr. Emily
+                      Moore, reviewing 40+ academic papers across engineering
+                      education, psychology, and organizational behaviour.{' '}
+                    </li>{' '}
+                    <li id="troost-novel-principle">
+                      {' '}
+                      Identified a novel principle in engineering education
+                      highlighting opportunities for institutions to reduce
+                      conflict and introduce mindfulness into the curriculum.{' '}
+                    </li>{' '}
+                    <li id="troost-research-scope">
+                      {' '}
+                      Scoped the project to explore interventions and literature
+                      within more specific segments of engineering education.{' '}
+                    </li>{' '}
+                    <li id="troost-presentation">
+                      {' '}
+                      Developed and delivered a 15-minute presentation of
+                      findings and proposed interventions to a panel of
+                      professors and peers.{' '}
+                    </li>{' '}
+                  </ul>{' '}
+                </div>{' '}
+              </li>{' '}
+              <li className={styles['entry']} id="uoft-campus">
+                {' '}
+                <p className={styles['entry-date']}>
+                  {' '}
+                  <time dateTime="2019">2019</time>
+                  <span aria-hidden="true"> — </span>
+                  <span className={styles['sr-only']}> to </span>
+                  <time dateTime="2020">2020</time>{' '}
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <h3 className={styles['entry-title']}>
+                    University of Toronto
+                  </h3>{' '}
+                  <p className={styles['entry-subtitle']}>
+                    {' '}
+                    Lead Campus Experience Officer · Vice Dean’s Office{' '}
+                  </p>{' '}
+                  <ul className={styles['bullets']}>
+                    {' '}
+                    <li id="uoft-team-structure">
+                      {' '}
+                      Designed the organizational structure for 12 student
+                      leaders, establishing functional groups across marketing,
+                      event planning, finance, and logistics to support the
+                      program’s mandate.{' '}
+                    </li>{' '}
+                    <li id="uoft-pilot-report">
+                      {' '}
+                      Prepared a PowerPoint report on the pilot program for the
+                      Dean’s Strategic Fund committee, covering outreach,
+                      financial analysis, strategic decisions, and mentor
+                      feedback to inform future terms.{' '}
+                    </li>{' '}
+                  </ul>{' '}
+                </div>{' '}
+              </li>{' '}
+              <li className={styles['entry']} id="youre-next">
+                {' '}
+                <p className={styles['entry-date']}>
+                  {' '}
+                  <time dateTime="2019">2019</time>
+                  <span aria-hidden="true"> — </span>
+                  <span className={styles['sr-only']}> to </span>
+                  <time dateTime="2020">2020</time>{' '}
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <h3 className={styles['entry-title']}>
+                    You’re Next Career Network
+                  </h3>{' '}
+                  <p className={styles['entry-subtitle']}>
+                    Operations Associate
+                  </p>{' '}
+                </div>{' '}
+              </li>{' '}
+              <li className={styles['entry']} id="homequity">
+                {' '}
+                <p className={styles['entry-date']}>
+                  <time dateTime="2017">2017</time>
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <h3 className={styles['entry-title']}>HomEquity Bank</h3>{' '}
+                  <p className={styles['entry-subtitle']}>
+                    {' '}
+                    Process Analyst · Business Process Improvement Office{' '}
+                  </p>{' '}
+                  <ul className={styles['bullets']}>
+                    {' '}
+                    <li id="homequity-qa">
+                      {' '}
+                      Built an Excel quality assurance program to capture and
+                      report on daily data, reducing the program timeline by 15%
+                      and saving approximately 180 work hours per quarter.{' '}
+                    </li>{' '}
+                    <li id="homequity-reporting">
+                      {' '}
+                      Automated daily operational reporting in Excel, cutting
+                      task time by 57% per report and saving more than 25 hours
+                      per quarter.{' '}
+                    </li>{' '}
+                    <li id="homequity-dashboard">
+                      {' '}
+                      Consolidated report data into a user-friendly dashboard
+                      for management review.{' '}
+                    </li>{' '}
+                  </ul>{' '}
+                </div>{' '}
+              </li>{' '}
+            </ol>{' '}
+          </section>{' '}
+          <section
+            className={styles['cv-section']}
+            id="leadership"
+            aria-labelledby="leadership-title"
+          >
+            {' '}
+            <h2 id="leadership-title">Leadership and community</h2>{' '}
+            <ol
+              className={
+                styles['rail'] +
+                ' ' +
+                styles['entries'] +
+                ' ' +
+                styles['entries-compact']
+              }
+            >
+              {' '}
+              <li className={styles['entry']} id="phi-gamma-delta">
+                {' '}
+                <p className={styles['entry-date']}>
+                  {' '}
+                  <time dateTime="2016">2016</time>
+                  <span aria-hidden="true"> — </span>
+                  <span className={styles['sr-only']}> to </span>
+                  <time dateTime="2020">2020</time>{' '}
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <h3 className={styles['entry-title']}>
+                    Phi Gamma Delta
+                  </h3>{' '}
+                  <p className={styles['entry-subtitle']}>
+                    {' '}
+                    Four leadership roles while at the University of Toronto{' '}
+                  </p>{' '}
+                  <ol
+                    className={styles['roles'] + ' ' + styles['roles-compact']}
+                    aria-label="Roles at Phi Gamma Delta, most recent first"
+                  >
+                    {' '}
+                    <li className={styles['role']} id="phi-change">
+                      {' '}
+                      <div className={styles['role-head']}>
+                        {' '}
+                        <h4 className={styles['role-title']}>
+                          {' '}
+                          Chair, Change Management Office{' '}
+                        </h4>{' '}
+                        <p className={styles['role-date']}>
+                          {' '}
+                          <time dateTime="2019">2019</time>
+                          <span aria-hidden="true"> — </span>
+                          <span className={styles['sr-only']}> to </span>
+                          <time dateTime="2020">2020</time>{' '}
+                        </p>{' '}
+                      </div>{' '}
+                      <ul className={styles['bullets']}>
+                        {' '}
+                        <li id="phi-change-mandate">
+                          {' '}
+                          Defined the committee’s mandate and operating
+                          procedures, including how members would work together.{' '}
+                        </li>{' '}
+                        <li id="phi-change-workshops">
+                          {' '}
+                          Facilitated three workshops to define the target
+                          operating model, assess the current state, identify
+                          gaps, and develop solutions to open operational
+                          issues.{' '}
+                        </li>{' '}
+                        <li id="phi-change-solutions">
+                          {' '}
+                          Identified 46 gaps and generated 55 potential
+                          solutions, ranging from quick wins to larger change
+                          projects.{' '}
+                        </li>{' '}
+                      </ul>{' '}
+                    </li>{' '}
+                    <li className={styles['role']} id="phi-president">
+                      {' '}
+                      <div className={styles['role-head']}>
+                        {' '}
+                        <h4 className={styles['role-title']}>
+                          Chapter President
+                        </h4>{' '}
+                        <p className={styles['role-date']}>
+                          {' '}
+                          <time dateTime="2018">2018</time>
+                          <span aria-hidden="true"> — </span>
+                          <span className={styles['sr-only']}> to </span>
+                          <time dateTime="2019">2019</time>{' '}
+                        </p>{' '}
+                      </div>{' '}
+                      <ul className={styles['bullets']}>
+                        {' '}
+                        <li id="phi-president-events">
+                          {' '}
+                          Led a chapter of 30 members in organizing and
+                          delivering 50+ events during the academic year,
+                          raising $10,000+ for chapter functions and
+                          contributing 700+ community service hours.{' '}
+                        </li>{' '}
+                        <li id="phi-president-advisors">
+                          {' '}
+                          Met with the Board of Chapter Advisors on a bimonthly
+                          basis to provide a holistic assessment of the chapter
+                          and request assistance and resources as needed.{' '}
+                        </li>{' '}
+                        <li id="phi-president-property">
+                          {' '}
+                          Liaised monthly with the Building Association on
+                          management of a $3M+ chapter property, checking
+                          compliance with city regulations and reporting
+                          significant issues for remediation.{' '}
+                        </li>{' '}
+                      </ul>{' '}
+                    </li>{' '}
+                    <li className={styles['role']} id="phi-treasurer">
+                      {' '}
+                      <div className={styles['role-head']}>
+                        {' '}
+                        <h4 className={styles['role-title']}>
+                          {' '}
+                          Chapter Treasurer / Vice-President{' '}
+                        </h4>{' '}
+                        <p className={styles['role-date']}>
+                          {' '}
+                          <time dateTime="2017">2017</time>
+                          <span aria-hidden="true"> — </span>
+                          <span className={styles['sr-only']}> to </span>
+                          <time dateTime="2018">2018</time>{' '}
+                        </p>{' '}
+                      </div>{' '}
+                      <ul className={styles['bullets']}>
+                        {' '}
+                        <li id="phi-treasurer-debt">
+                          {' '}
+                          Recovered the chapter from $10,000+ in landlord debt
+                          by collecting overdue tenant payments and allocating
+                          10% of budget contingencies to repayment.{' '}
+                        </li>{' '}
+                        <li id="phi-treasurer-records">
+                          {' '}
+                          Managed chapter financial records in QuickBooks
+                          Online, logging more than 200 transactions.{' '}
+                        </li>{' '}
+                        <li id="phi-treasurer-statements">
+                          {' '}
+                          Produced bimonthly financial statements for review at
+                          Board of Chapter Advisors meetings.{' '}
+                        </li>{' '}
+                      </ul>{' '}
+                    </li>{' '}
+                    <li className={styles['role']} id="phi-recruitment">
+                      {' '}
+                      <div className={styles['role-head']}>
+                        {' '}
+                        <h4 className={styles['role-title']}>
+                          {' '}
+                          Chair, Recruitment Committee{' '}
+                        </h4>{' '}
+                        <p className={styles['role-date']}>
+                          {' '}
+                          <time dateTime="2016">2016</time>
+                          <span aria-hidden="true"> — </span>
+                          <span className={styles['sr-only']}> to </span>
+                          <time dateTime="2018">2018</time>{' '}
+                        </p>{' '}
+                      </div>{' '}
+                      <ul className={styles['bullets']}>
+                        {' '}
+                        <li id="phi-recruitment-strategy">
+                          {' '}
+                          Implemented the marketing and logistics strategy for
+                          recruitment week, delivering the chapter’s most
+                          multidisciplinary pledge class since 1923.{' '}
+                        </li>{' '}
+                        <li id="phi-recruitment-team">
+                          {' '}
+                          Mobilized a multidisciplinary team of 23 students to
+                          coordinate event planning across ten private student
+                          organizations using Gantt charts.{' '}
+                        </li>{' '}
+                        <li id="phi-recruitment-fundraising">
+                          {' '}
+                          Planned recruitment events that raised more than
+                          $10,000 during the academic year.{' '}
+                        </li>{' '}
+                      </ul>{' '}
+                    </li>{' '}
+                  </ol>{' '}
+                </div>{' '}
+              </li>{' '}
+              <li className={styles['entry']} id="cheme-mentor">
+                {' '}
+                <p className={styles['entry-date']}>
+                  {' '}
+                  <time dateTime="2017">2017</time>
+                  <span aria-hidden="true"> — </span>
+                  <span className={styles['sr-only']}> to </span>
+                  <time dateTime="2020">2020</time>{' '}
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <h3 className={styles['entry-title']}>
+                    {' '}
+                    Chemical Engineering Mentorship Program{' '}
+                  </h3>{' '}
+                  <p className={styles['entry-subtitle']}>Mentor</p>{' '}
+                  <p className={styles['entry-text']}>Science and technology</p>{' '}
+                </div>{' '}
+              </li>{' '}
+              <li className={styles['entry']} id="ayf-canada">
+                {' '}
+                <p className={styles['entry-date']}>
+                  {' '}
+                  <time dateTime="2013">2013</time>
+                  <span aria-hidden="true"> — </span>
+                  <span className={styles['sr-only']}> to </span>
+                  <time dateTime="2015">2015</time>{' '}
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <h3 className={styles['entry-title']}>
+                    {' '}
+                    Armenian Youth Federation of Canada{' '}
+                  </h3>{' '}
+                  <p className={styles['entry-subtitle']}>
+                    AYF Canada · Politics
+                  </p>{' '}
+                  <ol
+                    className={styles['roles'] + ' ' + styles['roles-compact']}
+                    aria-label="Roles at the Armenian Youth Federation of Canada"
+                  >
+                    {' '}
+                    <li className={styles['role']} id="ayf-political">
+                      {' '}
+                      <div className={styles['role-head']}>
+                        {' '}
+                        <h4 className={styles['role-title']}>
+                          {' '}
+                          Vice President, Political Committee{' '}
+                        </h4>{' '}
+                        <p className={styles['role-date']}>
+                          {' '}
+                          <time dateTime="2013">2013</time>
+                          <span aria-hidden="true"> — </span>
+                          <span className={styles['sr-only']}> to </span>
+                          <time dateTime="2015">2015</time>{' '}
+                        </p>{' '}
+                      </div>{' '}
+                      <ul className={styles['bullets']}>
+                        {' '}
+                        <li id="ayf-political-workshops">
+                          {' '}
+                          Organized workshops and events to raise young people’s
+                          awareness of political issues, inviting politicians to
+                          speak to members and the wider community.{' '}
+                        </li>{' '}
+                        <li id="ayf-political-elections">
+                          {' '}
+                          Volunteered for provincial and municipal election
+                          candidates in the local riding, canvassing and working
+                          as a scrutineer.{' '}
+                        </li>{' '}
+                      </ul>{' '}
+                    </li>{' '}
+                    <li className={styles['role']} id="ayf-education">
+                      {' '}
+                      <div className={styles['role-head']}>
+                        {' '}
+                        <h4 className={styles['role-title']}>
+                          {' '}
+                          Secretary, Educational / PR Committee{' '}
+                        </h4>{' '}
+                        <p className={styles['role-date']}>
+                          {' '}
+                          <time dateTime="2013">2013</time>
+                          <span aria-hidden="true"> — </span>
+                          <span className={styles['sr-only']}> to </span>
+                          <time dateTime="2015">2015</time>{' '}
+                        </p>{' '}
+                      </div>{' '}
+                      <ul className={styles['bullets']}>
+                        {' '}
+                        <li id="ayf-education-outreach">
+                          {' '}
+                          Organized lectures and events and created
+                          informational pamphlets to strengthen the
+                          organization.{' '}
+                        </li>{' '}
+                        <li id="ayf-education-community">
+                          {' '}
+                          Planned Friday evening outings after general meetings,
+                          chapter-wide retreats, and holiday celebrations to
+                          bring members closer together.{' '}
+                        </li>{' '}
+                      </ul>{' '}
+                    </li>{' '}
+                  </ol>{' '}
+                </div>{' '}
+              </li>{' '}
+              <li className={styles['entry']} id="sara-corning">
+                {' '}
+                <p className={styles['entry-date']}>
+                  {' '}
+                  <time dateTime="2014">2014</time>
+                  <span aria-hidden="true"> — </span>
+                  <span className={styles['sr-only']}> to </span>
+                  <time dateTime="2015">2015</time>{' '}
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <h3 className={styles['entry-title']}>
+                    {' '}
+                    Sara Corning Centre for Genocide Education{' '}
+                  </h3>{' '}
+                  <p className={styles['entry-subtitle']}>Organizer</p>{' '}
+                  <ul className={styles['bullets']}>
+                    {' '}
+                    <li id="sara-corning-100-voices">
+                      {' '}
+                      Filmed 100 interviews, edited the footage, and prepared
+                      computer-based presentations for “100 Voices,” a project
+                      commemorating the 1.5 million lives lost in the Armenian
+                      Genocide of 1915.{' '}
+                    </li>{' '}
+                  </ul>{' '}
+                  <a
+                    className={styles['inline-link']}
+                    href="https://www.youtube.com/watch?v=qYw7WXkD5A4"
+                  >
+                    Watch the 100 Voices teaser
+                    <svg
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      className={styles['icon-16']}
+                    >
+                      {' '}
+                      <path d="M6.25 4.75h5v5M11 5l-6.25 6.25"></path>
+                    </svg>
+                  </a>{' '}
+                </div>{' '}
+              </li>{' '}
+              <li className={styles['entry']} id="anct-board">
+                {' '}
+                <p className={styles['entry-date']}>
+                  {' '}
+                  <time dateTime="2014">2014</time>
+                  <span aria-hidden="true"> — </span>
+                  <span className={styles['sr-only']}> to </span>
+                  <time dateTime="2015">2015</time>{' '}
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <h3 className={styles['entry-title']}>
+                    {' '}
+                    Armenian National Committee of Toronto{' '}
+                  </h3>{' '}
+                  <p className={styles['entry-subtitle']}>Board Member</p>{' '}
+                  <ul className={styles['bullets']}>
+                    {' '}
+                    <li id="anct-youth-liaison">
+                      {' '}
+                      Served as a youth liaison between the board and the
+                      Armenian Youth Federation’s Political Committee through
+                      involvement in AYF.{' '}
+                    </li>{' '}
+                  </ul>{' '}
+                </div>{' '}
+              </li>{' '}
+            </ol>{' '}
+          </section>{' '}
+          <section
+            className={styles['cv-section']}
+            id="education"
+            aria-labelledby="education-title"
+          >
+            {' '}
+            <h2 id="education-title">Education</h2>{' '}
+            <ol
+              className={
+                styles['rail'] +
+                ' ' +
+                styles['entries'] +
+                ' ' +
+                styles['entries-compact']
+              }
+            >
+              {' '}
+              <li className={styles['entry']}>
+                {' '}
+                <p className={styles['entry-date']}>
+                  {' '}
+                  <time dateTime="2015">2015</time>
+                  <span aria-hidden="true"> — </span>
+                  <span className={styles['sr-only']}> to </span>
+                  <time dateTime="2020">2020</time>{' '}
+                </p>{' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <h3 className={styles['entry-title']}>
+                    University of Toronto
+                  </h3>{' '}
+                  <p className={styles['entry-subtitle']}>
+                    {' '}
+                    Bachelor of Applied Science, Chemical Engineering{' '}
+                  </p>{' '}
+                  <p className={styles['entry-text']}>
+                    {' '}
+                    Minor and certificate in Advanced Manufacturing Technology
+                    and Engineering Business. Graduated 2020.{' '}
+                  </p>{' '}
+                  <details className={styles['disclosure']}>
+                    {' '}
+                    <summary>
+                      {' '}
+                      <svg
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                        className={
+                          styles['icon-16'] + ' ' + styles['disclosure-icon']
+                        }
+                      >
+                        {' '}
+                        <path d="M6.75 5.75 9.25 8l-2.5 2.25"></path>{' '}
+                      </svg>{' '}
+                      Capstone and student involvement{' '}
+                    </summary>{' '}
+                    <div className={styles['disclosure-body']}>
+                      {' '}
+                      <p>
+                        {' '}
+                        <strong>Capstone:</strong> industrial plant design for a
+                        styrene, butyl acrylate, and acrylic acid latex product
+                        at 50,000 tonnes per year.{' '}
+                      </p>{' '}
+                      <p>
+                        {' '}
+                        <strong>Involvement:</strong> Phi Gamma Delta, You’re
+                        Next Career Network, ChemE Mentorship, UofT Engineering
+                        Outreach, Sustainable Engineering Association, and UofT
+                        Armenian Student Association.{' '}
+                      </p>{' '}
+                    </div>{' '}
+                  </details>{' '}
+                </div>{' '}
+              </li>{' '}
+              <li className={styles['entry'] + ' ' + styles['entry-undated']}>
+                {' '}
+                <div className={styles['entry-body']}>
+                  {' '}
+                  <h3 className={styles['entry-title']}>
+                    {' '}
+                    A.R.S. Armenian Private School{' '}
+                  </h3>{' '}
+                  <p className={styles['entry-subtitle']}>
+                    High School Diploma
+                  </p>{' '}
+                </div>{' '}
+              </li>{' '}
+            </ol>{' '}
+          </section>{' '}
+          <section
+            className={styles['cv-section']}
+            id="skills"
+            aria-labelledby="skills-title"
+          >
+            {' '}
+            <h2 id="skills-title">Skills and languages</h2>{' '}
+            <div className={styles['rail']}>
+              {' '}
+              <dl className={styles['facts']}>
+                {' '}
+                <div className={styles['fact']}>
+                  {' '}
+                  <dt>Core</dt>{' '}
+                  <dd>
+                    {' '}
+                    Customer deployment, strategic workforce planning,
+                    organizational design, process automation, product delivery,
+                    stakeholder facilitation, operational resilience, and
+                    regulatory risk.{' '}
+                  </dd>{' '}
+                </div>{' '}
+                <div className={styles['fact']}>
+                  {' '}
+                  <dt>Proficient</dt>{' '}
+                  <dd>
+                    {' '}
+                    <p>
+                      {' '}
+                      Microsoft Excel, PowerPoint, Outlook, Visio, and Project;
+                      Power Query; M, DAX, and VBA; Python (OpenAI); Tableau.{' '}
+                    </p>{' '}
+                    <p>
+                      {' '}
+                      AI and agentic coding tools: Claude, Cursor, Codex,
+                      Conductor, Hermes, and Paseo.{' '}
+                    </p>{' '}
+                  </dd>{' '}
+                </div>{' '}
+                <div className={styles['fact']}>
+                  {' '}
+                  <dt>Familiar</dt>{' '}
+                  <dd>
+                    {' '}
+                    React, TypeScript, Next.js, Linux (Ubuntu Server, NixOS,
+                    Debian), Proxmox VE, REST APIs, and TensorFlow.{' '}
+                  </dd>{' '}
+                </div>{' '}
+                <div className={styles['fact']}>
+                  {' '}
+                  <dt>Languages</dt>{' '}
+                  <dd>
+                    {' '}
+                    <ul className={styles['languages']}>
+                      {' '}
+                      <li>
+                        {' '}
+                        <span className={styles['lang']}>English</span>{' '}
+                        <span className={styles['level']}>
+                          Native or bilingual
+                        </span>{' '}
+                      </li>{' '}
+                      <li>
+                        {' '}
+                        <span className={styles['lang']}>Armenian</span>{' '}
+                        <span className={styles['level']}>Limited working</span>{' '}
+                      </li>{' '}
+                      <li>
+                        {' '}
+                        <span className={styles['lang']}>French</span>{' '}
+                        <span className={styles['level']}>Elementary</span>{' '}
+                      </li>{' '}
+                    </ul>{' '}
+                  </dd>{' '}
+                </div>{' '}
+                <div className={styles['fact']}>
+                  {' '}
+                  <dt>Interests</dt>{' '}
+                  <dd>
+                    {' '}
+                    Automation, full-stack development, travel, photography,
+                    mentorship, cycling, volleyball, and watchmaking.{' '}
+                  </dd>{' '}
+                </div>{' '}
+              </dl>{' '}
+            </div>{' '}
+          </section>{' '}
+          <section
+            className={styles['cv-section']}
+            id="awards"
+            aria-labelledby="awards-title"
+          >
+            {' '}
+            <h2 id="awards-title">Awards and recognition</h2>{' '}
+            <div className={styles['rail']}>
+              {' '}
+              <ul className={styles['awards']}>
+                {' '}
+                <li>
+                  {' '}
+                  <span className={styles['award-name']}>
+                    Troost ILead Leaders of Tomorrow Award
+                  </span>{' '}
+                  <time className={styles['award-year']} dateTime="2020">
+                    2020
+                  </time>{' '}
+                </li>{' '}
+                <li>
+                  {' '}
+                  <span className={styles['award-name']}>
+                    RE/MAX Entry Scholarship
+                  </span>{' '}
+                  <time className={styles['award-year']} dateTime="2015">
+                    2015
+                  </time>{' '}
+                </li>{' '}
+                <li>
+                  {' '}
+                  <span className={styles['award-name']}>
+                    Hallmark Scholarship Program for Students — First Year
+                    University
+                  </span>{' '}
+                </li>{' '}
+                <li>
+                  {' '}
+                  <span className={styles['award-name']}>
+                    Scholarship for Engineering and Architecture
+                  </span>{' '}
+                </li>{' '}
+                <li>
+                  {' '}
+                  <span className={styles['award-name']}>
+                    School Community Volunteer Award
+                  </span>{' '}
+                </li>{' '}
+                <li>
+                  {' '}
+                  <span className={styles['award-name']}>
+                    Active Political Involvement Award
+                  </span>{' '}
+                </li>{' '}
+                <li>
+                  <span className={styles['award-name']}>Silver Dot Award</span>
+                </li>{' '}
+              </ul>{' '}
+            </div>{' '}
+          </section>{' '}
+          <div className={styles['closing']}>
+            {' '}
+            <p>
+              {' '}
+              The one-page résumé has the condensed version of this record.{' '}
+            </p>{' '}
+            <div className={styles['closing-actions']}>
+              {' '}
+              <a
+                className={styles['button-primary']}
+                href="/files/Stephen%20Joly%20-%20Resume.pdf"
+                download="Stephen Joly - Resume.pdf"
+              >
+                {' '}
+                Download résumé{' '}
+                <svg
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                  className={styles['icon-16']}
+                >
+                  {' '}
+                  <path d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"></path>{' '}
+                </svg>{' '}
+              </a>{' '}
+              <Link className={styles['text-link']} href="/contact">
+                {' '}
+                Get in touch{' '}
+                <svg
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                  className={styles['icon-16']}
+                >
+                  {' '}
+                  <path d="M6.75 5.75 9.25 8l-2.5 2.25"></path>{' '}
+                </svg>{' '}
+              </Link>{' '}
+            </div>{' '}
+          </div>{' '}
+        </div>{' '}
+      </div>
+    </Container>
+  )
+}
