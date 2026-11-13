@@ -20,6 +20,9 @@ paseo.json
 ui.pen
 docs
 tests
+e2e
+playwright-report
+test-results
 scripts
 Dockerfile*
 docker-compose*.yml
